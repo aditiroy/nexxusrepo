@@ -1,0 +1,29 @@
+# sourced by startService.sh
+#-Dspring.config.location=/etc/ \
+
+java -classpath "/opt/att/ajsc/lib/*:/opt/att/ajsc/config:/opt/att/ajsc/config/*:/lib/*/etc:/src:/schema:/generated-sources" \
+-DAFT_LATITUDE=-90 \
+-DAFT_LONGITUDE=39 \
+-DAFT_ENVIRONMENT=AFTUAT \
+-Dplatform=NON-PROD \
+-Daaf.roles.properties=opt/att/ajsc/config/AAFUserRoles.properties \
+-Dcadi.properties.location=opt/att/ajsc/config/cadi.properties \
+-DappName=Nexxus -DappVersion=1.0.0 \
+-DAFT_HOME=opt/att/ajsc/config/ \
+-Dspring.config.location=opt/att/ajsc/config/ \
+-Dcom.att.aft.dme.DiscoveryURL=aftdsc://AFTUAT/38.62/-90.19?service=dmeQCF,version=1.0,bindingType=jms,envContext=U \
+-DREST_NAME_NORMALIZER_PATTERN_FILE=opt/att/ajsc/config/PatternInputs.txt \
+-XX:NewRatio=2 -XX:SurvivorRatio=8 -XX:-UseBiasedLocking \
+-XX:+DisableExplicitGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled \
+-XX:ParallelGCThreads=12 -XX:+UseConcMarkSweepGC -XX:+PrintGCDateStamps \
+-XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError \
+-DCommonConfigurationFilePath=opt/att/ajsc/config/CommonConfiguration.xml \
+-Dcom.ibm.mq.cfg.useIBMCipherMappings=false \
+-Dms_name=com.att.salesmarketing.soma.pric.Nexxus \
+-Dajsc.vm.path=./src/main/resources/vm \
+-DmasterEndPointOverrideMap.location=opt/att/ajsc/config/MasterEndPointOverrideMap.xml \
+-DSecurityFilePath=opt/att/ajsc/config/ \
+-Dlogging.config=opt/att/ajsc/config/logback.xml \
+-Dcom.ibm.mq.cfg.useIBMCipherMappings=false \
+-DVERSION_ROUTEOFFER_ENVCONTEXT=1.0.0//DEV \
+com.att.api.framework.ajsc.Application

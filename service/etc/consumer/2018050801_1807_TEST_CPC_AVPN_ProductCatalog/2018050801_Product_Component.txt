@@ -1,0 +1,17 @@
+OfferId|OfferVersion|ProductId|ProductComponentId|ProductComponentName|ProductComponentDescription|ProductComponentAbbr|Minimum|Maximum|EffDate|EndDate|Status|Action
+4|1|2|10|Connection||Connection|||1/22/2018|12/31/9999|Active|1
+4|1|2|20|Network||Network|||1/22/2018|12/31/9999|Active|1
+4|1|2|30|Port||Port|||1/22/2018|12/31/9999|Active|1
+4|1|2|40|Unilink||Unilink|||1/22/2018|12/31/9999|Active|1
+4|1|2|50|Cos||Cos|||1/22/2018|12/31/9999|Active|1
+4|1|2|60|Access||Access|||1/22/2018|12/31/9999|Active|1
+4|1|2|70|CircuitAccess||CircuitAccess|||1/22/2018|12/31/9999|Active|1
+4|1|2|80|BroadbandAccess||BroadbandAccess|||1/22/2018|12/31/9999|Active|1
+4|1|2|90|EthernetAccess||EthernetAccess|||1/22/2018|12/31/9999|Active|1
+4|1|2|100|Cpe||Cpe|||1/22/2018|12/31/9999|Active|1
+4|1|2|110|Logical Channel||Logical Channel|||1/22/2018|12/31/9999|Active|1
+4|1|2|120|Resiliency||Resiliency|||1/22/2018|12/31/9999|Active|1
+4|1|2|130|Maro||Maro|||1/22/2018|12/31/9999|Active|1
+4|1|2|140|Diversity Group||Diversity Group|||1/22/2018|12/31/9999|Active|1
+4|1|2|150|Vpn||Vpn|||1/22/2018|12/31/9999|Active|1
+4|1|2|160|Apn||Apn|||1/22/2018|12/31/9999|Active|1

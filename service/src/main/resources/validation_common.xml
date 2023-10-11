@@ -1,0 +1,54 @@
+<!DOCTYPE form-validation PUBLIC  
+
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"  
+
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+	<global>
+
+		<validator name="required" classname="com.att.sales.framework.util.BeanValidatorUtil"
+			method="validateRequired" methodParams="java.lang.Object, org.apache.commons.validator.Field"
+			msg="errors.required" />
+
+		
+		<validator name="regex" classname="com.att.sales.framework.util.BeanValidatorUtil"
+			method="validateRegex"
+			methodParams="java.lang.Object, 
+  	        	  org.apache.commons.validator.Field"
+			msg="errors.Regex" />
+
+		
+		<!-- Constants for RegularExpression validations for input parameters -->
+	
+		
+		<constant>
+			<constant-name>offer</constant-name>
+			<constant-value>M04301</constant-value>
+		</constant>
+
+			
+		
+		
+	</global>
+
+	<formset>
+	
+	<form name="validateCommonHeaders">
+
+			<field property="offer" depends="required,regex">
+				<msg name="offer" key="${offer}" resource="false" />
+				<var>
+					<var-name>regex</var-name>
+					<var-value>^(MIS|AVPN)$</var-value>
+				</var>
+			</field>
+
+			
+			</form>
+
+
+	</formset>
+
+</form-validation> 

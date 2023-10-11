@@ -1,0 +1,1415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.att.salesmarketing.soma.pric</groupId>
+	<artifactId>nexxus-service</artifactId>
+	<version>1.0.0</version>
+	<!--GENERATED FROM ajsc-nomodeled-camel-cxf-archetype -->
+	<properties>
+		<swagger.directory>${basedir}/target/classes/META-INF/resources/swagger</swagger.directory>
+		<icd.file>service.json</icd.file>
+		<icd.package>com.att.salesmarketing.soma.pric.service.rs</icd.package>
+		<java.version>1.8</java.version>
+		<docker.registry>dockercentral.it.att.com:5100</docker.registry>
+		<assembly.id>distribution</assembly.id>
+		<build.number>local</build.number>
+		<kube.namespace>com-att-salesmarketing-soma-pric</kube.namespace>
+		<name.space>com.att.salesmarketing.soma.pric</name.space>     <!-- <name.space>${namespace}</name.space> -->
+		<grm.namespace>com.att.salesmarketing.soma.pric</grm.namespace>
+		<serviceArtifactName>nexxus</serviceArtifactName>
+		<mq.version>8.0.0.6</mq.version>
+	    <org.springframework-version>5.3.15</org.springframework-version>
+	    <org.aspectj-version>1.6.10</org.aspectj-version>
+	    <org.slf4j-version>1.7.5</org.slf4j-version>
+	    <spring.boot.version>2.6.2</spring.boot.version>
+	    <spring.actuator.version>2.6.2</spring.actuator.version>
+	    <!-- <jackson.version>2.13.0-rc2</jackson.version> -->
+
+
+		<!-- Sonar -->
+		<sonar.att.view.type>release</sonar.att.view.type>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.surefire.reportsPath>${basedir}/target/surefire-reports</sonar.surefire.reportsPath>
+		<sonar.failsafe.reportsPath>${basedir}/target/failsafe-reports</sonar.failsafe.reportsPath>
+		<jacoco.path>${basedir}/target/jacoco_report</jacoco.path>
+		<jacoco.itPath>${basedir}/target/jacoco_itReport</jacoco.itPath>
+		<sonar.coverage.jacoco.xmlReportPaths>${basedir}/target/jacoco_report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.language>java</sonar.language>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<profiles>
+		<profile>
+			<id>all-tests</id>
+			<properties>
+				<build.profile.id>all-tests</build.profile.id>
+				<!-- All tests are run. -->
+				<skip.integration.tests>false</skip.integration.tests>
+				<skip.unit.tests>false</skip.unit.tests>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+		</profile>
+		<profile>
+			<id>integration-test</id>
+			<properties>
+				<!-- Used to locate the profile specific configuration file. -->
+				<build.profile.id>integration-test</build.profile.id>
+				<!-- Only integration tests are run. -->
+				<skip.integration.tests>false</skip.integration.tests>
+				<skip.unit.tests>true</skip.unit.tests>
+			</properties>
+		</profile>
+	</profiles>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>2021.0.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+
+<!--  Start -->
+
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jersey</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+               <!--  <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion> -->
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring.actuator.version}</version>
+        </dependency>
+        
+        <dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId>
+		    <version>1.9.0</version>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+		        	<groupId>com.vaadin.external.google</groupId>
+		            <artifactId>android-json</artifactId>
+		        </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.threeten</groupId>
+		    <artifactId>threetenbp</artifactId>
+		    <version>1.5.1</version>
+		</dependency>
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>1.5.8</version>
+            <exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.validation</groupId>
+    				<artifactId>validation-api</artifactId>
+				</exclusion>
+			</exclusions>
+            <!-- <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+            </exclusions> -->
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.8</version>
+        </dependency>
+<!-- End --> 
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.annotation</groupId>
+		    <artifactId>javax.annotation-api</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+	<!-- 	<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.2.0</version>
+			 <exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+
+		<!--  <dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>ajsc-nonmodeled-camel-cxf-endpoint</artifactId>
+			<version>200.0.58</version>
+
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.skyscreamer</groupId>
+					<artifactId>jsonassert</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+			<version>${spring.boot.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			 	<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion> 
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.5.1</version>
+			<!-- <version>5.4.0</version>-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.contivo</groupId>
+			<artifactId>com.contivo.runtime.pom</artifactId>
+			<version>5.6.11</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>backport-util-concurrent</groupId>
+			<artifactId>backport-util-concurrent</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<!-- below dependency for enabling filters -->
+
+ 	   	<dependency> 
+		  		<groupId>com.att.api.framework</groupId> 
+		  		<artifactId>ajsc-aaf-filter</artifactId> 
+				<version>200.0.58</version> 
+				<exclusions> 
+					<exclusion> 
+						<groupId>com.att.aft</groupId> 
+						<artifactId>dme2</artifactId> 
+					</exclusion> 
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+					<exclusion> 
+						 <groupId>xmlbeans</groupId>
+  						 <artifactId>xbean</artifactId> 
+					</exclusion>  
+				</exclusions> 
+		</dependency>  
+
+		<!-- Please check with AAF team which versions of AAF jars are the latest 
+			ones -->
+		<dependency>
+			<groupId>com.att.cadi</groupId>
+			<artifactId>cadi-aaf</artifactId>
+			<version>1.3.2.57</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.cadi</groupId>
+			<artifactId>cadi-client</artifactId>
+			<version>1.3.2.57</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.att.aft</groupId>
+					<artifactId>dme2</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.att.cadi</groupId>
+			<artifactId>cadi-core</artifactId>
+			<version>1.3.2.57</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>dme2</artifactId>
+			<groupId>com.att.aft</groupId>
+			<version>3.3.3</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.att.api.framework</groupId> <artifactId>ajsc-pp-filter</artifactId> 
+			<version>200.0.61</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.att.api.framework</groupId> <artifactId>ajsc-ivp-filter</artifactId> 
+			<version>200.0.64</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>ajsc-caet-filter</artifactId>
+			<version>200.0.64</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency> -->
+		
+	 	<dependency>
+			<groupId>com.att.sales</groupId>
+			<artifactId>resolute</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+ <dependency>
+    <groupId>io.vavr</groupId>
+    <artifactId>vavr</artifactId>
+    <version>0.10.4</version>
+</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-jersey</artifactId>
+				</exclusion>
+
+			</exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+		<dependency>
+	        <groupId>org.glassfish.jersey.core</groupId>
+	        <artifactId>jersey-server</artifactId>
+	        <version>2.35</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+	    
+		<!-- <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+			 <version>2.2.8.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+   			<version>2.2.10.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.code.findbugs</groupId>
+					<artifactId>jsr305</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+ 		<dependency>
+	      <groupId>com.google.code.gson</groupId>
+	      <artifactId>gson</artifactId>
+	      <version>2.9.0</version>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.14-MULE-002</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.oracle.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>19.3.0.0</version>
+		</dependency>
+
+
+
+		<!-- <dependency> <groupId>com.att.api.framework</groupId> <artifactId>ajsc-voltage-filter</artifactId> 
+			<version>200.0.65</version> </dependency> -->
+		<!-- End filter Section -->
+
+		<!-- WMQ and Discovery jars -->
+		<dependency>
+			<groupId>com.att.aft.discovery</groupId>
+			<artifactId>discovery-ctx</artifactId>
+			<version>5.1.3-16</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.aft.discovery</groupId>
+			<artifactId>discovery-clt</artifactId>
+			<version>5.1.3-02</version>
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.jms</groupId>
+			<artifactId>com.ibm.mq</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.mqi</groupId>
+			<artifactId>com.ibm.mq.commonservices</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.jms</groupId>
+			<artifactId>com.ibm.mq.headers</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.jms</groupId>
+			<artifactId>com.ibm.mq.jmqi</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.jms</groupId>
+			<artifactId>com.ibm.mqjms</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mq.ibm.jms</groupId>
+			<artifactId>jms</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-spring</artifactId>
+			<version>2.18.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Powermock dependencies -->
+		<!-- <dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.7.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4-rule</artifactId>
+			<version>1.7.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-classloading-xstream</artifactId>
+			<version>1.7.4</version>
+			<scope>test</scope>
+		</dependency> -->
+		
+
+		<dependency>
+			<groupId>net.sf.supercsv</groupId>
+			<artifactId>super-csv</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.openpojo</groupId>
+			<artifactId>openpojo</artifactId>
+			<version>0.8.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.21</version>
+		</dependency>
+			
+		<!-- -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-jexl</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mybi.com.filenet.api</groupId>
+			<artifactId>xlxpScannerUtils</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mybi.com.filenet.api</groupId>
+			<artifactId>xlxpScanner</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.mybi.com.filenet.api</groupId>
+			<artifactId>stax-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.filenet</groupId>
+			<artifactId>Jace</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- dmaap service dependency starts -->
+		<dependency>
+			<groupId>com.att.msgrtr</groupId>
+		   	<artifactId>dmaap-mr-referenceClient</artifactId>
+		   	<version>1.0.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.att.aft</groupId>
+					<artifactId>dme2</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.json</groupId>
+					<artifactId>json</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.ws.rs</groupId>
+					<artifactId>javax.ws.rs-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- dmaap service dependency ends -->
+<!-- 
+		<dependency>
+  			<groupId>com.monitorjbl</groupId>
+    		<artifactId>xlsx-streamer</artifactId>
+    		<version>2.2.0</version>
+    		<exclusions>
+    			<exclusion>
+    				<groupId>org.apache.xmlbeans</groupId>
+    			 	<artifactId>xmlbeans</artifactId>
+    			</exclusion>
+    		</exclusions>
+    	</dependency> -->
+    	<dependency>
+		    <groupId>com.github.pjfanning</groupId>
+		    <artifactId>excel-streaming-reader</artifactId>
+		    <version>3.4.2</version>
+		</dependency>
+    	
+		<!-- Adding below dependency for Hazelcast Cache begin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-root</artifactId>
+			<version>5.0</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-spring</artifactId>
+			<version>5.0</version>
+		</dependency>
+	<!-- Adding below dependency for Hazelcast Cache ends -->
+
+		<dependency>
+  			<groupId>org.jxls</groupId>
+  			<artifactId>jxls</artifactId>
+  			<version>2.11.0</version>
+  		</dependency>
+  		<dependency>
+   			 <groupId>org.jxls</groupId>
+    		<artifactId>jxls-poi</artifactId>
+   			<version>2.11.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.4</version>
+		    <scope>provided</scope>
+		</dependency>
+ 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+	    	<groupId>com.jcraft</groupId>
+	   		<artifactId>jsch</artifactId>
+	    	<version>0.1.55</version>
+  		</dependency>
+
+		<dependency>
+		    <groupId>org.codehaus.groovy</groupId>
+		    <artifactId>groovy-all</artifactId>
+		    <version>2.4.10</version>
+		</dependency>
+	
+		<dependency>
+		 	<groupId>org.json</groupId>
+		 	<artifactId>json</artifactId>
+		  	<version>20180813</version>
+		</dependency>
+
+		<dependency>
+            <groupId>net.objecthunter</groupId>
+    		<artifactId>exp4j</artifactId>
+    		<version>0.4.8</version>
+       </dependency>
+
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.14.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.owasp.esapi</groupId>
+		    <artifactId>esapi</artifactId>
+		    <version>2.4.0.0</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>xalan</groupId>
+					<artifactId>xalan</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+<!-- 		<dependency>
+					<groupId>com.att.api.framework</groupId>
+			<artifactId>ajsc-nonmodeled-camel-cxf-endpoint</artifactId>
+			<version>200.0.58</version>
+
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.skyscreamer</groupId>
+					<artifactId>jsonassert</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+
+	 <dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>2.13.1</version>
+	 </dependency> 
+	
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>2.13.1</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-databind</artifactId>
+	  <version>2.13.4</version>
+	</dependency> 
+	
+	
+	<dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${org.slf4j-version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${org.slf4j-version}</version>
+        <scope>runtime</scope>
+    </dependency>
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-1.2-api</artifactId>
+	    <version>2.17.2</version>
+	</dependency>
+		
+
+<!--     <dependency> -->
+<!--         <groupId>org.slf4j</groupId> -->
+<!--         <artifactId>slf4j-log4j12</artifactId> -->
+<!--         <version>${org.slf4j-version}</version> -->
+<!--         <scope>runtime</scope> -->
+<!--     </dependency> -->
+
+  <!--    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+        <scope>runtime</scope>
+    </dependency> 
+   <dependency> 
+     <groupId>log4j</groupId>
+  	 <artifactId>apache-log4j-extras</artifactId>
+  	 <version>1.2.17</version>
+  	</dependency>-->
+
+<!-- Thanks for using https://jar-download.com -->
+       <!--  <dependency>
+			<groupId>jconn4</groupId>
+			<artifactId>jconn4</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${basedir}/src/lib/jconn4.jar</systemPath>
+		</dependency> -->
+		<dependency>
+		    <groupId>net.sourceforge.jtds</groupId>
+		    <artifactId>jtds</artifactId>
+		    <version>1.3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>common-logging-logback</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		
+		
+		<!-- use below dependency for enabling csi-dashboard-logging using logback 
+			jms appender -->
+		<dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>common-logbackjmsappender</artifactId>
+			<version>2.0.18</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>common-loggingsecurityfilter</artifactId>
+			<version>2.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.att.api.framework</groupId>
+			<artifactId>common-logging-logback</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+	<!--	<dependency>
+  			 <groupId>ch.qos.logback</groupId>
+   			<artifactId>logback-core</artifactId>
+   			<version>1.3.0-alpha12</version>
+		
+		</dependency>-->		
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<nonFilteredFileExtensions>
+							<nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+							<nonFilteredFileExtension>xlsm</nonFilteredFileExtension>
+							<nonFilteredFileExtension>xls</nonFilteredFileExtension>
+						</nonFilteredFileExtensions>
+					</configuration>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.github.kongchen</groupId>
+										<artifactId>swagger-maven-plugin</artifactId>
+										<versionRange>3.1.3</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<resources>
+			<resource>
+				<!--config and resource files -->
+				<directory>${basedir}/etc</directory>
+				<targetPath>${basedir}/target/etc</targetPath>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<!--config and resource files -->
+				<directory>${basedir}/src/main/resources</directory>
+				<targetPath>${basedir}/target/src/main/resources</targetPath>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<!--config and resource files -->
+				<directory>${basedir}/src/main/groovy</directory>
+				<targetPath>${basedir}/target/src/main/groovy</targetPath>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/docker</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<!-- <resource> <directory>src/main/kubernetes</directory> <includes> 
+				<include>**/*</include> </includes> <filtering>true</filtering> </resource> -->
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+		<!-- 	<version>0.7.5.201505241946</version> -->
+				<version>0.8.1</version>
+				<executions>
+					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+						is passed as VM argument when Maven the Surefire plugin is executed. -->
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<destFile>${sonar.jacoco.reportPath}</destFile>
+							<propertyName>surefireArgLine</propertyName>
+						</configuration>
+					</execution>
+					<!-- Ensures that the code coverage report for unit tests is created 
+						after unit tests have been run. -->
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<dataFile>${sonar.jacoco.reportPath}</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>${jacoco.path}</outputDirectory>
+						</configuration>
+					</execution>
+					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+						is passed as VM argument when Maven the Failsafe plugin is executed. -->
+					<execution>
+						<id>pre-integration-test</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<destFile>${sonar.jacoco.itReportPath}</destFile>
+							<!-- Sets the name of the property containing the settings for JaCoCo 
+								runtime agent. -->
+							<propertyName>failsafeArgLine</propertyName>
+						</configuration>
+					</execution>
+					<!-- Ensures that the code coverage report for integration tests after 
+						integration tests have been run. -->
+					<execution>
+						<id>post-integration-test</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<dataFile>${sonar.jacoco.itReportPath}/</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>${jacoco.itPath}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Used for unit tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.15</version>
+				<configuration>
+					<!-- Sets the VM argument line used when unit tests are run. -->
+					<argLine>${surefireArgLine}</argLine>
+
+					<!-- Skips unit tests if the value of skip.unit.tests property is true -->
+					<skipTests>${skip.unit.tests}</skipTests>
+					<!-- Excludes integration tests when unit tests are run. -->
+					<excludes>
+						<exclude>**/IT*.java</exclude>
+						<exclude>**/*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<!-- Used for integration tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.15</version>
+				<executions>
+					<!-- Ensures that both integration-test and verify goals of the Failsafe 
+						Maven plugin are executed. -->
+					<execution>
+						<id>integration-tests</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the VM argument line used when integration tests are run. -->
+							<argLine>${failsafeArgLine}</argLine>
+
+							<!-- Skips integration tests if the value of skip.integration.tests 
+								property is true -->
+							<skipTests>${skip.integration.tests}</skipTests>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.3</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<locations>com.att.sales</locations>
+							<basePath>/restservices</basePath>
+							<info>
+								<title>${project.artifactId} Service</title>
+								<version>${project.version}</version>
+							</info>
+							<swaggerDirectory>${swagger.directory}</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<!-- <phase>compile</phase> -->
+						<phase>package</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
+				<version>2.7</version> <executions> <execution> <id>copy-docker-file</id> 
+				<phase>package</phase> <goals> <goal>copy-resources</goal> </goals> <configuration> 
+				<outputDirectory>${dockerLocation}</outputDirectory> <overwrite>true</overwrite> 
+				<resources> <resource> <directory>${basedir}/src/main/docker</directory> 
+				<filtering>true</filtering> <includes> <include>**/*</include> </includes> 
+				</resource> </resources> </configuration> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<imageName>${docker.registry}/${name.space}/${serviceArtifactName}</imageName>
+					<dockerDirectory>target/classes</dockerDirectory>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
+					<forceTags>true</forceTags>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}-${assembly.id}.tar.gz</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>run.source</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>prometheus-java-agent.jar</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>ilib.jar</include>
+						</resource>
+						<resource>
+					        <targetPath>/</targetPath>
+					        <directory>${project.build.directory}</directory>
+					        <include>hfrapm-agent.jar</include>
+						</resource>
+					</resources>
+					<serverId>docker-hub</serverId>
+					<registryUrl>https://${docker.registry}</registryUrl>
+				</configuration>
+				<!-- <configuration> <imageName>${docker.registry}/${project.artifactId}</imageName> 
+					<dockerDirectory>${dockerLocation}</dockerDirectory> <serverId>docker-hub</serverId> 
+					<registryUrl>https://${docker.registry}</registryUrl> <imageTags> <imageTag>${project.version}</imageTag> 
+					<imageTag>latest</imageTag> </imageTags> <forceTags>true</forceTags> </configuration> -->
+			</plugin>
+			<plugin>
+				<!--this plugin is set to skip. It creates an executable jar. You can't 
+					add to the classpath of such jars. That won't work for this project because 
+					we need to point to configurations outside of the jar file -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<mainClass>${start-class}</mainClass>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>true</skip>
+					<mainClass>${start-class}</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ant-test</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<fixcrlf srcdir="${basedir}" eol="unix"
+									includes="**/*.sh, **/*.source" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!--build the final artifact for docker deployment -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/distribution.xml</descriptor>
+					</descriptors>
+					<tarLongFileMode>posix</tarLongFileMode>
+				</configuration>
+				<executions>
+					<execution>
+						<id>${assembly.id}</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Add the maven dependency plugin to copy the monitoring agent to the 
+				target -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target</outputDirectory>
+							<encoding>UTF-8</encoding>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.att.api.framework</groupId>
+									<artifactId>prometheus-java-agent</artifactId>
+									<version>2.0.2</version>
+									<destFileName>prometheus-java-agent.jar</destFileName>
+								</artifactItem>
+								<artifactItem>
+									<groupId>com.att.instrumentapps</groupId>
+									<artifactId>ilib</artifactId>
+									<version>2.0.20</version>
+									<destFileName>ilib.jar</destFileName>
+								</artifactItem>
+								<artifactItem>
+						            <groupId>com.att.hfrapm</groupId>
+						            <artifactId>hfrapm-agent</artifactId>
+						            <version>0.10.12-23</version>
+						            <destFileName>hfrapm-agent.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.5.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+					<execution>
+	                    <id>generate-configure-solution-and-product</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>xjc</goal>
+	                    </goals>
+	                    <configuration>
+	                    	<sourceType>wsdl</sourceType>
+	                    	<vmArgs>
+            					<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+        					</vmArgs>
+                            <wsdl>true</wsdl>
+                            <xmlschema>false</xmlschema>
+	                        <outputDirectory>target/generate-sources</outputDirectory>
+	                        <!-- <schemaDirectory>${project.basedir}/src/main/resources/META-INF/schema/configureSolnAndProduct/</schemaDirectory>
+	                        <schemaFiles>cpqConfigSoln.wsdl</schemaFiles> -->
+	                        <sources>
+				        		<source>${project.basedir}/src/main/resources/META-INF/schema/configureSolnAndProduct/cpqConfigSoln.wsdl</source>
+     						</sources>
+	                    </configuration>
+                    </execution>
+                    <execution>
+	                    <id>generate-get-users-for-group</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>xjc</goal>
+	                    </goals>
+	                    <configuration>
+	                    	<sourceType>wsdl</sourceType>
+	                    	<vmArgs>
+            					<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+        					</vmArgs>
+                            <wsdl>true</wsdl>
+                            <xmlschema>false</xmlschema>
+	                        <outputDirectory>target/generate-sources</outputDirectory>
+	                        <!-- <schemaDirectory>${project.basedir}/src/main/resources/META-INF/schema/getUsersForGroup/</schemaDirectory>
+	                        <schemaFiles>getGroups.wsdl</schemaFiles> -->
+	                        <sources>
+				        		<source>${project.basedir}/src/main/resources/META-INF/schema/getUsersForGroup/getGroups.wsdl</source>
+     						</sources>
+	                    </configuration>
+                    </execution>
+                      <execution>
+	                    <id>generate-abs-billing-information</id>
+	                    <phase>generate-sources</phase>
+	                    <goals>
+	                        <goal>xjc</goal>
+	                    </goals>
+	                    <configuration>
+	                    	<sourceType>wsdl</sourceType>
+	                    	<vmArgs>
+            					<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+        					</vmArgs>
+                            <wsdl>true</wsdl>
+                            <xmlschema>false</xmlschema>
+	                        <outputDirectory>target/generate-sources</outputDirectory>
+	                       <!-- <schemaDirectory>${project.basedir}/src/main/resources/META-INF/schema/</schemaDirectory>-->
+	                        <!-- <schemaFiles>ABS_Billing_Information_V0.3.wsdl</schemaFiles>-->
+	                        <sources>
+				        		<source>${project.basedir}/src/main/resources/META-INF/schema/ABS_Billing_Information_V0.3.wsdl</source>
+     						</sources>
+	                    </configuration>
+                    </execution>  
+				</executions>
+				<configuration>
+					<!--<schemaDirectory>${project.basedir}/src/main/resources/META-INF/schema/</schemaDirectory> -->
+					<sources>
+				        <source>src/main/resources/META-INF/schema/eCRMOpportunity.xsd</source>       
+        				<source>src/main/resources/META-INF/schema/CommonHeaderV3_3.xsd</source>    
+        				<source>src/main/resources/META-INF/schema/eCRMCommonHeaderV3_1.xsd</source>
+     				</sources>
+					<outputDirectory>target/generate-sources</outputDirectory>
+					<clearOutputDir>false</clearOutputDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+   <repositories>
+    <repository>
+  <id>nexus</id>
+  <url>https://repocentral.it.att.com:8443/nexus/content/groups/att-public-group</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+  </repositories>
+</project> 

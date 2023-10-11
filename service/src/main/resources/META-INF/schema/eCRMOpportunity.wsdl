@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by AT&T ENTERPRISE SERVICES INC (AT&T ENTERPRISE SERVICES INC) -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ch2="http://ecrm.abs.att.com/commonheader/v3" xmlns:ch="http://cio.att.com/commonheader/v3" xmlns:tns="http://ecrm.abs.att.com/opty/v2" xmlns:http-conf="http://schemas.iona.com/transports/http/configuration" targetNamespace="http://ecrm.abs.att.com/opty/v2">
+	<types>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://cio.att.com/commonheader/v3">
+			<xsd:include schemaLocation="CommonHeaderV3_3.xsd"/>
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://ecrm.abs.att.com/commonheader/v3">
+			<xsd:include schemaLocation="eCRMCommonHeaderV3_3.xsd"/>
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://ecrm.abs.att.com/opty/v2">
+			<xsd:include schemaLocation="eCRMOpportunity.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="WSException">
+		<part name="WSException" element="ch2:WSException"/>
+	</message>
+	<message name="SetOptyPartnerSystemIdRequest">
+		<part name="SetOptyPartnerSystemIdRequest" element="tns:SetOptyPartnerSystemIdRequest"/>
+	</message>
+	<message name="SetOptyPartnerSystemIdResponse">
+		<part name="SetOptyPartnerSystemIdResponse" element="tns:SetOptyPartnerSystemIdResponse"/>
+	</message>
+	<message name="SetOptySalesStageProposedRequest">
+		<part name="SetOptySalesStageProposedRequest" element="tns:SetOptySalesStageProposedRequest"/>
+	</message>
+	<message name="SetOptySalesStageProposedResponse">
+		<part name="SetOptySalesStageProposedResponse" element="tns:SetOptySalesStageProposedResponse"/>
+	</message>
+	<message name="SetOptyAttachmentRequest">
+		<part name="SetOptyAttachmentRequest" element="tns:SetOptyAttachmentRequest"/>
+	</message>
+	<message name="SetOptyAttachmentResponse">
+		<part name="SetOptyAttachmentResponse" element="tns:SetOptyAttachmentResponse"/>
+	</message>
+	<message name="OptyInfoRequest">
+		<part name="OptyInfoRequest" element="tns:OptyInfoRequest"/>
+	</message>
+	<message name="OptyInfoResponse">
+		<part name="OptyInfoResponse" element="tns:OptyInfoResponse"/>
+	</message>
+	<message name="GetOptyAttachmentRequest">
+		<part name="GetOptyAttachmentRequest" element="tns:GetOptyAttachmentRequest"/>
+	</message>
+	<message name="GetOptyAttachmentResponse">
+		<part name="GetOptyAttachmentResponse" element="tns:GetOptyAttachmentResponse"/>
+	</message>
+	<message name="MyOpportunitiesRequest">
+		<part name="MyOpportunitiesRequest" element="tns:MyOpportunitiesRequest"/>
+	</message>
+	<message name="MyOpportunitiesResponse">
+		<part name="MyOpportunitiesResponse" element="tns:MyOpportunitiesResponse"/>
+	</message>
+	<message name="AccountOpportunitiesRequest">
+		<part name="AccountOpportunitiesRequest" element="tns:AccountOpportunitiesRequest"/>
+	</message>
+	<message name="AccountOpportunitiesResponse">
+		<part name="AccountOpportunitiesResponse" element="tns:AccountOpportunitiesResponse"/>
+	</message>
+	<message name="CreateNewOptyRequest">
+		<part name="CreateNewOptyRequest" element="tns:CreateNewOptyRequest"/>
+	</message>
+	<message name="CreateNewOptyResponse">
+		<part name="CreateNewOptyResponse" element="tns:CreateNewOptyResponse"/>
+	</message>
+	<message name="SETOptyTeamRequest">
+		<part name="SETOptyTeamRequest" element="tns:SETOptyTeamRequest"/>
+	</message>
+	<message name="SETOptyTeamResponse">
+		<part name="SETOptyTeamResponse" element="tns:SETOptyTeamResponse"/>
+	</message>
+	<message name="GetOpptyTeamRequest">
+		<part name="GetOpptyTeamRequest" element="tns:GetOpptyTeamRequest"/>
+	</message>
+	<message name="GetOpptyTeamResponse">
+		<part name="GetOpptyTeamResponse" element="tns:GetOpptyTeamResponse"/>
+	</message>
+	<message name="SetCopyOptyRequest">
+		<part name="SetCopyOptyRequest" element="tns:SetCopyOptyRequest"/>
+	</message>
+	<message name="SetCopyOptyResponse">
+		<part name="SetCopyOptyResponse" element="tns:SetCopyOptyResponse"/>
+	</message>
+	<message name="SetLandingPadURLRequest">
+		<part name="SetLandingPadURLRequest" element="tns:SetLandingPadURLRequest"/>
+	</message>
+	<message name="SetLandingPadURLResponse">
+		<part name="SetLandingPadURLResponse" element="tns:SetLandingPadURLResponse"/>
+	</message>
+	<message name="GetSPDetailsRequest">
+		<part name="GetSPDetailsRequest" element="tns:GetSPDetailsRequest"/>
+	</message>
+	<message name="GetSPDetailsResponse">
+		<part name="GetSPDetailsResponse" element="tns:GetSPDetailsResponse"/>
+	</message>
+	<message name="SetOptyStatusRequest">
+		<part name="SetOptyStatusRequest" element="tns:SetOptyStatusRequest"/>
+	</message>
+	<message name="SetOptyStatusResponse">
+		<part name="SetOptyStatusResponse" element="tns:SetOptyStatusResponse"/>
+	</message>
+	<message name="UpdateOptyProductsRequest">
+		<part name="UpdateOptyProductsRequest" element="tns:UpdateOptyProductsRequest"/>
+	</message>
+	<message name="UpdateOptyProductsResponse">
+		<part name="UpdateOptyProductsResponse" element="tns:UpdateOptyProductsResponse"/>
+	</message>
+	<message name="UpdateOptyPartnerDetailsRequest">
+		<part name="UpdateOptyPartnerDetailsRequest" element="tns:UpdateOptyPartnerDetailsRequest"/>
+	</message>
+	<message name="UpdateOptyPartnerDetailsResponse">
+		<part name="UpdateOptyPartnerDetailsResponse" element="tns:UpdateOptyPartnerDetailsResponse"/>
+	</message>
+	<message name="ADDOPTYCONTACTRequest">
+		<part name="ADDOPTYCONTACTRequest" element="tns:ADDOPTYCONTACTRequest"/>
+	</message>
+	<message name="ADDOPTYCONTACTResponse">
+		<part name="ADDOPTYCONTACTResponse" element="tns:ADDOPTYCONTACTResponse"/>
+	</message>
+	<message name="UPDATEOPTYRequest">
+		<part name="UPDATEOPTYRequest" element="tns:UPDATEOPTYRequest"/>
+	</message>
+	<message name="UPDATEOPTYResponse">
+		<part name="UPDATEOPTYResponse" element="tns:UPDATEOPTYResponse"/>
+	</message>
+	<portType name="OpportunityPortType">
+		<operation name="SetOptyPartnerSystemId">
+			<input name="SetOptyPartnerSystemIdRequest" message="tns:SetOptyPartnerSystemIdRequest"/>
+			<output name="SetOptyPartnerSystemIdResponse" message="tns:SetOptyPartnerSystemIdResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SetOptySalesStageProposed">
+			<input name="SetOptySalesStageProposedRequest" message="tns:SetOptySalesStageProposedRequest"/>
+			<output name="SetOptySalesStageProposedResponse" message="tns:SetOptySalesStageProposedResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SetOptyAttachment">
+			<input name="SetOptyAttachmentRequest" message="tns:SetOptyAttachmentRequest"/>
+			<output name="SetOptyAttachmentResponse" message="tns:SetOptyAttachmentResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="OptyInfo">
+			<input name="OptyInfoRequest" message="tns:OptyInfoRequest"/>
+			<output name="OptyInfoResponse" message="tns:OptyInfoResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="GetOptyAttachment">
+			<input name="GetOptyAttachmentRequest" message="tns:GetOptyAttachmentRequest"/>
+			<output name="GetOptyAttachmentResponse" message="tns:GetOptyAttachmentResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="MyOpportunities">
+			<input name="MyOpportunitiesRequest" message="tns:MyOpportunitiesRequest"/>
+			<output name="MyOpportunitiesResponse" message="tns:MyOpportunitiesResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="AccountOpportunities">
+			<input name="AccountOpportunitiesRequest" message="tns:AccountOpportunitiesRequest"/>
+			<output name="AccountOpportunitiesResponse" message="tns:AccountOpportunitiesResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="CreateNewOpty">
+			<input name="CreateNewOptyRequest" message="tns:CreateNewOptyRequest"/>
+			<output name="CreateNewOptyResponse" message="tns:CreateNewOptyResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SETOptyTeam">
+			<input name="SETOptyTeamRequest" message="tns:SETOptyTeamRequest"/>
+			<output name="SETOptyTeamResponse" message="tns:SETOptyTeamResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="GetOpptyTeam">
+			<input name="GetOpptyTeamRequest" message="tns:GetOpptyTeamRequest"/>
+			<output name="GetOpptyTeamResponse" message="tns:GetOpptyTeamResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SetCopyOpty">
+			<input name="SetCopyOptyRequest" message="tns:SetCopyOptyRequest"/>
+			<output name="SetCopyOptyResponse" message="tns:SetCopyOptyResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SetLandingPadURL">
+			<input name="SetLandingPadURLRequest" message="tns:SetLandingPadURLRequest"/>
+			<output name="SetLandingPadURLResponse" message="tns:SetLandingPadURLResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="GetSPDetails">
+			<input name="GetSPDetailsRequest" message="tns:GetSPDetailsRequest"/>
+			<output name="GetSPDetailsResponse" message="tns:GetSPDetailsResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="SetOptyStatus">
+			<input name="SetOptyStatusRequest" message="tns:SetOptyStatusRequest"/>
+			<output name="SetOptyStatusResponse" message="tns:SetOptyStatusResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="UpdateOptyProducts">
+			<input name="UpdateOptyProductsRequest" message="tns:UpdateOptyProductsRequest"/>
+			<output name="UpdateOptyProductsResponse" message="tns:UpdateOptyProductsResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="UpdateOptyPartnerDetails">
+			<input name="UpdateOptyPartnerDetailsRequest" message="tns:UpdateOptyPartnerDetailsRequest"/>
+			<output name="UpdateOptyPartnerDetailsResponse" message="tns:UpdateOptyPartnerDetailsResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="UPDATEOPTY">
+			<input name="UPDATEOPTYRequest" message="tns:UPDATEOPTYRequest"/>
+			<output name="UPDATEOPTYResponse" message="tns:UPDATEOPTYResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+		<operation name="ADDOPTYCONTACT">
+			<input name="ADDOPTYCONTACTRequest" message="tns:ADDOPTYCONTACTRequest"/>
+			<output name="ADDOPTYCONTACTResponse" message="tns:ADDOPTYCONTACTResponse"/>
+			<fault name="WSException" message="tns:WSException"/>
+		</operation>
+	</portType>
+	<binding name="OpportunitySoapHttpBinding" type="tns:OpportunityPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="SetOptyPartnerSystemId">
+			<soap:operation soapAction="SetOptyPartnerSystemId"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptySalesStageProposed">
+			<soap:operation soapAction="SetOptySalesStageProposed"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptyAttachment">
+			<soap:operation soapAction="SetOptyAttachment"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="OptyInfo">
+			<soap:operation soapAction="OptyInfo"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetOptyAttachment">
+			<soap:operation soapAction="GetOptyAttachment"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="MyOpportunities">
+			<soap:operation soapAction="MyOpportunities"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="AccountOpportunities">
+			<soap:operation soapAction="AccountOpportunities"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="CreateNewOpty">
+			<soap:operation soapAction="CreateNewOpty"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SETOptyTeam">
+			<soap:operation soapAction="SETOptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetOpptyTeam">
+			<soap:operation soapAction="GetOpptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetCopyOpty">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v3.3.doc for Feb09</documentation>
+			<soap:operation soapAction="GetOpptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetLandingPadURL">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v4.7.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetSPDetails">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptyStatus">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UpdateOptyProducts">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UpdateOptyPartnerDetails">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.25.doc</documentation>
+			<soap:operation soapAction="UpdateOptyPartnerDetails"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UPDATEOPTY">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.28.doc</documentation>
+			<soap:operation soapAction="UPDATEOPTY"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="ADDOPTYCONTACT">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.28.doc</documentation>
+			<soap:operation soapAction="ADDOPTYCONTACT"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<binding name="OpportunitySoapHttpBinding_secure" type="tns:OpportunityPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="SetOptyPartnerSystemId">
+			<soap:operation soapAction="SetOptyPartnerSystemId"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptySalesStageProposed">
+			<soap:operation soapAction="SetOptySalesStageProposed"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptyAttachment">
+			<soap:operation soapAction="SetOptyAttachment"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="OptyInfo">
+			<soap:operation soapAction="OptyInfo"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetOptyAttachment">
+			<soap:operation soapAction="GetOptyAttachment"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="MyOpportunities">
+			<soap:operation soapAction="MyOpportunities"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="AccountOpportunities">
+			<soap:operation soapAction="AccountOpportunities"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="CreateNewOpty">
+			<soap:operation soapAction="CreateNewOpty"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SETOptyTeam">
+			<soap:operation soapAction="SETOptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetOpptyTeam">
+			<soap:operation soapAction="GetOpptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetCopyOpty">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v3.3.doc for Feb09</documentation>
+			<soap:operation soapAction="GetOpptyTeam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetLandingPadURL">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v4.7.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="GetSPDetails">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="SetLandingPadURL"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="SetOptyStatus">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="SetOptyStatus"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UpdateOptyProducts">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v5.5.doc</documentation>
+			<soap:operation soapAction="UpdateOptyProducts"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UpdateOptyPartnerDetails">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.25.doc</documentation>
+			<soap:operation soapAction="UpdateOptyPartnerDetails"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="UPDATEOPTY">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.28.doc</documentation>
+			<soap:operation soapAction="UPDATEOPTY"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="ADDOPTYCONTACT">
+			<documentation>eCRM Opportunity WSDL IAD - Baselined v6.28.doc</documentation>
+			<soap:operation soapAction="ADDOPTYCONTACT"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="WSException">
+				<soap:fault name="WSException" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="OpportunityService">
+		<port name="OpportunitySoapHttpPort" binding="tns:OpportunitySoapHttpBinding">
+			<soap:address location="http://crmdev2.bcs.att.com:8002/eCRM/opty"/>
+		</port>
+		<port name="OpportunitySoapHttpPort_secured" binding="tns:OpportunitySoapHttpBinding_secure">
+			<soap:address location="https://crmdev31.mt.att.com:18002/eCRM/opty"/>
+			<http-conf:server UseSecureSockets="true" ServerCertificate="/siebel78/artix/iona/cxx_java/samples/security/certificates/openssl/x509/crl_ca/X509CA/certs/crltestcert1.p12" ServerPrivateKeyPassword="testaspen" TrustedRootCertificates="/siebel78/artix/iona/cxx_java/samples/security/certificates/openssl/x509/crl_ca/X509CA/ca/new_ca.pem"/>
+		</port>
+	</service>
+</definitions>

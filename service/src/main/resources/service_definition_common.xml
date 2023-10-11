@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sales-services>
+	<provider>C</provider>
+
+	<sales-service id="GET:/nexxus/servicenamenoun:v1">
+		<serviceName>getQuickHello</serviceName>
+		<serviceImpl>exampleService</serviceImpl>
+		<serviceMethod>getQuickHello</serviceMethod>
+	</sales-service>
+
+	<sales-service id="POST:/nexxus/servicenamenoun:v1">
+		<serviceName>postQuickHello</serviceName>
+		<serviceImpl>exampleService</serviceImpl>
+		<serviceMethod>postQuickHello</serviceMethod>
+	</sales-service>
+
+	<sales-service
+		id="POST:/nexxus/transformTestData:v1">
+		<serviceName>Transforms request into data object</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>transformTestData</serviceMethod>
+	</sales-service>
+
+
+	<sales-service id="POST:/nexxus/retreiveICBPSP:v1">
+		<serviceName>retreiveICBPSP</serviceName>
+		<serviceImpl>retreiveICBPSPServiceImpl</serviceImpl>
+		<serviceMethod>retreiveICBPSP</serviceMethod>
+	</sales-service>
+
+	<sales-service
+		id="PUT:/nexxus/putUploadASENexxusFile:v1">
+		<serviceName>nexxus data</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>putUploadASENexxusFile</serviceMethod>
+	</sales-service>
+
+	<sales-service id="PUT:/nexxus/productDataLoad:v1">
+		<serviceName>put ProductDataLoad</serviceName>
+		<serviceImpl>nexxusUDFDetailsServiceImpl</serviceImpl>
+		<serviceMethod>putNexxusUDFDetails</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/getAccessPrice:v1">
+		<serviceName>getAccessPricing</serviceName>
+		<serviceImpl>accessPricingServiceImpl</serviceImpl>
+		<serviceMethod>getAccessPricing</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/retrieveOptyInfo:v1">
+		<serviceName>performGetOptyInfo</serviceName>
+		<serviceImpl>getOptyInfoServiceImpl</serviceImpl>
+		<serviceMethod>performGetOptyInfo</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="PUT:/nexxus/ratePlanDataLoad:v1">
+		<serviceName>putRatePlanDataLoad</serviceName>
+		<serviceImpl>ratePlanDataLoadSeviceImpl</serviceImpl>
+		<serviceMethod>putRatePlanDataLoad</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/fetchNexxusSolutionsByUserId:v1">
+		<serviceName>FETCH_ALL_SOLUTTIONS_OF_USER</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>fetchNexxusSolutionsByUserId</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/getInventory:v1">
+		<serviceName>getBillingPriceInventryData</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>getBillingPriceInventryData</serviceMethod>
+	</sales-service>
+
+	<sales-service id="POST:/nexxus/downloadNexxusOutput:v1">
+		<serviceName>getNexxusOutput</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNexxusOutput</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/mailNotification:v1">
+		<serviceName>mailNotification</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>mailNotification</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/datafeed:v1">
+		<serviceName>chatBotService</serviceName>
+		<serviceImpl>chatBotServiceImpl</serviceImpl>
+		<serviceMethod>datafeed</serviceMethod>
+	</sales-service>
+	
+	
+	<sales-service id="POST:/nexxus/downloadZipFile:v1">
+		<serviceName>getNexxusOutputZipFile</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNexxusOutputZipFile</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="GET:/nexxus/internalTest:v1">
+		<serviceName>internalTest</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>getInternalTest</serviceMethod>
+	</sales-service>	
+	
+	<sales-service id="POST:/nexxus/retreiveUserDetails:v1">
+		<serviceName>retreiveUserDetails</serviceName>
+		<serviceImpl>UserDetailsServiceImpl</serviceImpl>
+		<serviceMethod>retreiveUserDetails</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/consumerDetail:v1">
+		<serviceName>consumerDetail</serviceName>
+		<serviceImpl>ConsumerDetailServiceImpl</serviceImpl>
+		<serviceMethod>consumerDetailData</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/getNxOutputFileId:v1">
+		<serviceName>getNxOutputFileId</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNxOutputFileId</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/uploadNxTemplateFile:v1">
+		<serviceName>uploadTemplateFile</serviceName>
+		<serviceImpl>nxTemplateProcessingService</serviceImpl>
+		<serviceMethod>uploadTemplateFile</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/retrieveAdminData:v1">
+		<serviceName>getAdminData</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>getAdminData</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/nexxusRequestActions:v1">
+		<serviceName>nexxusRequestActions</serviceName>
+		<serviceImpl>falloutDetailsImpl</serviceImpl>
+		<serviceMethod>nexxusRequestActions</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/fetchAllTopProducts:v1">
+		<serviceName>Admin fetchAllTopProducts</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>fetchAllTopProducts</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/adminUpdateProductInfo:v1">
+		<serviceName>Admin adminUpdateProductInfo</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>adminUpdateProductInfo</serviceMethod>
+	</sales-service>	
+	
+	<sales-service id="POST:/nexxus/uploadNexxusDataFile:v1">
+		<serviceName>uploadNexxusDataFile</serviceName>
+		<serviceImpl>nxDataUploadService</serviceImpl>
+		<serviceMethod>uploadNexxusDataFile</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/transmitDesignData:v1">
+		<serviceName>transitDesignData</serviceName>
+		<serviceImpl>transmitDesignDataService</serviceImpl>
+		<serviceMethod>execute</serviceMethod>
+	</sales-service>	
+	
+	<sales-service id="POST:/nexxus/prepareAndSendMailForPEDRequest:v1">
+		<serviceName>prepareAndSendMailForPEDRequest</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>prepareAndSendMailForPEDRequest</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/getnXPEDStatus:v1">
+		<serviceName>getnXPEDStatus</serviceName>
+		<serviceImpl>getNxPEDStatusServiceImpl</serviceImpl>
+		<serviceMethod>getnXPEDStatus</serviceMethod>
+	</sales-service>
+		
+	<sales-service id="POST:/nexxus/rateLetterStatus:v1">
+		<serviceName>rateLetterStatus</serviceName>
+		<serviceImpl>RateLetterStatusImpl</serviceImpl>
+		<serviceMethod>rateLetterStatus</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/publishValidatedAddressesStatus:v1">
+		<serviceName>publishValidatedAddressesStatus</serviceName>
+		<serviceImpl>PublishValidatedAddressesStatusImpl</serviceImpl>
+		<serviceMethod>publishValidatedAddressesStatus</serviceMethod>
+	</sales-service>
+
+    <sales-service id="POST:/nexxus/serviceValidation:v1">
+        <serviceName>serviceValidation</serviceName>
+        <serviceImpl>ServiceValidationImpl</serviceImpl>
+        <serviceMethod>validateService</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/createTransaction:v1">
+        <serviceName>createTransaction</serviceName>
+        <serviceImpl>CreateTransactionServiceImpl</serviceImpl>
+        <serviceMethod>createTransaction</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/getTransaction:v1">
+        <serviceName>getTransaction</serviceName>
+        <serviceImpl>getTransactionServiceImpl</serviceImpl>
+        <serviceMethod>getTransaction</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/getTransactionLine:v1">
+        <serviceName>getTransactionLine</serviceName>
+        <serviceImpl>getTransactionLineServiceImpl</serviceImpl>
+        <serviceMethod>getTransactionLine</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/updateTransactionPricingRequest:v1">
+        <serviceName>updateTransactionPricingRequest</serviceName>
+        <serviceImpl>updateTransactionPricingServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionPricingRequest</serviceMethod>
+     </sales-service>
+
+    <sales-service id="POST:/nexxus/updateTransactionSiteUpload:v1">
+        <serviceName>updateTransactionSiteUpload</serviceName>
+        <serviceImpl>updateTxnSiteUploadServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionSiteUpload</serviceMethod>
+     </sales-service>
+  
+      <sales-service id="POST:/nexxus/removeTransactionLine:v1">
+        <serviceName>removeTransactionLine</serviceName>
+        <serviceImpl>removeTransactionServiceLineImpl</serviceImpl>
+        <serviceMethod>removeTransactionLine</serviceMethod>
+     </sales-service>
+    
+     <sales-service id="POST:/nexxus/copyTransaction:v1">
+        <serviceName>copyTransaction</serviceName>
+        <serviceImpl>CopyTransactionServiceImpl</serviceImpl>
+        <serviceMethod>copyTransaction</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/updateTransactionOverride:v1">
+        <serviceName>updateTransactionOverride</serviceName>
+        <serviceImpl>UpdateTransactionOverrideImpl</serviceImpl>
+        <serviceMethod>updateTransactionOverride</serviceMethod>
+    </sales-service>
+    
+     <sales-service id="POST:/nexxus/getCustomPricing:v1">
+		<serviceName>iCustomPricingService</serviceName>
+		<serviceImpl>ICustomPricingServiceImpl</serviceImpl>
+		<serviceMethod>getCutomPricing</serviceMethod>
+	</sales-service>
+    
+         <sales-service id="POST:/nexxus/getCustomPricingSalesOne:v1">
+		<serviceName>iCustomPricingSalesOneService</serviceName>
+		<serviceImpl>ICustomPricingSalesOneServiceImpl</serviceImpl>
+		<serviceMethod>getCustomPricingSalesOne</serviceMethod>
+	</sales-service>
+    
+    <sales-service id="POST:/nexxus/updateTransactionQualifyService:v1">
+        <serviceName>updateTransactionQualifyService</serviceName>
+        <serviceImpl>UpdateTransactionQualifyServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionQualifyService</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/updateTransactionPriceScore:v1">
+        <serviceName>updateTransactionPriceScore</serviceName>
+        <serviceImpl>UpdateTransactionPriceScoreImpl</serviceImpl>
+        <serviceMethod>updateTransactionPriceScore</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/updateTransactionSubmitToApproval:v1">
+        <serviceName>updateTransactionSubmitToApproval</serviceName>
+        <serviceImpl>UpdateTransactionSubmitToApprovalImpl</serviceImpl>
+        <serviceMethod>updateTransactionSubmitToApproval</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/generateRateLetter:v1">
+        <serviceName>generateRateLetter</serviceName>
+        <serviceImpl>GenerateRateLetterImpl</serviceImpl>
+        <serviceMethod>generateRateLetter</serviceMethod>
+    </sales-service>
+
+    <sales-service id="POST:/nexxus/aseodReqRates:v1">
+        <serviceName>aseodReqRates</serviceName>
+        <serviceImpl>aseodReqRatesServiceImpl</serviceImpl>
+        <serviceMethod>aseodReqRates</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/bulkUploadEthTokens:v1">
+        <serviceName>bulkUploadEthTokens</serviceName>
+        <serviceImpl>bulkUploadEthTokenService</serviceImpl>
+        <serviceMethod>bulkUploadEthTokens</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/downloadFailedTokenFile:v1">
+        <serviceName>downloadFailedTokenFile</serviceName>
+        <serviceImpl>bulkUploadEthTokenService</serviceImpl>
+        <serviceMethod>downloadFailedTokenFile</serviceMethod>
+    </sales-service>  
+    
+    <sales-service id="POST:/nexxus/manBulkUploadToEDF:v1">
+        <serviceName>manBulkUploadToEDF</serviceName>
+        <serviceImpl>edfBulkUploadService</serviceImpl>
+        <serviceMethod>manBulkUploadToEDF</serviceMethod>
+    </sales-service>
+    
+    <sales-service id="POST:/nexxus/getEncodedBinaryFile:v1">
+		<serviceName>getEncodedBinaryFile</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getEncodedBinaryFile</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="GET:/nexxus/refreshCache:v1">
+		<serviceName>refreshCache</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>refreshCache</serviceMethod>
+	</sales-service>
+	<sales-service id="POST:/nexxus/getContractInventory:v1">
+		<serviceName>getContractInventory</serviceName>
+		<serviceImpl>contractInventoryServiceImpl</serviceImpl>
+		<serviceMethod>getContractInventory</serviceMethod>
+	</sales-service>
+	<sales-service id="POST:/nexxus/addUser:v1">
+		<serviceName>addUser</serviceName>
+		<serviceImpl>userServiceImpl</serviceImpl>
+		<serviceMethod>addUser</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/checkAccess:v1">
+		<serviceName>checkAccess</serviceName>
+		<serviceImpl>userServiceImpl</serviceImpl>
+		<serviceMethod>checkAccess</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="PUT:/nexxus/nexxusSolutionAction:v1">
+		<serviceName>nexxusSolutionAction</serviceName>
+		<serviceImpl>nexxusSolutionActionServiceImpl</serviceImpl>
+		<serviceMethod>nexxusSolutionAction</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/submitFeedback:v1">
+		<serviceName>submitFeedback</serviceName>
+		<serviceImpl>submitFeedbackServiceImpl</serviceImpl>
+		<serviceMethod>submitFeedback</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/bulkUploadInrData:v1">
+        <serviceName>bulkUploadInrData</serviceName>
+        <serviceImpl>bulkUploadInrUpdateService</serviceImpl>
+        <serviceMethod>bulkUploadInrData</serviceMethod>
+    </sales-service>
+    
+	<sales-service id="POST:/nexxus/fetchNewEnhancements:v1"> 
+		<serviceName>fetchNewEnhancements</serviceName> 
+		<serviceImpl>enhancementServiceImpl</serviceImpl> 
+		<serviceMethod>fetchNewEnhancements</serviceMethod> 
+	</sales-service>
+	
+	<sales-service id="GET:/nexxus/fetchBillDetails:v1"> 
+		<serviceName>fetchBillDetails</serviceName> 
+		<serviceImpl>billDetailsServiceImpl</serviceImpl> 
+		<serviceMethod>fetchBillDetails</serviceMethod> 
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/uploadMyPriceLegacyCoData:v1"> 
+		<serviceName>uploadMyPriceLegacyCoData</serviceName> 
+		<serviceImpl>uploadMyPriceLegacyCoDataServiceImpl</serviceImpl> 
+		<serviceMethod>uploadMyPriceLegacyCoData</serviceMethod> 
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/syncMyPriceLegacyCoData:v1"> 
+		<serviceName>syncMyPriceLegacyCoData</serviceName> 
+		<serviceImpl>syncMyPriceLegacyCoDataServiceImpl</serviceImpl> 
+		<serviceMethod>syncMyPriceLegacyCoData</serviceMethod> 
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/solutionLockCheck:v1">
+		<serviceName>solutionLockCheck</serviceName>
+		<serviceImpl>solutionLockServiceImpl</serviceImpl>
+		<serviceMethod>solutionLockCheck</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/retrieveBillingCharges:v1">
+		<serviceName>retrieveBillingCharges</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>retrieveBillingCharges</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/usrpDesign:v1">
+		<serviceName>usrpDesign</serviceName>
+		<serviceImpl>inrJsonServiceImpl</serviceImpl>
+		<serviceMethod>inrJsonProcess</serviceMethod>
+	</sales-service>
+
+	<sales-service id="POST:/nexxus/sendMail:v1">
+		<serviceName>sendMail</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>sendMail</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/copyAction:v1">
+		<serviceName>copyAction</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>copyAction</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/submitToMyprice:v1">
+		<serviceName>submitToMyprice</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>submitToMyprice</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/solutionCostIndicator:v1">
+		<serviceName>solutionCostIndicator</serviceName>
+		<serviceImpl>solutionCostIndicatorServiceimpl</serviceImpl>
+		<serviceMethod>solutionCostIndicator</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/retriggerRequest:v1">
+		<serviceName>retriggerRequest</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>retriggerRequest</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/retrieveBillingInventory:v1">
+		<serviceName>retrieveBillingInventory</serviceName>
+		<serviceImpl>retrieveBillingInventoryImpl</serviceImpl>
+		<serviceMethod>retrieveBillingInventory</serviceMethod>
+	</sales-service>
+	
+
+	<sales-service id="POST:/nexxus/invPriceJson:v1">
+		<serviceName>invPriceJson</serviceName>
+		<serviceImpl>invPriceJsonImpl</serviceImpl>
+		<serviceMethod>invPriceJson</serviceMethod>
+	</sales-service>
+
+	<sales-service id="POST:/nexxus/retrieveBillingProductDetails:v1">
+		<serviceName>getProductdetails</serviceName>
+		<serviceImpl>retrieveBillingProductDetail</serviceImpl>
+		<serviceMethod>getProductdetails</serviceMethod>
+	</sales-service>
+	
+	<sales-service id="POST:/nexxus/publishDataRouter:v1">
+		<serviceName>publishDataRouter</serviceName>
+		<serviceImpl>publishDataRouterServiceImpl</serviceImpl>
+		<serviceMethod>publishDataRouter</serviceMethod>
+	</sales-service>
+</sales-services>

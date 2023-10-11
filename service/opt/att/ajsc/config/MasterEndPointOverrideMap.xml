@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterEndPointOverrideMap xsi:schemaLocation="http://csi.cingular.com/CSI/Namespaces/Types/Private/Implementation/MasterEndPointOverrideMap.xsd MasterEndPointOverrideMap.xsd" xmlns="http://csi.cingular.com/CSI/Namespaces/Types/Private/Implementation/MasterEndPointOverrideMap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<type>CSI-Service</type>
+	   <MasterEndpoint>
+        <name>CAET</name>
+        <routingType>DME2</routingType>
+        <componentName>com.att.csid.CAET</componentName>
+        <version>4</version>
+        <envContext>TEST</envContext>
+    </MasterEndpoint>
+	<MasterEndpoint>
+		<name>PartnerProfileService</name>
+		<routingType>DME2</routingType>
+		<componentName>com.att.csid.PartnerProfileService</componentName>
+		<version>2</version>
+		<envContext>TEST</envContext>
+		<routeOffer>D2A</routeOffer>
+	</MasterEndpoint>
+<!--
+	Here is an example of a Service entry in the MEPOM file.
+	<MasterEndpoint>
+		<name>InquireInternationalOfferings</name>
+		<routingType>DME2</routingType>
+		<componentName>com.att.csi.m2e.InquireInternationalOfferings</componentName>
+		<version>100</version>
+	</MasterEndpoint>
+-->
+</MasterEndPointOverrideMap>

@@ -1,0 +1,722 @@
+2018/04/11 14:38:43.095 -0400|INFO|IBMADM-LJ772S|9432|18|null.null|DME2 Version=2.8.13
+2018/04/11 14:38:44.261 -0400|WARNING|IBMADM-LJ772S|9432|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 14:38:44.264 -0400|INFO|IBMADM-LJ772S|9432|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:38:44.266 -0400|INFO|IBMADM-LJ772S|9432|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:38:44.268 -0400|INFO|IBMADM-LJ772S|9432|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:38:44.269 -0400|INFO|IBMADM-LJ772S|9432|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 14:38:44.272 -0400|INFO|IBMADM-LJ772S|9432|18|null.null|DME2 Version=2.8.13
+2018/04/11 14:38:44.316 -0400|WARNING|IBMADM-LJ772S|9432|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 14:39:58.720 -0400|INFO|IBMADM-LJ772S|9432|96|c.a.a.d.a.u.LogUtil.doReport|ID:0b9a360c-d9f5-425e-b3af-8fb1e4d114f0|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14197.vci.att.com:8100/authn/basicAuth;ResponseStatus=401;EndpointElapsedMs=1021;AllEndpointAttemptsElapsedMs=2482;ResponseSize=0
+2018/04/11 14:40:16.183 -0400|INFO|IBMADM-LJ772S|9432|90|c.a.a.d.a.u.LogUtil.doReport|ID:dcb65253-9cb4-4cf3-8a91-0d817df912de|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=392;AllEndpointAttemptsElapsedMs=396;ResponseSize=0
+2018/04/11 14:43:50.167 -0400|INFO|IBMADM-LJ772S|9432|90|c.a.a.d.a.u.LogUtil.doReport|ID:36f96b23-d6ff-49d7-9c6d-9547742fc489|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=160;AllEndpointAttemptsElapsedMs=161;ResponseSize=0
+2018/04/11 14:44:07.294 -0400|INFO|IBMADM-LJ772S|9432|89|c.a.a.d.a.u.LogUtil.doReport|ID:d242b13a-7430-4c18-92b9-2d9666866eef|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=401;EndpointElapsedMs=25;AllEndpointAttemptsElapsedMs=26;ResponseSize=0
+2018/04/11 14:45:03.362 -0400|SEVERE|IBMADM-LJ772S|9432|26|null.null|com.att.aft.dme2.api.util.grm.GRMServiceAccessor|DME2TimerTask::EndpointRefreshTimer|N/A|N/A|GRM accessor rethrowing as AFT-DME2-0904: com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Error during saving a multipart message.
+ - Throwable occurred: com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Error during saving a multipart message
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.saveChanges(Unknown Source)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.getSOAPRequest(GRMServiceAccessor.java:327)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.findRunningServiceEndPoint(GRMServiceAccessor.java:211)
+	at com.att.aft.dme2.api.util.DME2EndpointRegistryGRM.fetchEndpoints(DME2EndpointRegistryGRM.java:873)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshCachedEndpoint(DME2EndpointCache.java:240)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshAllCachedEndpoints(DME2EndpointCache.java:380)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refresh(DME2EndpointCache.java:205)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache$2.run(DME2EndpointCache.java:154)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+Caused by: com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Unable to get header stream in saveChanges: 
+	... 10 more
+Caused by: java.io.IOException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/services/javax.xml.transform.TransformerFactory]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.SOAPPartImpl.getContentAsStream(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.getHeaderBytes(Unknown Source)
+	... 10 more
+
+CAUSE:
+
+com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Unable to get header stream in saveChanges: 
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.saveChanges(Unknown Source)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.getSOAPRequest(GRMServiceAccessor.java:327)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.findRunningServiceEndPoint(GRMServiceAccessor.java:211)
+	at com.att.aft.dme2.api.util.DME2EndpointRegistryGRM.fetchEndpoints(DME2EndpointRegistryGRM.java:873)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshCachedEndpoint(DME2EndpointCache.java:240)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshAllCachedEndpoints(DME2EndpointCache.java:380)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refresh(DME2EndpointCache.java:205)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache$2.run(DME2EndpointCache.java:154)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+Caused by: java.io.IOException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/services/javax.xml.transform.TransformerFactory]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.SOAPPartImpl.getContentAsStream(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.getHeaderBytes(Unknown Source)
+	... 10 more
+
+CAUSE:
+
+java.io.IOException: Illegal access: this web application instance has been stopped already. Could not load [META-INF/services/javax.xml.transform.TransformerFactory]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.impl.EnvelopeImpl.output(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.SOAPPartImpl.getContentAsStream(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.getHeaderBytes(Unknown Source)
+	at com.sun.xml.internal.messaging.saaj.soap.MessageImpl.saveChanges(Unknown Source)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.getSOAPRequest(GRMServiceAccessor.java:327)
+	at com.att.aft.dme2.api.util.grm.GRMServiceAccessor.findRunningServiceEndPoint(GRMServiceAccessor.java:211)
+	at com.att.aft.dme2.api.util.DME2EndpointRegistryGRM.fetchEndpoints(DME2EndpointRegistryGRM.java:873)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshCachedEndpoint(DME2EndpointCache.java:240)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refreshAllCachedEndpoints(DME2EndpointCache.java:380)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache.refresh(DME2EndpointCache.java:205)
+	at com.att.aft.dme2.api.util.cache.DME2EndpointCache$2.run(DME2EndpointCache.java:154)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2018/04/11 14:59:49.717 -0400|INFO|IBMADM-LJ772S|8556|18|null.null|DME2 Version=2.8.13
+2018/04/11 14:59:50.642 -0400|WARNING|IBMADM-LJ772S|8556|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 14:59:50.645 -0400|INFO|IBMADM-LJ772S|8556|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:59:50.647 -0400|INFO|IBMADM-LJ772S|8556|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:59:50.649 -0400|INFO|IBMADM-LJ772S|8556|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 14:59:50.650 -0400|INFO|IBMADM-LJ772S|8556|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 14:59:50.652 -0400|INFO|IBMADM-LJ772S|8556|18|null.null|DME2 Version=2.8.13
+2018/04/11 14:59:50.693 -0400|WARNING|IBMADM-LJ772S|8556|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:03:46.069 -0400|INFO|IBMADM-LJ772S|8556|87|c.a.a.d.a.u.LogUtil.doReport|ID:ec579a11-03e5-4cd0-8541-9b108cc47b9d|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=439;AllEndpointAttemptsElapsedMs=1542;ResponseSize=0
+2018/04/11 15:06:59.471 -0400|INFO|IBMADM-LJ772S|2436|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:07:00.305 -0400|WARNING|IBMADM-LJ772S|2436|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:07:00.308 -0400|INFO|IBMADM-LJ772S|2436|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:07:00.310 -0400|INFO|IBMADM-LJ772S|2436|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:07:00.313 -0400|INFO|IBMADM-LJ772S|2436|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:07:00.314 -0400|INFO|IBMADM-LJ772S|2436|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:07:00.321 -0400|INFO|IBMADM-LJ772S|2436|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:07:00.366 -0400|WARNING|IBMADM-LJ772S|2436|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:07:33.353 -0400|INFO|IBMADM-LJ772S|2436|96|c.a.a.d.a.u.LogUtil.doReport|ID:6013130d-f664-4ddd-99ed-94907b3b8441|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=541;AllEndpointAttemptsElapsedMs=2062;ResponseSize=0
+2018/04/11 15:08:33.353 -0400|INFO|IBMADM-LJ772S|4576|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:08:34.547 -0400|WARNING|IBMADM-LJ772S|4576|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:08:34.550 -0400|INFO|IBMADM-LJ772S|4576|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:08:34.553 -0400|INFO|IBMADM-LJ772S|4576|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:08:34.555 -0400|INFO|IBMADM-LJ772S|4576|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:08:34.557 -0400|INFO|IBMADM-LJ772S|4576|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:08:34.561 -0400|INFO|IBMADM-LJ772S|4576|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:08:34.637 -0400|WARNING|IBMADM-LJ772S|4576|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:09:39.906 -0400|INFO|IBMADM-LJ772S|4576|95|c.a.a.d.a.u.LogUtil.doReport|ID:69375686-b605-4915-b2ce-e5081c3d951d|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=466;AllEndpointAttemptsElapsedMs=1439;ResponseSize=0
+2018/04/11 15:10:43.012 -0400|INFO|IBMADM-LJ772S|4576|95|c.a.a.d.a.u.LogUtil.doReport|ID:d03bfe13-9ee0-4741-9c51-6b1f0a603c99|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=127;AllEndpointAttemptsElapsedMs=128;ResponseSize=0
+2018/04/11 15:52:46.205 -0400|INFO|IBMADM-LJ772S|12024|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:52:47.332 -0400|WARNING|IBMADM-LJ772S|12024|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:52:47.342 -0400|INFO|IBMADM-LJ772S|12024|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:52:47.339 -0400|INFO|IBMADM-LJ772S|12024|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:52:47.341 -0400|INFO|IBMADM-LJ772S|12024|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:52:47.346 -0400|INFO|IBMADM-LJ772S|12024|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:52:47.337 -0400|INFO|IBMADM-LJ772S|12024|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:52:47.395 -0400|WARNING|IBMADM-LJ772S|12024|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:54:20.879 -0400|INFO|IBMADM-LJ772S|9608|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:54:21.937 -0400|WARNING|IBMADM-LJ772S|9608|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:54:21.942 -0400|INFO|IBMADM-LJ772S|9608|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:54:21.940 -0400|INFO|IBMADM-LJ772S|9608|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:54:21.955 -0400|INFO|IBMADM-LJ772S|9608|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:54:21.959 -0400|INFO|IBMADM-LJ772S|9608|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:54:21.953 -0400|INFO|IBMADM-LJ772S|9608|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:54:22.035 -0400|WARNING|IBMADM-LJ772S|9608|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:54:58.051 -0400|INFO|IBMADM-LJ772S|9608|95|c.a.a.d.a.u.LogUtil.doReport|ID:a2ff5681-6b75-4a1e-982f-2d3bc79b6335|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14198.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=485;AllEndpointAttemptsElapsedMs=3777;ResponseSize=0
+2018/04/11 15:54:59.162 -0400|INFO|IBMADM-LJ772S|9608|67|c.a.a.d.a.u.LogUtil.doReport|ID:601535ad-0b68-4c99-8a52-6cdc0ec33b7b|lj772s|AFT-DME2-6109: Request received successfully and ready to be dispatched [Context: QueueURI=/service=com.att.csid.CAET/version=4/envContext=TEST/;]
+2018/04/11 15:54:59.731 -0400|SEVERE|IBMADM-LJ772S|9608|67|c.a.a.d.a.u.LogUtil.doReport|ID:601535ad-0b68-4c99-8a52-6cdc0ec33b7b|lj772s|AFT-DME2-0702: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+ - Throwable occurred: com.att.aft.dme2.api.DME2Exception: [AFT-DME2-0702]: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+	at com.att.aft.dme2.api.DME2Exchange.execute(DME2Exchange.java:1064)
+	at com.att.aft.dme2.api.DME2Client.send(DME2Client.java:373)
+	at com.att.aft.dme2.jms.DME2JMSRemoteQueue.put(DME2JMSRemoteQueue.java:141)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:107)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:67)
+	at com.att.api.framework.common.service.InvokeService.invokeService(InvokeService.java:211)
+	at com.att.api.framework.common.exceptionhandler.ServiceInvocationUtil.sendAndReceive(ServiceInvocationUtil.java:76)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateUsingCAET(ExceptionHandler.java:410)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateException(ExceptionHandler.java:319)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.getFaultInfoFromException(ExceptionHandler.java:160)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleException(ExceptionUtils.java:61)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.handleException(TransactionCAETExceptionHandler.java:51)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.defaultHandler(TransactionCAETExceptionHandler.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:458)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:289)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:262)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:178)
+	at org.apache.camel.component.bean.BeanProducer.process(BeanProducer.java:41)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.FatalFallbackErrorHandler.process(FatalFallbackErrorHandler.java:81)
+	at org.apache.camel.processor.RedeliveryErrorHandler.deliverToFailureProcessor(RedeliveryErrorHandler.java:1057)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:97)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.syncInvoke(CxfRsInvoker.java:139)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.performInvocation(CxfRsInvoker.java:72)
+	at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:96)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:189)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:99)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308)
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:121)
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:262)
+	at org.apache.cxf.transport.servlet.ServletController.invokeDestination(ServletController.java:234)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:208)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:160)
+	at org.apache.cxf.transport.servlet.CXFNonSpringServlet.invoke(CXFNonSpringServlet.java:180)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.handleRequest(AbstractHTTPServlet.java:299)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.doGet(AbstractHTTPServlet.java:223)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.service(AbstractHTTPServlet.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.MSPreFilter.doFilter(MSPreFilter.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.cadi.filter.CadiFilter.doFilter(CadiFilter.java:229)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.CAETFilter.doFilter(CAETFilter.java:42)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.prometheus.PrometheusFilter.doFilter(PrometheusFilter.java:54)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateInitFilter.doFilter(TransactionStateInitFilter.java:78)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.rnn.RNNFilter.doFilter(RNNFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionLoggingFilter.doFilter(TransactionLoggingFilter.java:92)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateCreateFilter.doFilter(TransactionStateCreateFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:47)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018/04/11 15:55:00.201 -0400|INFO|IBMADM-LJ772S|9608|67|c.a.a.d.a.u.LogUtil.doReport|ID:7b38de42-b0dc-4016-908d-40946912a8cc|lj772s|AFT-DME2-6109: Request received successfully and ready to be dispatched [Context: QueueURI=/service=com.att.csid.CAET/version=4/envContext=TEST/;]
+2018/04/11 15:55:00.227 -0400|SEVERE|IBMADM-LJ772S|9608|67|c.a.a.d.a.u.LogUtil.doReport|ID:7b38de42-b0dc-4016-908d-40946912a8cc|lj772s|AFT-DME2-0702: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+ - Throwable occurred: com.att.aft.dme2.api.DME2Exception: [AFT-DME2-0702]: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+	at com.att.aft.dme2.api.DME2Exchange.execute(DME2Exchange.java:1064)
+	at com.att.aft.dme2.api.DME2Client.send(DME2Client.java:373)
+	at com.att.aft.dme2.jms.DME2JMSRemoteQueue.put(DME2JMSRemoteQueue.java:141)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:107)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:67)
+	at com.att.api.framework.common.service.InvokeService.invokeService(InvokeService.java:211)
+	at com.att.api.framework.common.exceptionhandler.ServiceInvocationUtil.sendAndReceive(ServiceInvocationUtil.java:76)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateUsingCAET(ExceptionHandler.java:410)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateException(ExceptionHandler.java:319)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.getFaultInfoFromException(ExceptionHandler.java:160)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleException(ExceptionUtils.java:61)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleException(ExceptionUtils.java:36)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleFilterException(ExceptionUtils.java:186)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleFilterException(ExceptionUtils.java:177)
+	at com.att.api.framework.ajsc.filter.CAETFilter.doFilter(CAETFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.prometheus.PrometheusFilter.doFilter(PrometheusFilter.java:54)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateInitFilter.doFilter(TransactionStateInitFilter.java:78)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.rnn.RNNFilter.doFilter(RNNFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionLoggingFilter.doFilter(TransactionLoggingFilter.java:92)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateCreateFilter.doFilter(TransactionStateCreateFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:47)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018/04/11 15:56:24.552 -0400|INFO|IBMADM-LJ772S|6544|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:56:25.457 -0400|WARNING|IBMADM-LJ772S|6544|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:56:25.460 -0400|INFO|IBMADM-LJ772S|6544|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:56:25.463 -0400|INFO|IBMADM-LJ772S|6544|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:56:25.470 -0400|INFO|IBMADM-LJ772S|6544|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:56:25.474 -0400|INFO|IBMADM-LJ772S|6544|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:56:25.471 -0400|INFO|IBMADM-LJ772S|6544|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:56:25.539 -0400|WARNING|IBMADM-LJ772S|6544|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:56:52.163 -0400|INFO|IBMADM-LJ772S|6544|91|c.a.a.d.a.u.LogUtil.doReport|ID:29db8322-49e8-4de4-9ff1-6d3f38ed02a3|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=384;AllEndpointAttemptsElapsedMs=1203;ResponseSize=0
+2018/04/11 15:57:16.134 -0400|INFO|IBMADM-LJ772S|6544|60|c.a.a.d.a.u.LogUtil.doReport|ID:fa78bc65-59e9-4eba-809f-33c17d515b22|lj772s|AFT-DME2-6109: Request received successfully and ready to be dispatched [Context: QueueURI=/service=com.att.csid.CAET/version=4/envContext=TEST/;]
+2018/04/11 15:57:17.474 -0400|SEVERE|IBMADM-LJ772S|6544|60|c.a.a.d.a.u.LogUtil.doReport|ID:fa78bc65-59e9-4eba-809f-33c17d515b22|lj772s|AFT-DME2-0702: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+ - Throwable occurred: com.att.aft.dme2.api.DME2Exception: [AFT-DME2-0702]: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+	at com.att.aft.dme2.api.DME2Exchange.execute(DME2Exchange.java:1064)
+	at com.att.aft.dme2.api.DME2Client.send(DME2Client.java:373)
+	at com.att.aft.dme2.jms.DME2JMSRemoteQueue.put(DME2JMSRemoteQueue.java:141)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:107)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:67)
+	at com.att.api.framework.common.service.InvokeService.invokeService(InvokeService.java:211)
+	at com.att.api.framework.common.exceptionhandler.ServiceInvocationUtil.sendAndReceive(ServiceInvocationUtil.java:76)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateUsingCAET(ExceptionHandler.java:410)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateException(ExceptionHandler.java:319)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.getFaultInfoFromException(ExceptionHandler.java:160)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleException(ExceptionUtils.java:61)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.handleException(TransactionCAETExceptionHandler.java:51)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.defaultHandler(TransactionCAETExceptionHandler.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:458)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:289)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:262)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:178)
+	at org.apache.camel.component.bean.BeanProducer.process(BeanProducer.java:41)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.FatalFallbackErrorHandler.process(FatalFallbackErrorHandler.java:81)
+	at org.apache.camel.processor.RedeliveryErrorHandler.deliverToFailureProcessor(RedeliveryErrorHandler.java:1057)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:97)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.syncInvoke(CxfRsInvoker.java:139)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.performInvocation(CxfRsInvoker.java:72)
+	at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:96)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:189)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:99)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308)
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:121)
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:262)
+	at org.apache.cxf.transport.servlet.ServletController.invokeDestination(ServletController.java:234)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:208)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:160)
+	at org.apache.cxf.transport.servlet.CXFNonSpringServlet.invoke(CXFNonSpringServlet.java:180)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.handleRequest(AbstractHTTPServlet.java:299)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.doGet(AbstractHTTPServlet.java:223)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.service(AbstractHTTPServlet.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.MSPreFilter.doFilter(MSPreFilter.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.cadi.filter.CadiFilter.doFilter(CadiFilter.java:229)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.CAETFilter.doFilter(CAETFilter.java:42)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.prometheus.PrometheusFilter.doFilter(PrometheusFilter.java:54)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateInitFilter.doFilter(TransactionStateInitFilter.java:78)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.rnn.RNNFilter.doFilter(RNNFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionLoggingFilter.doFilter(TransactionLoggingFilter.java:92)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateCreateFilter.doFilter(TransactionStateCreateFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:47)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018/04/11 15:58:40.895 -0400|INFO|IBMADM-LJ772S|9652|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:58:41.731 -0400|WARNING|IBMADM-LJ772S|9652|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:58:41.735 -0400|INFO|IBMADM-LJ772S|9652|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:58:41.737 -0400|INFO|IBMADM-LJ772S|9652|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:58:41.739 -0400|INFO|IBMADM-LJ772S|9652|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 15:58:41.740 -0400|INFO|IBMADM-LJ772S|9652|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 15:58:41.745 -0400|INFO|IBMADM-LJ772S|9652|21|null.null|DME2 Version=2.8.13
+2018/04/11 15:58:41.791 -0400|WARNING|IBMADM-LJ772S|9652|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 15:59:02.916 -0400|INFO|IBMADM-LJ772S|9652|95|c.a.a.d.a.u.LogUtil.doReport|ID:ae8ba9d6-6ca3-4058-a517-4b75cdf1f29f|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14197.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=540;AllEndpointAttemptsElapsedMs=1650;ResponseSize=0
+2018/04/11 15:59:15.162 -0400|INFO|IBMADM-LJ772S|9652|60|c.a.a.d.a.u.LogUtil.doReport|ID:245aa638-f9ef-4e50-b812-c468fd7b24aa|lj772s|AFT-DME2-6109: Request received successfully and ready to be dispatched [Context: QueueURI=/service=com.att.csid.CAET/version=4/envContext=TEST/;]
+2018/04/11 15:59:15.480 -0400|SEVERE|IBMADM-LJ772S|9652|60|c.a.a.d.a.u.LogUtil.doReport|ID:245aa638-f9ef-4e50-b812-c468fd7b24aa|lj772s|AFT-DME2-0702: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+ - Throwable occurred: com.att.aft.dme2.api.DME2Exception: [AFT-DME2-0702]: No endpoints were registered after trying all route offer search possibilities.  Validate that the service has running instances that are properly registering and renewing their endpoint lease. [Context: service=http://DME2SEARCH/service=com.att.csid.CAET/version=4/envContext=TEST//partner=*/stickySelectorKey=;routeOffersTried=DEFAULT:;]
+	at com.att.aft.dme2.api.DME2Exchange.execute(DME2Exchange.java:1064)
+	at com.att.aft.dme2.api.DME2Client.send(DME2Client.java:373)
+	at com.att.aft.dme2.jms.DME2JMSRemoteQueue.put(DME2JMSRemoteQueue.java:141)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:107)
+	at com.att.aft.dme2.jms.DME2JMSQueueSender.send(DME2JMSQueueSender.java:67)
+	at com.att.api.framework.common.service.InvokeService.invokeService(InvokeService.java:211)
+	at com.att.api.framework.common.exceptionhandler.ServiceInvocationUtil.sendAndReceive(ServiceInvocationUtil.java:76)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateUsingCAET(ExceptionHandler.java:410)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.translateException(ExceptionHandler.java:319)
+	at com.att.api.framework.common.exceptionhandler.ExceptionHandler.getFaultInfoFromException(ExceptionHandler.java:160)
+	at com.att.api.framework.ajsc.utils.ExceptionUtils.handleException(ExceptionUtils.java:61)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.handleException(TransactionCAETExceptionHandler.java:51)
+	at com.att.api.framework.ajsc.nonmodeled.TransactionCAETExceptionHandler.defaultHandler(TransactionCAETExceptionHandler.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:458)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:289)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:262)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:178)
+	at org.apache.camel.component.bean.BeanProducer.process(BeanProducer.java:41)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.FatalFallbackErrorHandler.process(FatalFallbackErrorHandler.java:81)
+	at org.apache.camel.processor.RedeliveryErrorHandler.deliverToFailureProcessor(RedeliveryErrorHandler.java:1057)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.ChoiceProcessor.process(ChoiceProcessor.java:117)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.ChoiceProcessor.process(ChoiceProcessor.java:117)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.DelegateAsyncProcessor.process(DelegateAsyncProcessor.java:97)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.syncInvoke(CxfRsInvoker.java:139)
+	at org.apache.camel.component.cxf.jaxrs.CxfRsInvoker.performInvocation(CxfRsInvoker.java:72)
+	at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:96)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:189)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:99)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308)
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:121)
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:262)
+	at org.apache.cxf.transport.servlet.ServletController.invokeDestination(ServletController.java:234)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:208)
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:160)
+	at org.apache.cxf.transport.servlet.CXFNonSpringServlet.invoke(CXFNonSpringServlet.java:180)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.handleRequest(AbstractHTTPServlet.java:299)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.doGet(AbstractHTTPServlet.java:223)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.service(AbstractHTTPServlet.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.MSPreFilter.doFilter(MSPreFilter.java:122)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.cadi.filter.CadiFilter.doFilter(CadiFilter.java:229)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.CAETFilter.doFilter(CAETFilter.java:42)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.prometheus.PrometheusFilter.doFilter(PrometheusFilter.java:54)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateInitFilter.doFilter(TransactionStateInitFilter.java:78)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.rnn.RNNFilter.doFilter(RNNFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionLoggingFilter.doFilter(TransactionLoggingFilter.java:92)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.api.framework.ajsc.filter.TransactionStateCreateFilter.doFilter(TransactionStateCreateFilter.java:115)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.att.sales.framework.filters.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:47)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018/04/11 16:00:52.530 -0400|INFO|IBMADM-LJ772S|3292|21|null.null|DME2 Version=2.8.13
+2018/04/11 16:00:53.453 -0400|WARNING|IBMADM-LJ772S|3292|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 16:00:53.456 -0400|INFO|IBMADM-LJ772S|3292|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 16:00:53.459 -0400|INFO|IBMADM-LJ772S|3292|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 16:00:53.462 -0400|INFO|IBMADM-LJ772S|3292|21|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 16:00:53.463 -0400|INFO|IBMADM-LJ772S|3292|21|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 16:00:53.468 -0400|INFO|IBMADM-LJ772S|3292|21|null.null|DME2 Version=2.8.13
+2018/04/11 16:00:53.530 -0400|WARNING|IBMADM-LJ772S|3292|21|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 16:01:19.966 -0400|INFO|IBMADM-LJ772S|3292|91|c.a.a.d.a.u.LogUtil.doReport|ID:f1302a50-8e8e-4d6d-aca3-e0344503ae97|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=205;AllEndpointAttemptsElapsedMs=1904;ResponseSize=0
+2018/04/11 16:01:32.074 -0400|INFO|IBMADM-LJ772S|3292|95|c.a.a.d.a.u.LogUtil.doReport|ID:369c8e83-fe14-4a25-b91d-7e8e2025dc7f|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=464;AllEndpointAttemptsElapsedMs=3328;ResponseSize=287
+2018/04/11 16:01:32.717 -0400|INFO|IBMADM-LJ772S|3292|93|c.a.a.d.a.u.LogUtil.doReport|ID:7aceb4b1-26a9-4e3e-b526-5db15d529092|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://alpd358.aldc.att.com:58640/service=com.att.aft.MetricsService/version=1.2.11/envContext=PROD/routeOffer=DEFAULT;ResponseStatus=200;EndpointElapsedMs=155;AllEndpointAttemptsElapsedMs=343;ResponseSize=0
+2018/04/11 17:29:02.769 -0400|INFO|IBMADM-LJ772S|11832|26|null.null|DME2 Version=2.8.13
+2018/04/11 17:29:04.034 -0400|INFO|IBMADM-LJ772S|11832|26|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:29:04.034 -0400|INFO|IBMADM-LJ772S|11832|26|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:29:04.032 -0400|INFO|IBMADM-LJ772S|11832|26|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:29:04.034 -0400|INFO|IBMADM-LJ772S|11832|26|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 17:29:04.029 -0400|WARNING|IBMADM-LJ772S|11832|26|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 17:29:07.986 -0400|INFO|IBMADM-LJ772S|11832|84|c.a.a.d.a.u.LogUtil.doReport|ID:06540b20-5cc7-4cee-bcfa-5a02f2089708|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=211;AllEndpointAttemptsElapsedMs=1768;ResponseSize=287
+2018/04/11 17:29:09.139 -0400|INFO|IBMADM-LJ772S|11832|80|c.a.a.d.a.u.LogUtil.doReport|ID:befe80df-c332-4b92-b9dc-f3b56b0aab88|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://alpd357.aldc.att.com:40263/service=com.att.aft.MetricsService/version=1.2.11/envContext=PROD/routeOffer=DEFAULT;ResponseStatus=200;EndpointElapsedMs=224;AllEndpointAttemptsElapsedMs=586;ResponseSize=0
+2018/04/11 17:31:36.867 -0400|INFO|IBMADM-LJ772S|12072|31|null.null|DME2 Version=2.8.13
+2018/04/11 17:31:37.787 -0400|WARNING|IBMADM-LJ772S|12072|31|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 17:31:37.790 -0400|INFO|IBMADM-LJ772S|12072|31|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:31:37.792 -0400|INFO|IBMADM-LJ772S|12072|31|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:31:37.794 -0400|INFO|IBMADM-LJ772S|12072|31|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 17:31:37.793 -0400|INFO|IBMADM-LJ772S|12072|31|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:31:48.531 -0400|INFO|IBMADM-LJ772S|12072|83|c.a.a.d.a.u.LogUtil.doReport|ID:a8baab99-c820-4759-aa53-5b47eb798868|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=242;AllEndpointAttemptsElapsedMs=9611;ResponseSize=287
+2018/04/11 17:31:49.405 -0400|INFO|IBMADM-LJ772S|12072|80|c.a.a.d.a.u.LogUtil.doReport|ID:e4ded15e-f034-4492-b919-58759a684db4|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://alpd358.aldc.att.com:58640/service=com.att.aft.MetricsService/version=1.2.11/envContext=PROD/routeOffer=DEFAULT;ResponseStatus=200;EndpointElapsedMs=307;AllEndpointAttemptsElapsedMs=545;ResponseSize=0
+2018/04/11 17:34:14.884 -0400|INFO|IBMADM-LJ772S|12148|18|null.null|DME2 Version=2.8.13
+2018/04/11 17:34:15.692 -0400|WARNING|IBMADM-LJ772S|12148|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 17:34:15.700 -0400|INFO|IBMADM-LJ772S|12148|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:34:15.704 -0400|INFO|IBMADM-LJ772S|12148|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/11 17:34:15.706 -0400|INFO|IBMADM-LJ772S|12148|18|null.null|DME2 Version=2.8.13
+2018/04/11 17:34:15.702 -0400|INFO|IBMADM-LJ772S|12148|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:34:15.703 -0400|INFO|IBMADM-LJ772S|12148|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/11 17:34:15.787 -0400|WARNING|IBMADM-LJ772S|12148|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/11 17:34:39.525 -0400|INFO|IBMADM-LJ772S|12148|97|c.a.a.d.a.u.LogUtil.doReport|ID:becf6000-cd6a-4f0a-9b57-714d805a348f|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=490;AllEndpointAttemptsElapsedMs=2236;ResponseSize=0
+2018/04/11 17:34:40.582 -0400|INFO|IBMADM-LJ772S|12148|90|c.a.a.d.a.u.LogUtil.doReport|ID:27f03f4a-ebb8-4bb6-9443-280a7ae72095|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=251;AllEndpointAttemptsElapsedMs=614;ResponseSize=287
+2018/04/11 17:34:41.218 -0400|INFO|IBMADM-LJ772S|12148|96|c.a.a.d.a.u.LogUtil.doReport|ID:b108e1f7-1156-45e5-b947-55e4f60d1af8|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://alpd358.aldc.att.com:58640/service=com.att.aft.MetricsService/version=1.2.11/envContext=PROD/routeOffer=DEFAULT;ResponseStatus=200;EndpointElapsedMs=99;AllEndpointAttemptsElapsedMs=292;ResponseSize=0
+2018/04/12 22:59:18.199 -0400|INFO|IBMADM-LJ772S|11104|18|null.null|DME2 Version=2.8.13
+2018/04/12 23:28:48.130 -0400|INFO|IBMADM-LJ772S|4884|18|null.null|DME2 Version=2.8.13
+2018/04/12 23:28:49.072 -0400|WARNING|IBMADM-LJ772S|4884|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/12 23:28:49.075 -0400|INFO|IBMADM-LJ772S|4884|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/12 23:28:49.077 -0400|INFO|IBMADM-LJ772S|4884|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/12 23:28:49.080 -0400|INFO|IBMADM-LJ772S|4884|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/12 23:28:49.081 -0400|INFO|IBMADM-LJ772S|4884|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/12 23:28:49.084 -0400|INFO|IBMADM-LJ772S|4884|18|null.null|DME2 Version=2.8.13
+2018/04/12 23:28:49.123 -0400|WARNING|IBMADM-LJ772S|4884|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/12 23:29:18.852 -0400|INFO|IBMADM-LJ772S|4884|90|c.a.a.d.a.u.LogUtil.doReport|ID:f53a4f00-a2cc-4c7f-9f26-2a626e9d3995|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=1224;AllEndpointAttemptsElapsedMs=3358;ResponseSize=0
+2018/04/12 23:29:19.962 -0400|INFO|IBMADM-LJ772S|4884|95|c.a.a.d.a.u.LogUtil.doReport|ID:b017637c-e7d6-4340-b226-c2b4ef92d559|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=576;AllEndpointAttemptsElapsedMs=946;ResponseSize=287
+2018/04/12 23:29:24.961 -0400|INFO|IBMADM-LJ772S|4884|95|c.a.a.d.a.u.LogUtil.doReport|ID:f00d3210-bad1-4502-b0bf-4e81ad1893ee|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://alph418.aldc.att.com:15691/service=com.att.aft.MetricsService/version=1.2.11/envContext=PROD/routeOffer=DEFAULT;ResponseStatus=200;EndpointElapsedMs=1121;AllEndpointAttemptsElapsedMs=4730;ResponseSize=0
+2018/04/12 23:29:33.436 -0400|INFO|IBMADM-LJ772S|4884|94|c.a.a.d.a.u.LogUtil.doReport|ID:cce30d83-09e2-42f8-a831-2e5f4ddb611c|lj772s|Code=Client.Receive.Success;ServerURL=HTTP://130.6.143.207:31530/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=200;EndpointElapsedMs=405;AllEndpointAttemptsElapsedMs=407;ResponseSize=287
+2018/04/19 16:12:56.381 -0400|INFO|IBMADM-LJ772S|1516|18|null.null|DME2 Version=2.8.13
+2018/04/19 16:53:10.938 -0400|INFO|IBMADM-LJ772S|9888|20|null.null|DME2 Version=2.8.13
+2018/04/19 16:53:11.968 -0400|WARNING|IBMADM-LJ772S|9888|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:53:11.972 -0400|INFO|IBMADM-LJ772S|9888|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:53:11.974 -0400|INFO|IBMADM-LJ772S|9888|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:53:11.976 -0400|INFO|IBMADM-LJ772S|9888|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 16:53:11.979 -0400|INFO|IBMADM-LJ772S|9888|20|null.null|DME2 Version=2.8.13
+2018/04/19 16:53:11.975 -0400|INFO|IBMADM-LJ772S|9888|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:53:12.014 -0400|WARNING|IBMADM-LJ772S|9888|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:53:44.445 -0400|INFO|IBMADM-LJ772S|9888|96|c.a.a.d.a.u.LogUtil.doReport|ID:000b6815-b9eb-4434-b927-7e317f140559|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=427;AllEndpointAttemptsElapsedMs=2054;ResponseSize=0
+2018/04/19 16:53:45.464 -0400|INFO|IBMADM-LJ772S|9888|93|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=374;AllEndpointAttemptsElapsedMs=570;ResponseSize=149
+2018/04/19 16:56:44.235 -0400|INFO|IBMADM-LJ772S|11708|20|null.null|DME2 Version=2.8.13
+2018/04/19 16:56:45.162 -0400|WARNING|IBMADM-LJ772S|11708|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:56:45.164 -0400|INFO|IBMADM-LJ772S|11708|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:56:45.166 -0400|INFO|IBMADM-LJ772S|11708|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:56:45.169 -0400|INFO|IBMADM-LJ772S|11708|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:56:45.170 -0400|INFO|IBMADM-LJ772S|11708|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 16:56:45.173 -0400|INFO|IBMADM-LJ772S|11708|20|null.null|DME2 Version=2.8.13
+2018/04/19 16:56:45.211 -0400|WARNING|IBMADM-LJ772S|11708|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:57:14.330 -0400|INFO|IBMADM-LJ772S|11708|97|c.a.a.d.a.u.LogUtil.doReport|ID:07e6bba5-f830-4c8c-afd2-e90d5f6e9696|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14197.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=523;AllEndpointAttemptsElapsedMs=1719;ResponseSize=0
+2018/04/19 16:57:15.274 -0400|INFO|IBMADM-LJ772S|11708|99|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=271;AllEndpointAttemptsElapsedMs=472;ResponseSize=149
+2018/04/19 17:02:46.473 -0400|INFO|IBMADM-LJ772S|12100|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:02:47.322 -0400|INFO|IBMADM-LJ772S|12100|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:02:47.319 -0400|WARNING|IBMADM-LJ772S|12100|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:02:47.327 -0400|INFO|IBMADM-LJ772S|12100|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:02:47.330 -0400|INFO|IBMADM-LJ772S|12100|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:02:47.330 -0400|INFO|IBMADM-LJ772S|12100|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 17:02:47.334 -0400|INFO|IBMADM-LJ772S|12100|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:02:47.371 -0400|WARNING|IBMADM-LJ772S|12100|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:03:22.031 -0400|INFO|IBMADM-LJ772S|12100|99|c.a.a.d.a.u.LogUtil.doReport|ID:3bcadb01-c209-460a-8e3f-91c30b81bb98|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=1112;AllEndpointAttemptsElapsedMs=7707;ResponseSize=0
+2018/04/19 17:03:24.151 -0400|INFO|IBMADM-LJ772S|12100|97|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=922;AllEndpointAttemptsElapsedMs=2021;ResponseSize=149
+2018/04/19 17:17:11.468 -0400|INFO|IBMADM-LJ772S|10992|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:17:11.972 -0400|WARNING|IBMADM-LJ772S|10992|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:17:11.975 -0400|INFO|IBMADM-LJ772S|10992|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:17:11.976 -0400|INFO|IBMADM-LJ772S|10992|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:17:11.977 -0400|INFO|IBMADM-LJ772S|10992|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:17:11.978 -0400|INFO|IBMADM-LJ772S|10992|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 17:17:11.980 -0400|INFO|IBMADM-LJ772S|10992|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:17:12.004 -0400|WARNING|IBMADM-LJ772S|10992|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:18:04.155 -0400|INFO|IBMADM-LJ772S|10992|90|c.a.a.d.a.u.LogUtil.doReport|ID:0d067368-3ea0-47a1-8a20-af8168aadded|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=417;AllEndpointAttemptsElapsedMs=9020;ResponseSize=0
+2018/04/19 17:18:04.829 -0400|INFO|IBMADM-LJ772S|10992|97|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=415;AllEndpointAttemptsElapsedMs=536;ResponseSize=149
+2018/04/19 17:21:09.684 -0400|INFO|IBMADM-LJ772S|11476|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:21:10.206 -0400|WARNING|IBMADM-LJ772S|11476|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:21:10.208 -0400|INFO|IBMADM-LJ772S|11476|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:21:10.209 -0400|INFO|IBMADM-LJ772S|11476|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:21:10.211 -0400|INFO|IBMADM-LJ772S|11476|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:21:10.211 -0400|INFO|IBMADM-LJ772S|11476|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 17:21:10.213 -0400|INFO|IBMADM-LJ772S|11476|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:21:10.238 -0400|WARNING|IBMADM-LJ772S|11476|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:21:34.082 -0400|INFO|IBMADM-LJ772S|11476|99|c.a.a.d.a.u.LogUtil.doReport|ID:97764d3e-f9e8-49ff-81b4-a62e914a27ab|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14197.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=405;AllEndpointAttemptsElapsedMs=1413;ResponseSize=0
+2018/04/19 17:21:34.649 -0400|INFO|IBMADM-LJ772S|11476|92|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=205;AllEndpointAttemptsElapsedMs=448;ResponseSize=149
+2018/04/19 17:27:49.195 -0400|INFO|IBMADM-LJ772S|11628|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:27:50.036 -0400|WARNING|IBMADM-LJ772S|11628|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:27:50.039 -0400|INFO|IBMADM-LJ772S|11628|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:27:50.041 -0400|INFO|IBMADM-LJ772S|11628|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:27:50.042 -0400|INFO|IBMADM-LJ772S|11628|20|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 17:27:50.043 -0400|INFO|IBMADM-LJ772S|11628|20|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 17:27:50.045 -0400|INFO|IBMADM-LJ772S|11628|20|null.null|DME2 Version=2.8.13
+2018/04/19 17:27:50.073 -0400|WARNING|IBMADM-LJ772S|11628|20|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 17:28:14.283 -0400|INFO|IBMADM-LJ772S|11628|97|c.a.a.d.a.u.LogUtil.doReport|ID:6a33fd77-f64b-4827-bbaa-705f99d7113d|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14197.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=338;AllEndpointAttemptsElapsedMs=1507;ResponseSize=0
+2018/04/19 17:28:14.944 -0400|INFO|IBMADM-LJ772S|11628|92|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=438;AllEndpointAttemptsElapsedMs=559;ResponseSize=149
+2018/04/20 07:42:54.749 -0400|WARNING|IBMADM-LJ772S|11628|102|null.null|com.att.aft.dme2.api.util.DME2GRMJVMRegistration|DME2::DME2Server::jvmRenewTimer|N/A|N/A|Code=Exception.DME2EndpointRegistryGRM.renewAllLeases;Exception=%s: [com.att.aft.dme2.api.DME2Exception: [AFT-DME2-9731]: AFT Discovery URI Invalid: query to discovery service endpoints failed; unable to determine physical network address(s) for the provided URI. [Context: urls=[aftdsc:///?service=SOACloudEndpointRegistryGRMLWPService&version=1.0&bindingType=http&envContext=P];extendedMessage=No response data was obtained from a discovery service endpoint;], [AFT-DME2-9731]: AFT Discovery URI Invalid: query to discovery service endpoints failed; unable to determine physical network address(s) for the provided URI. [Context: urls=[aftdsc:///?service=SOACloudEndpointRegistryGRMLWPService&version=1.0&bindingType=http&envContext=P];extendedMessage=No response data was obtained from a discovery service endpoint;]]
+2018/04/23 10:50:40.648 -0400|INFO|IBMADM-LJ772S|5564|18|null.null|DME2 Version=2.8.13

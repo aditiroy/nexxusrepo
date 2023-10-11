@@ -1,0 +1,3 @@
+MAFREMOTE|CAM-inquireSubscriber|false|com.cingular.csi.csi.namespaces.types._private.adapterrequest.AdapterRequestInfo|java.lang.String|CAM|JAXB
+MAFREMOTE|OSS-getOSSStatus|false|com.cingular.csi.csi.namespaces.types._private.adapterrequest.AdapterRequestInfo|java.lang.String|OSS|XMLSTRING
+MAFREMOTE|PMOSSDB-getCSPCustomerCommunityValues|false|java.lang.String|java.lang.String|PMOSSDB|XMLSTRING

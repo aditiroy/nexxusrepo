@@ -1,0 +1,1 @@
+Place for ProperLoader properties files, used by common-configuration manager.

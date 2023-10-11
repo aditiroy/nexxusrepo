@@ -1,0 +1,125 @@
+<configuration scan="true" scanPeriod="3 seconds">
+	<!-- import eelf loggers -->
+	<!-- <include file="etc/logback-eelf.xml" /> -->
+
+	<!-- this will disable printing the logback startup messages -->
+	<!-- you may need to comment it out to troubleshoot logging issues -->
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<!-- this listener enables overriding of log levels in the logging-override.properties file -->
+	<contextListener class="com.att.api.framework.common.logging.override.ContextListener" />
+
+	<!-- set this to true to generate json-formatted log entries -->
+	<property name="USE_1T_LOGGING" value="false" />
+
+	<!-- setting this to true will format the log entries easier to read, but make sure it is false when deployed -->
+	<property name="USE_1T_PRETTY_PRINT" value="false" />
+
+	<!-- set this to true to generate log entries in legacy format -->
+	<property name="USE_LEGACY_LOGGING" value="true" />
+
+	<!-- set this to true send audit and performance tracking data to the csi dashboard -->
+	<property name="USE_DASHBOARD_LOGGING" value="false" />
+
+	<!-- this is the new 1T appender that writes json-formatted log entries -->
+	<appender name="1T" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="com.att.api.framework.common.logging.encoder.LoggingRecordEncoder">
+			<prettyPrint>${USE_1T_PRETTY_PRINT}</prettyPrint>
+		</encoder>
+	</appender>
+
+	<!-- and the old appender that writes using the legacy format -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} - %-5level %logger{36} [%thread] %n%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ASYNC_STDOUT" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="STDOUT" />
+	</appender>
+
+	<!-- configure special appenders and loggers to log to the dashboard via wmq (but only if dashboard logging enabled -->
+	<if condition='property("USE_DASHBOARD_LOGGING").equals("true")'>
+		<then>
+			<appender name="asyncWMQAuditAppender"
+				class="com.att.api.framework.common.logback.jmsappender.AsyncJmsAppender">
+				<param name="JndiConnPropFile" value="WMQJMSAPPENDERLOGGING" />
+				<param name="DestinationName" value="queue:///CSILOGQL.M2E.DASHBOARD02.NOT.D3A" />
+				<layout class="ch.qos.logback.classic.PatternLayout">
+					<Pattern>%m</Pattern>
+				</layout>
+			</appender>
+
+			<appender name="async_audit_log" class="ch.qos.logback.classic.AsyncAppender">
+				<appender-ref ref="asyncWMQAuditAppender" />
+			</appender>
+
+			<!-- audit logger must be set to INFO to actually write audit record -->
+			<logger name="audit" level="ERROR" additivity="false">
+				<appender-ref ref="async_audit_log" />
+			</logger>
+
+			<logger name="audit.Nexxus" level="INFO" additivity="false">
+				<appender-ref ref="async_audit_log" />
+			</logger>
+
+			<logger name="audit_DirectCall" level="INFO" additivity="false">
+				<appender-ref ref="async_audit_log" />
+			</logger>
+
+			<logger name="audit_BPM_Timing" level="INFO" additivity="false">
+				<appender-ref ref="async_audit_log" />
+			</logger>
+
+			<appender name="asyncWMQPerfAppender"
+				class="com.att.api.framework.common.logback.jmsappender.AsyncJmsAppender">
+				<param name="JndiConnPropFile" value="WMQJMSAPPENDERLOGGING" />
+				<param name="DestinationName" value="queue:///CSILOGQL.M2E.PERFORMANCE02.NOT.D3A" />
+				<layout class="ch.qos.logback.classic.PatternLayout">
+					<Pattern>%m</Pattern>
+				</layout>
+			</appender>
+
+			<appender name="async_perf_log" class="ch.qos.logback.classic.AsyncAppender">
+				<appender-ref ref="asyncWMQPerfAppender" />
+			</appender>
+
+			<logger name="performance.tracking" level="DEBUG" additivity="false">
+				<appender-ref ref="async_perf_log" />
+			</logger>
+		</then>
+	</if>
+
+	<!-- set specific log levels for particular loggers -->
+
+	<logger name="debug" level="INFO" />
+	<logger name="interfaces" level="DEBUG" />
+	<logger name="interfaces.Nexxus" level="DEBUG" />
+	<logger name="interfaces.PartnerProfileClient" level="ERROR" />
+	<logger name="interfaces.Utils.Voltage.common.VoltUnvolt" level="DEBUG" />
+	<logger name="interfaces.Utils.Voltage.encryptionproperty.EncryptionProperty" level="DEBUG" />
+	<logger name="UtilLib.VoltageAccess" level="DEBUG" />
+	<logger name="LoggerUtility" level="DEBUG" />
+	<logger name="FILE_MONITOR" level="DEBUG" />
+	<logger name="com.att.api.framework.common.logging.override" level="INFO" />
+	<logger name="com.att.aft.dme2.internal.jetty" level="ERROR" />
+	<logger name="org.springframework" level="ERROR" />
+
+	<!-- and, finally, the root logger -->
+
+	<root level="DEBUG">
+		<if condition='property("USE_LEGACY_LOGGING").equals("true")'>
+			<then>
+				<appender-ref ref="ASYNC_STDOUT" />
+			</then>
+		</if>
+
+		<if condition='property("USE_1T_LOGGING").equals("true")'>
+			<then>
+				<appender-ref ref="1T" />
+			</then>
+		</if>
+	</root>
+
+</configuration>

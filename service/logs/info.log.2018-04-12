@@ -1,0 +1,10 @@
+2018/04/19 16:09:32.544 -0400|INFO|IBMADM-LJ772S|9596|18|null.null|DME2 Version=2.8.13
+2018/04/19 16:09:33.294 -0400|WARNING|IBMADM-LJ772S|9596|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:09:33.300 -0400|INFO|IBMADM-LJ772S|9596|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:09:33.303 -0400|INFO|IBMADM-LJ772S|9596|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:09:33.301 -0400|INFO|IBMADM-LJ772S|9596|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/19 16:09:33.304 -0400|INFO|IBMADM-LJ772S|9596|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/19 16:09:33.307 -0400|INFO|IBMADM-LJ772S|9596|18|null.null|DME2 Version=2.8.13
+2018/04/19 16:09:33.339 -0400|WARNING|IBMADM-LJ772S|9596|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/19 16:10:04.145 -0400|INFO|IBMADM-LJ772S|9596|90|c.a.a.d.a.u.LogUtil.doReport|ID:95075b6b-8745-4e20-933d-b59e3250d89e|lj772s|Code=Client.Receive.Success;ServerURL=HTTPS://zlp14199.vci.att.com:8100/authn/basicAuth;ResponseStatus=200;EndpointElapsedMs=464;AllEndpointAttemptsElapsedMs=8022;ResponseSize=0
+2018/04/19 16:10:05.448 -0400|INFO|IBMADM-LJ772S|9596|88|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Code=Client.Receive.Success;ServerURL=HTTP://zlp28396.vci.att.com:32236/sales/fttmacdrules/fttservice/getvalidmacdlist;ResponseStatus=500;EndpointElapsedMs=515;AllEndpointAttemptsElapsedMs=1152;ResponseSize=149

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><schema elementFormDefault="qualified" targetNamespace="http://cio.att.com/commonheader/v3" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ch="http://cio.att.com/commonheader/v3">
+<!-- 
+============================================================================================
+                                        AT&T Proprietary (Internal Use Only)                                                            
+                  Not for use or disclosure outside the AT&T companies except under written agreement  
+                 (c) 2007 AT&T Intellectual Property. All rights reserved. AT&T and 
+                       the AT&T logo are trademarks of AT&T Intellectual Property.         
+============================================================================================ 
+Version Number: 3.3
+============================================================================================
+Change Log:
+Date          Version    Name          Description 
+====          =======   ====          ===========
+2008-3-12  1.0           bd1891        Changes since 3.1
+
+- WSCallback - added FaultURL
+- WSContext  - added FromAppId, ToAppId, Version, SourceIPAddress 
+- WSEndUserToken - added WSNameValue
+- WSException - added ErrorType, FailoverRequired, RetryRequired, AdditionalErrors, WSNameValue
+- Named type WSNameValueType was added and used by the elements thatrequire it. This was done, instead
+of adding them as annonymous types in the relevant elements, because some toolkits generate the 
+Java class names associated with annnymous types and the result is naming conflicts. As a result, you can't 
+tell which generated WSName value class is associated with which WSNameValue element. Note that the 
+annonymous WSNameValue type in WSContext was not changed to retain compatibility with the previous 
+header version.  
+============================================================================================
+-->
+	<element name="WSCallback">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" name="URL" type="string"/>
+				<element minOccurs="0" ref="ch:WSCorrelationId"/>
+				<element minOccurs="0" name="FaultURL" type="anyURI"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSContext">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" name="FromAppId" type="string"/>
+				<element minOccurs="0" name="ToAppId" type="string"/>
+				<element minOccurs="0" name="Version">
+					<complexType>
+						<sequence>
+							<element name="major" type="int"/>
+							<element name="minor" type="int"/>
+						</sequence>
+					</complexType>
+				</element>
+				<element minOccurs="0" name="SourceIPAddress" type="string"/>
+				<element maxOccurs="unbounded" minOccurs="0" name="WSNameValue">
+					<complexType>
+						<sequence>
+							<element name="Name" type="string"/>
+							<element name="Value" type="string"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSCorrelationId" type="string"/>
+	<element name="WSConversationId" type="string"/>
+	<element name="WSEndUserToken">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" name="Token" type="string"/>
+				<element minOccurs="0" name="TokenType" type="string"/>
+				<element maxOccurs="unbounded" minOccurs="0" name="WSNameValue" type="ch:WSNameValueType"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSEnterpriseLogging">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" name="ApplicationID" type="string"/>
+				<element minOccurs="0" name="LoggingKey" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSMessageData">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" name="MessageId" type="string"/>
+				<element minOccurs="0" name="RefToMessageId" type="string"/>
+				<element minOccurs="0" name="Timestamp" type="dateTime"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSResponseMessageExpiration" type="long"/>
+	<element name="WSHeader">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" ref="ch:WSEndUserToken"/>
+				<element minOccurs="0" ref="ch:WSContext"/>
+				<element minOccurs="0" ref="ch:WSCallback"/>
+				<element minOccurs="0" ref="ch:WSConversationId"/>
+				<element minOccurs="0" ref="ch:WSMessageData"/>
+				<element minOccurs="0" ref="ch:WSResponseMessageExpiration"/>
+				<element minOccurs="0" ref="ch:WSEnterpriseLogging"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSResponseHeader">
+		<complexType>
+			<sequence>
+				<element minOccurs="0" ref="ch:WSContext"/>
+				<element minOccurs="0" ref="ch:WSCorrelationId"/>
+				<element minOccurs="0" ref="ch:WSConversationId"/>
+				<element minOccurs="0" ref="ch:WSMessageData"/>
+				<element minOccurs="0" ref="ch:WSEnterpriseLogging"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="WSException">
+		<complexType>
+			<sequence>
+				<element name="Message" type="string"/>
+				<element name="ErrorCode" type="string"/>
+				<element default="Functional" minOccurs="0" name="ErrorType">
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="Functional"/>
+							<enumeration value="System"/>
+						</restriction>
+					</simpleType>
+				</element>
+				<element default="false" minOccurs="0" name="FailoverRequired" type="boolean"/>
+				<element default="false" minOccurs="0" name="RetryRequired" type="boolean"/>
+				<element maxOccurs="unbounded" minOccurs="0" name="AdditionalErrors">
+					<complexType>
+						<sequence>
+							<element name="Message" type="string"/>
+							<element name="ErrorCode" type="string"/>
+						</sequence>
+					</complexType>
+				</element>
+				<element maxOccurs="unbounded" minOccurs="0" name="WSNameValue" type="ch:WSNameValueType"/>
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="WSNameValueType">
+		<sequence>
+			<element name="Name" type="string"/>
+			<element name="Value" type="string"/>
+		</sequence>
+	</complexType>
+</schema>

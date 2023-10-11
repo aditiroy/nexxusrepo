@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <!-- create a tar.gz file containing the projects dependencies -->
+    <id>${assembly.id}</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+        <dependencySets>
+            <dependencySet>
+                <outputDirectory>/opt/att/ajsc/lib</outputDirectory>
+                <excludes>
+                  <!--   <exclude>org.slf4j:slf4j-log4j12</exclude> -->
+                    <exclude>javax.servlet:servlet-api</exclude>
+                    <exclude>javax.servlet:javax.servlet-api</exclude>
+                    <exclude>j2ee:j2ee</exclude>
+                    <exclude>log4j:log4j</exclude>
+                    <exclude>com.sun:j2ee</exclude>
+                    <exclude>log4j:apache-log4j-extras</exclude>
+                </excludes>
+            </dependencySet>
+        </dependencySets>
+	<fileSets>
+	    <fileSet>
+		<directory>${project.basedir}/src/main/resources</directory>
+		<includes>
+		    <include>application.properties</include>
+		</includes>
+		<outputDirectory>/</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    <fileSet>
+		<directory>${project.basedir}/src/main/docker</directory>
+		<includes>
+		    <include>Dockerfile</include>
+		    <include>startService.sh</include>
+		    <include>jfxrt.jar</include>
+		</includes>
+		<outputDirectory>/</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    <!-- <fileSet>
+		<directory>${project.basedir}/src/main/kubernetes</directory>
+		<includes>
+		    <include>*</include>
+		</includes>
+		<outputDirectory>/</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet> -->
+	    <fileSet>
+		<directory>${project.basedir}/src/main/groovy</directory>
+		<outputDirectory>src/main/groovy</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    <fileSet>
+		<directory>${project.basedir}/src/main/resources</directory>
+		<outputDirectory>src/main/resources</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    
+	    <!-- Comment this for Local testing and uncomment while committing it to code cloud - START --> 
+	    <fileSet>
+		<directory>${project.basedir}/etc</directory>
+		<outputDirectory>opt/att/ajsc/config</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	     <fileSet>
+			<directory>${project.basedir}/src/lib</directory>
+			<outputDirectory>opt/att/ajsc/lib</outputDirectory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    <!-- Comment this for Local testing and uncomment while committing it to code cloud - END --> 
+	    
+	    <!-- Un comment this for Local testing and comment while committing it to code cloud - START --> 
+	    <!-- <fileSet>
+		<directory>${project.basedir}/etc</directory>
+		<excludes>
+		<exclude>run.source</exclude>
+		</excludes>
+		<outputDirectory>opt/att/ajsc/config</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>
+	    <fileSet>
+		<directory>${project.basedir}/opt/att/ajsc/config</directory>
+		<outputDirectory>opt/att/ajsc/config</outputDirectory>
+		<useDefaultExcludes>true</useDefaultExcludes>
+	    </fileSet>  -->
+	     <!-- Un comment this for Local testing and comment while committing it to code cloud - END --> 
+	</fileSets>
+</assembly>

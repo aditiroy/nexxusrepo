@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<MESSAGES>
+
+	<!-- common messages start-->
+
+	<message>
+		<code>M00000</code>
+		<description>REQUEST_COMPLETED_SUCCESSFULLY</description>
+		<detailedDescription>REQUEST_COMPLETED_SUCCESSFULLY
+		</detailedDescription>
+	</message>
+	<message>
+		<code>M00001</code>
+		<description>SERVICE_IMPLEMENTATION_DOES_NOT_EXIST</description>
+		<detailedDescription>Service Implementation does not exist</detailedDescription>
+	</message>
+	
+	
+	<message>
+		<code>M00002</code>
+		<description>BAD_REQUEST</description>
+		<detailedDescription>Request body is Invalid and cannot be parsed</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00003</code>
+		<description>PROCESS_ERROR</description>
+		<detailedDescription>Process Error!!!</detailedDescription>
+	</message>
+	
+	<!-- common messages end-->
+	
+	
+	<!-- Example Error Codes are below -->
+	<message>
+		<code>M00089</code>
+		<description>USERNAME_INVALID</description>
+		<detailedDescription>Username is Invalid</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00090</code>
+		<description>DQID_INVALID</description>
+		<detailedDescription>dqId is Invalid</detailedDescription>
+	</message>
+	
+	
+	<message>
+		<code>M04301</code>
+		<description>Product is required request header and needs a valid value</description>
+		<detailedDescription>Product is required request header and needs a valid value 
+		</detailedDescription>
+	</message>
+	<!-- Example Validation Messages. Just for reference... -->	
+	<message>
+		<code>M04303</code>
+		<description>Name is required and  needs a valid value</description>
+		<detailedDescription>Name is required and  needs a valid value</detailedDescription>
+	</message>
+		<message>
+		<code>M04305</code>
+		<description>Port Speed needs a valid value</description>
+		<detailedDescription>Port Speed needs a valid value</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00077</code>
+		<description>BAD REQUEST</description>
+		<detailedDescription>INVALID OPTY_ID OR HR_ID</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00022</code>
+		<description>Service Not Found</description>
+		<detailedDescription>Service Not Found</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M09232</code>
+		<description>File Generation failed </description>
+		<detailedDescription>Nexxus Output file Generation Failed</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00021</code>
+		<description>INVALID SOLUTION_ID </description>
+		<detailedDescription>SolutionId is Invalid</detailedDescription>
+	</message>
+	<message>
+		<code>M00023</code>
+		<description>SSDF is down or contract id doesn't have Rates</description>
+		<detailedDescription>SSDF is down or contract id doesn't have Rates</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00030</code>
+		<description>NO GROUP FOUND</description>
+		<detailedDescription>Group is not available for the given solution</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00031</code>
+		<description>NO GROUP AND IGLOO QUOTE FOUND</description>
+		<detailedDescription>Group and igloo quote is not available for the given solution</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00033</code>
+		<description>Request is empty for solution fmo</description>
+		<detailedDescription>Request is not associated to the solution</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00032</code>
+		<description>MyPrice is not invoked</description>
+		<detailedDescription>MyPrice is not invoked as nxRequest and igloo quotes are not associated to the solution</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00034</code>
+		<description>Request is exist in target group</description>
+		<detailedDescription>Request is present in the target group selected</detailedDescription>
+	</message>
+	<!-- INR exceptions start-->
+	<message>
+		<code>INR001</code>
+		<description>XML to JSON rule not found</description>
+		<detailedDescription>XML to JSON rule not found</detailedDescription>
+	</message>
+	<message>
+		<code>INR002</code>
+		<description>XML file not found</description>
+		<detailedDescription>XML file not found</detailedDescription>
+	</message>
+	<message>
+		<code>INR003</code>
+		<description>XML parsing error</description>
+		<detailedDescription>XML parsing error</detailedDescription>
+	</message>
+	<message>
+		<code>INR004</code>
+		<description>line item lookup rule not found</description>
+		<detailedDescription>line item lookup rule not found</detailedDescription>
+	</message>
+	<message>
+		<code>INR005</code>
+		<description>json processing exception</description>
+		<detailedDescription>json processing exception</detailedDescription>
+	</message>	
+	<!-- INR exceptions end-->
+	<!-- Template File Processing Exception -->
+	<message>
+		<code>TF0001</code>
+		<description>File is a required field with valid value</description>
+		<detailedDescription>File is a required field with valid value</detailedDescription>
+	</message>
+	<message>
+		<code>TF0002</code>
+		<description>file extension is not valid</description>
+		<detailedDescription>please upload file with extension .xlsx and .xlsm  only</detailedDescription>
+	</message>
+	<message>
+		<code>TF0003</code>
+		<description>File type is a required field with valid value</description>
+		<detailedDescription>File type is a required field with valid value</detailedDescription>
+	</message>
+	<message>
+		<code>TF0004</code>
+		<description>file extension is not valid output file</description>
+		<detailedDescription>please upload file with extension .xlsx only for nexxus output file generation</detailedDescription>
+	</message>
+	<message>
+		<code>TF0005</code>
+		<description>file extension is not valid CDT file</description>
+		<detailedDescription>please upload file with extension .xlsm  only for cdt file</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00201</code>
+		<description>No data found</description>
+		<detailedDescription>No data found for given search criteria</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00202</code>
+		<description>File download failed</description>
+		<detailedDescription>File download failed</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00203</code>
+		<description>INVALID_REQUEST</description>
+		<detailedDescription>INVALID REQUEST</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00204</code>
+		<description>Status Error</description>
+		<detailedDescription>Status Error</detailedDescription>
+	</message>
+	<message>
+		<code>WF.ERR.001</code>
+		<description>File processing is delayed at subscriber end</description>
+		<detailedDescription>File processing is delayed at subscriber end</detailedDescription>
+	</message>
+	
+	<message>
+		<code>WF.ERR.002</code>
+		<description>File format is invalid or the file is corrupted</description>
+		<detailedDescription>File format is invalid or the file is corrupted</detailedDescription>
+	</message>
+	
+	<message>
+		<code>M00170</code>
+		<description>Attuid not Conditioned</description>
+		<detailedDescription>Attuid not Conditioned</detailedDescription>
+	</message>
+	<message>
+		<code>M00171</code>
+		<description>EFD_INVENTORY_CALL_FAILED</description>
+		<detailedDescription>Invalid search criteria exists in Nexxus DB</detailedDescription>
+	</message>
+		<message>
+		<code>M00172</code>
+		<description>EFD_INVENTORY_CALL_FAILED</description>
+		<detailedDescription>Pricing INR API processing failed in Nexxus</detailedDescription>
+	</message>
+	<message>
+		<code>M00205</code>
+		<description>INPROGRESS</description>
+		<detailedDescription>In Progress</detailedDescription>
+	</message>
+	<message>
+		<code>M00206</code>
+		<description>SUCCESS_WITH_FALLOUT</description>
+		<detailedDescription>Success with Fallout</detailedDescription>
+	</message>
+	<message>
+		<code>M00207</code>
+		<description>SUCCESS</description>
+		<detailedDescription>Success</detailedDescription>
+	</message>
+	<message>
+		<code>M00208</code>
+		<description>FAILED</description>
+		<detailedDescription>Failed</detailedDescription>
+	</message>
+	<message>
+		<code>M00209</code>
+		<description>FALLOUT</description>
+		<detailedDescription>FALLOUT</detailedDescription>
+	</message>
+	
+	
+	
+	<!-- TransmitDesignData -->
+	<message>
+		<code>M01101</code>
+		<description>OPTY_ID_NOT_FOUND</description>
+		<detailedDescription>OptyId is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01102</code>
+		<description>SOLUTION_ID_NOT_FOUND</description>
+		<detailedDescription>Solution id is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01103</code>
+		<description>NX_SOLUTION_ID_NOT_FOUND</description>
+		<detailedDescription>Nexxus solution id is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01104</code>
+		<description>ASR_ITEM_ID_NOT_FOUND</description>
+		<detailedDescription>ASR item id is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01105</code>
+		<description>STATUS_CODE_NOT_FOUND</description>
+		<detailedDescription>Status code is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01106</code>
+		<description>CONFIRMED_INTERVAL_NOT_FOUND</description>
+		<detailedDescription>Confirmed interval is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01107</code>
+		<description>ESTIMATED_INTERVAL_NOT_FOUND</description>
+		<detailedDescription>Estimated interval is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01108</code>
+		<description>END_POINT_TYPE_NOT_FOUND</description>
+		<detailedDescription>End point type is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01109</code>
+		<description>EDGELESS_DESIGN_IND_NOT_FOUND</description>
+		<detailedDescription>Edgeless design indicator is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01110</code>
+		<description>LOCATION_CLLI_NOT_FOUND</description>
+		<detailedDescription>Location clli is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01111</code>
+		<description>ALTERNATE_SWC_CLLI_NOT_FOUND</description>
+		<detailedDescription>Alternate swc clli interval is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01112</code>
+		<description>FIRST_NAME_NOT_FOUND</description>
+		<detailedDescription>NSS manager firstName is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01112</code>
+		<description>LAST_NAME_TYPE_NOT_FOUND</description>
+		<detailedDescription>NSS manager lastName is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M01113</code>
+		<description>ATT_UID_TYPE_NOT_FOUND</description>
+		<detailedDescription> NSS manager attuId is a required field with valid value </detailedDescription>
+	</message>
+	<message>
+		<code>M02010</code>
+		<description>TDD_DATA_NOT_FOUND</description>
+		<detailedDescription>Data not found </detailedDescription>
+	</message>
+	<message>
+		<code>M01117</code>
+		<description>PROCESS_ERROR_IN_SOAP_WS_CALL</description>
+		<detailedDescription>Soap WebService client processing failed in Nexxus</detailedDescription>
+	</message>
+	<message>
+		<code>M01118</code>
+		<description>PROCESS_ERROR_IN_CONFIG_DESIGN_CALL</description>
+		<detailedDescription>ConfigDesign processing failed in Nexxus</detailedDescription>
+	</message>
+	<message>
+		<code>M01119</code>
+		<description>PROCESS_ERROR_CONFIG_SOLUTION_AND_PRODUCT_CALL</description>
+		<detailedDescription>ConfigSolution and ConfigProduct processing failed in Nexxus</detailedDescription>
+	</message>
+	<message>
+		<code>M00225</code>
+		<description>OPTY CALL FAILLED</description>
+		<detailedDescription>Opty processing failed in Nexxus</detailedDescription>
+	</message>
+	<message>
+		<code>M01120</code>
+		<description>CUSTOM JSON CREATION FAILLED</description>
+		<detailedDescription>Custom json creation failed in Nexxus</detailedDescription>
+	</message>
+	
+	<!-- addUser AU starts -->
+	<message>
+		<code>AU0000</code>
+		<description>MISSING ATTUID</description>
+		<detailedDescription>attuid is missing</detailedDescription>
+	</message>
+	<message>
+		<code>AU0001</code>
+		<description>INVALID REQUEST TYPE</description>
+		<detailedDescription>invalid requestType, valid value is 'Add', 'Change', and 'Delete'</detailedDescription>
+	</message>
+	<message>
+		<code>AU0002</code>
+		<description>INVALID APPROVAL DATE</description>
+		<detailedDescription>invalid approvalDate, valid format is 'M/dd/yyyy h:m:s a'</detailedDescription>
+	</message>
+	<message>
+		<code>AU0003</code>
+		<description>INVALID APPLICATION PROFILE</description>
+		<detailedDescription>invalid applicationProfile, please check with Nexxus for valid applicationProfile</detailedDescription>
+	</message>
+	<message>
+		<code>AU0004</code>
+		<description>USER EXISTS</description>
+		<detailedDescription>request adding user, but user exists already</detailedDescription>
+	</message>
+	<message>
+		<code>AU0005</code>
+		<description>USER DOES NOT EXIST</description>
+		<detailedDescription>request change or delete user, but use does not exist</detailedDescription>
+	</message>
+	<!-- addUser AU ends -->
+	
+	<message>
+		<code>FD0001</code>
+		<description>ERROR_MISSING_ATTUID</description>
+		<detailedDescription>ATTUID is missing in the request </detailedDescription>
+	</message>
+	
+	<message>
+		<code>FD0002</code>
+		<description>ERROR_MISSING_FEEDBACK</description>
+		<detailedDescription>Feedback text missing in the request </detailedDescription>
+	</message>
+	
+	<message>
+		<code>FD0003</code>
+		<description>ERROR_ATTUID_NOT_FOUND</description>
+		<detailedDescription>No user record found for attuid </detailedDescription>
+	</message>
+	<!--  Inr update  -->
+	<message>
+		<code>IU0001</code>
+		<description>ERROR_INVALID_ACTION</description>
+		<detailedDescription>Incorrect action selected while importing the spread sheet. Please correct the option and reimport the spread sheet </detailedDescription>
+	</message>
+	
+	<message>
+		<code>IU0002</code>
+		<description>ERROR_DATA_NOT_FOUND</description>
+		<detailedDescription>Excel is empty. Please enter data and reimport the sheet </detailedDescription>
+	</message>
+	
+	<!-- End Inr update  -->
+	
+	<message>
+		<code>M00035</code>
+		<description>Request is empty for solution </description>
+		<detailedDescription>Request is not associated to the solution</detailedDescription>
+	</message>
+	
+	<!-- Mp legacy co data starts -->
+	<message>
+		<code>MP0000</code>
+		<description>UNKNOWN FILE NAME</description>
+		<detailedDescription>The uploaded file name is unknown to Nexxus</detailedDescription>
+	</message>
+	
+	<message>
+		<code>MP0001</code>
+		<description>UNKNOWN UPDATING SOURCE</description>
+		<detailedDescription>The updating source is unknown to Nexxus. Valid updating source are 'dcc' and 'edw'</detailedDescription>
+	</message>
+	<!-- Mp legacy co data ends -->
+	
+	<message>
+		<code>M00005</code>
+		<description>PREVIOUS REQUEST IS IN PROGRESS CAN NOT BE PROCESSED</description>
+		<detailedDescription>Previous request is in progress in Nexxus.New request cannot be processed.</detailedDescription>
+	</message>
+	
+	<!-- solutionLockCheck start -->
+	
+	<message>
+		<code>LK0001</code>
+		<description>ERROR_MISSING_ATTUID</description>
+		<detailedDescription>ATTUID is missing in the request </detailedDescription>
+	</message>
+	
+	<message>
+		<code>LK0002</code>
+		<description>ERROR_ATTUID_NOT_FOUND</description>
+		<detailedDescription>No user record found for attuid </detailedDescription>
+	</message>
+	
+	<message>
+		<code>LK0003</code>
+		<description>ERROR_SOLID_NOT_FOUND</description>
+		<detailedDescription>SOLUTIONID is missing in the request </detailedDescription>
+	</message>
+	
+	<message>
+		<code>LK0004</code>
+		<description>ERROR_SOLID_ALRDY_LOCKED</description>
+		<detailedDescription>This SOLUTION is already locked </detailedDescription>
+	</message>
+	
+	
+	<message>
+		<code>M00420</code>
+		<description>NO Deal FOUND</description>
+		<detailedDescription>Please enter valid dealId </detailedDescription>
+	</message>
+	
+	<!-- solutionLockCheck end -->
+	
+	
+	<message>
+		<code>D0001</code>
+		<description>NO RECORDS FOUND</description>
+		<detailedDescription>No Records Found</detailedDescription>
+	</message>
+	
+	<message>
+		<code>D0002</code>
+		<description>SUBMISSION TO EXISTING DEAL IS IN PROGRESS</description>
+		<detailedDescription>Your order submission to existing deal is in progress. Please wait for the first submission to complete before submitting additional requests.</detailedDescription>
+	</message>
+	
+	<message>
+		<code>D0003</code>
+		<description>SUBMISSION TO OTHER DEAL IS IN PROGRESS</description>
+		<detailedDescription>Your order submission to other deal is in progress. Please wait for the first submission to complete before submitting additional requests with same option.</detailedDescription>
+	</message>
+	
+	
+</MESSAGES>

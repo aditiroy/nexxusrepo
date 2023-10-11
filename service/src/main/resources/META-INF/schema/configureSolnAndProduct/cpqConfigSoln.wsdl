@@ -1,0 +1,1685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    targetNamespace="http://xmlns.oracle.com/cpqcloud/configuration/wireline/solution/solution"
+    xmlns:bmxsd="http://xmlns.oracle.com/cpqcloud/configuration/wireline/solution/solution"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsp:Policy wsu:Id="cpq_service_policy"
+        xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsp:Policy>
+                    <sp:SupportingTokens>
+                        <wsp:Policy>
+                            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                <wsp:Policy>
+                                    <sp:WssUsernameToken10/>
+                                </wsp:Policy>
+                            </sp:UsernameToken>
+                        </wsp:Policy>
+                    </sp:SupportingTokens>
+                </wsp:Policy>
+            </wsp:All>
+            <wsp:All>
+                <wsp:Policy>
+                    <sp:SupportingTokens>
+                        <wsp:Policy>
+                            <sp:HttpsToken>
+                                <wsp:Policy>
+                                    <sp:HttpBasicAuthentication/>
+                                </wsp:Policy>
+                            </sp:HttpsToken>
+                        </wsp:Policy>
+                    </sp:SupportingTokens>
+                </wsp:Policy>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://xmlns.oracle.com/cpqcloud/configuration/wireline/solution/solution"
+              xmlns:bmxsd="http://xmlns.oracle.com/cpqcloud/configuration/wireline/solution/solution">
+            <xsd:simpleType name="IntOrBlank">
+                <xsd:union memberTypes="xsd:integer">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:simpleType name="LongOrBlank">
+                <xsd:union memberTypes="xsd:long">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:simpleType name="FloatOrBlank">
+                <xsd:union memberTypes="xsd:float">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:simpleType name="DoubleOrBlank">
+                <xsd:union memberTypes="xsd:double">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:simpleType name="BooleanOrBlank">
+                <xsd:union memberTypes="xsd:boolean">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:simpleType name="ByteOrBlank">
+                <xsd:union memberTypes="xsd:byte">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="anyType">
+                <xsd:sequence maxOccurs="1" minOccurs="1">
+                    <xsd:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="FaultType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="exceptionCode" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="exceptionMessage" nillable="false" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:element name="fault">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="exceptionCode" nillable="false" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="exceptionMessage" nillable="false" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="exceptionDescription" nillable="true" type="xsd:string"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="SegmentVariableName">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string"/>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:complexType name="PlineVariableName">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string"/>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:complexType name="ModelVariableName">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string"/>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:complexType name="AttributesType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="attribute" nillable="true" type="bmxsd:AttributeType"/>
+                    <xsd:element
+                        fixed="Please include more attributes with values as necessary. Attributes used in flow selection should have selectorInput value. Attributes with selectorResult values are final values."
+                        maxOccurs="1" minOccurs="0" name="comment"
+                        nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BomItemMappingType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="bomChildren" nillable="true" type="bmxsd:BomItemChildMappingType"/>
+                </xsd:all>
+                <xsd:attribute name="ItemId" type="xsd:string" use="optional"/>
+                <xsd:attribute name="ItemType" type="xsd:string" use="optional"/>
+                <xsd:attribute name="Optional" type="xsd:string" use="optional"/>
+                <xsd:attribute name="SequenceNum" type="xsd:int" use="optional"/>
+                <xsd:attribute name="_price_unit_price_each"
+                    type="xsd:double" use="optional"/>
+                <xsd:attribute name="explodedQuantity" type="xsd:int" use="optional"/>
+                <xsd:attribute name="id" type="xsd:string" use="optional"/>
+                <xsd:attribute name="includedInBasePrice" type="xsd:boolean"/>
+                <xsd:attribute name="parentId" type="xsd:string"/>
+                <xsd:attribute name="partNumber" type="xsd:string" use="optional"/>
+                <xsd:attribute name="quantity" type="xsd:int" use="optional"/>
+                <xsd:attribute name="variableName" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="BomItemChildMappingType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="bom_item" nillable="true" type="bmxsd:BomItemMappingType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="BomRuleType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="1"
+                        name="item" nillable="true" type="bmxsd:BomItemType"/>
+                </xsd:sequence>
+                <xsd:attribute name="_variableName" type="xsd:string" use="optional"/>
+                <xsd:attribute name="bomType" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="BomType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="rule" nillable="false" type="bmxsd:BomRuleType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ConfigurationDataXmlType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="document" nillable="false" type="bmxsd:anyType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ConstraintRuleType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="comments" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="constrainedValue" nillable="true" type="xsd:string"/>
+                </xsd:all>
+                <xsd:attribute default="_default_cons"
+                    name="_variableName" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="ConstraintsType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="rule"
+                        nillable="false" type="bmxsd:ConstraintRuleType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="FlowRuleType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="flowIndex" nillable="true" type="bmxsd:IntOrBlank"/>
+                </xsd:all>
+                <xsd:attribute default="_default_flow"
+                    name="_variableName" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="FlowType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="rule" nillable="false" type="bmxsd:FlowRuleType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="RecommendationRuleType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="comments" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="recommendedValue" nillable="true" type="xsd:string"/>
+                </xsd:all>
+                <xsd:attribute default="_default_rec"
+                    name="_variableName" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="RecommendationsType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="rule" nillable="false" type="bmxsd:RecommendationRuleType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ResponseIncludesType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="price" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="spare" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="bom"
+                        nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="attributeLabel" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="previousValue" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="displayedValue" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="menuItems" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="hideInTransactionAttributes"
+                        nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="ruleDetails" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="bomMapping" nillable="true" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="transaction" nillable="true" type="bmxsd:ConfigurationTransactionType"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="SpareItemType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="part"
+                        nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="segment" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="product_line" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="model" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="mandatory" nillable="false" type="xsd:boolean"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="quantity" nillable="false" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="price" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="comments" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="itemNotFound" nillable="false" type="xsd:boolean"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="SpareRuleType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="comments" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="1"
+                        name="item" nillable="false" type="bmxsd:SpareItemType"/>
+                </xsd:sequence>
+                <xsd:attribute default="_default_flow"
+                    name="_variableName" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="SpareType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="rule" nillable="false" type="bmxsd:SpareRuleType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType mixed="true" name="BomItemType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="partNumber" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="quantity" nillable="false" type="xsd:int"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType abstract="true" name="AttributeType">
+                <xsd:annotation>
+                    <xsd:documentation>This is an Abstract AttributeType complex element. The attribute specific concrete element names should be specified as part of the attribute in the value,selectorInput and selector result elements when the soap request is sent to the server</xsd:documentation>
+                </xsd:annotation>
+                <xsd:attribute default="false" name="locked" type="xsd:boolean"/>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_modelName_pf">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="modelName_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_modelName_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_modelName_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_modelName_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="modelName_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_modelHTML_pf">
+                <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:complexType name="modelHTML_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_modelHTML_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_modelHTML_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_modelHTML_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="modelHTML_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_existing_pf">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="existing_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_existing_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_existing_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_existing_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="existing_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_new_pf">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="new_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_new_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_new_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_new_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="new_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_countryA_pf">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="United States"/>
+                    <xsd:enumeration value="Canada"/>
+                    <xsd:enumeration value=""/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="countryA_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_countryA_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_countryA_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_countryA_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="countryA_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_countryZ_pf">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="United States"/>
+                    <xsd:enumeration value="Canada"/>
+                    <xsd:enumeration value=""/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="countryZ_pf">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_countryZ_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_countryZ_pf"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_countryZ_pf"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="countryZ_pf"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_productQuantity_pm">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="productQuantity_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_productQuantity_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_productQuantity_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_productQuantity_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="productQuantity_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_modelPath_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="modelPath_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_modelPath_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_modelPath_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_modelPath_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="modelPath_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_numberOfSiteSearch_pm">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int">
+                            <xsd:maxInclusive value="200"/>
+                            <xsd:minInclusive value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="numberOfSiteSearch_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_numberOfSiteSearch_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_numberOfSiteSearch_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_numberOfSiteSearch_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="numberOfSiteSearch_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_numberOfSiteSelected_pm">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int">
+                            <xsd:maxInclusive value="200"/>
+                            <xsd:minInclusive value="1"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="numberOfSiteSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_numberOfSiteSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_numberOfSiteSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_numberOfSiteSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="numberOfSiteSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteAddress_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteAddress_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteAddress_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteAddress_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteAddress_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSiteAddress_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCLLI_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCLLI_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCLLI_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCLLI_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCLLI_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSiteCLLI_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteValidationStatus_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteValidationStatus_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteValidationStatus_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteValidationStatus_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteValidationStatus_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteValidationStatus_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteSelect_pm">
+                <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteSelect_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteSelect_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteSelect_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteSelect_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSiteSelect_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteAddressSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteAddressSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteAddressSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteAddressSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteAddressSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteAddressSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCLLISelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCLLISelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCLLISelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCLLISelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCLLISelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteCLLISelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSearchSitePages_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="1"/>
+                    <xsd:enumeration value="2"/>
+                    <xsd:enumeration value="3"/>
+                    <xsd:enumeration value="4"/>
+                    <xsd:enumeration value="5"/>
+                    <xsd:enumeration value="6"/>
+                    <xsd:enumeration value="7"/>
+                    <xsd:enumeration value="8"/>
+                    <xsd:enumeration value="9"/>
+                    <xsd:enumeration value="10"/>
+                    <xsd:enumeration value=""/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSearchSitePages_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSearchSitePages_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSearchSitePages_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSearchSitePages_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSearchSitePages_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionAssociateSite_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="((Add|Clear)~){0,1}(Add|Clear)|"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionAssociateSite_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionAssociateSite_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionAssociateSite_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionAssociateSite_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionAssociateSite_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSearchSiteList_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSearchSiteList_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSearchSiteList_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSearchSiteList_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSearchSiteList_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSearchSiteList_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_quoteType_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="quoteType_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_quoteType_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_quoteType_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_quoteType_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="quoteType_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteStreetAddress_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteStreetAddress_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddress_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddress_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddress_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteStreetAddress_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCity_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCity_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCity_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCity_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCity_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSiteCity_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteStateProvience_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteStateProvience_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteStateProvience_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteStateProvience_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteStateProvience_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteStateProvience_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteZipPostalCode_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteZipPostalCode_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCode_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCode_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCode_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteZipPostalCode_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCountry_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCountry_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCountry_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCountry_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCountry_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="solutionSiteCountry_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCountryAbbrivation_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCountryAbbrivation_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivation_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivation_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivation_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteCountryAbbrivation_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteStreetAddressSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteStreetAddressSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddressSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddressSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteStreetAddressSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteStreetAddressSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCitySelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCitySelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCitySelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCitySelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCitySelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteCitySelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteStateProvienceSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteStateProvienceSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteStateProvienceSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteStateProvienceSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteStateProvienceSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteStateProvienceSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteZipPostalCodeSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteZipPostalCodeSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCodeSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCodeSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteZipPostalCodeSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteZipPostalCodeSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCountrySelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCountrySelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCountrySelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCountrySelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCountrySelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteCountrySelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSiteCountryAbbrivationSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSiteCountryAbbrivationSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivationSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivationSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSiteCountryAbbrivationSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSiteCountryAbbrivationSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_solutionSitePagesSelected_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="1"/>
+                    <xsd:enumeration value="2"/>
+                    <xsd:enumeration value="3"/>
+                    <xsd:enumeration value="4"/>
+                    <xsd:enumeration value="5"/>
+                    <xsd:enumeration value="6"/>
+                    <xsd:enumeration value="7"/>
+                    <xsd:enumeration value="8"/>
+                    <xsd:enumeration value="9"/>
+                    <xsd:enumeration value="10"/>
+                    <xsd:enumeration value=""/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="solutionSitePagesSelected_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_solutionSitePagesSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_solutionSitePagesSelected_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_solutionSitePagesSelected_pm"/>
+                        </xsd:all>
+                        <xsd:attribute
+                            fixed="solutionSitePagesSelected_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_associatedSiteSelect_pm">
+                <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:complexType name="associatedSiteSelect_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_associatedSiteSelect_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_associatedSiteSelect_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_associatedSiteSelect_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="associatedSiteSelect_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_selectSites_pm">
+                <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="((Select All|Select None)~){0,1}(Select All|Select None)|"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="selectSites_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_selectSites_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_selectSites_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_selectSites_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="selectSites_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type_errorMessage_pm">
+                <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:complexType name="errorMessage_pm">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type_errorMessage_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type_errorMessage_pm"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type_errorMessage_pm"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="errorMessage_pm"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type__configuration_id">
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:token">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+            <xsd:complexType name="_configuration_id">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type__configuration_id"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type__configuration_id"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type__configuration_id"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="_configuration_id"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:simpleType name="value_type__config_upgrade_name">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4000"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="_config_upgrade_name">
+                <xsd:complexContent>
+                    <xsd:extension base="bmxsd:AttributeType">
+                        <xsd:all>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="value" nillable="true" type="bmxsd:value_type__config_upgrade_name"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorInput" nillable="true" type="bmxsd:value_type__config_upgrade_name"/>
+                            <xsd:element maxOccurs="1" minOccurs="0"
+                                name="selectorResult" nillable="true" type="bmxsd:value_type__config_upgrade_name"/>
+                        </xsd:all>
+                        <xsd:attribute fixed="_config_upgrade_name"
+                            name="_variableName" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="TransactionType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="category" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="action" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="id"
+                        nillable="true" type="xsd:long"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="process_var_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="buyer_company_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="supplier_company_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="step_var_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="last_document_number" nillable="false" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="date_added" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="date_modified" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="data_xml" nillable="true" type="bmxsd:anyType"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="action_data" nillable="false" type="bmxsd:ActionType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="sub_step_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="buyer_user_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="currency_pref" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="status" nillable="true" type="bmxsd:IntOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="update_count" nillable="true" type="bmxsd:LongOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="language_pref" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="num_transitions" nillable="false" type="xsd:long"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="PriceRuleType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="comments" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="value" nillable="false" type="xsd:string"/>
+                </xsd:all>
+                <xsd:attribute default="base_price" name="_variableName"
+                    type="xsd:string" use="optional"/>
+                <xsd:attribute default="false" name="include"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute default="false" name="show"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute default="false" name="hideZeroPrice"
+                    type="xsd:boolean" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="ActionType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="action_var_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="_bm_cm_new_transaction_currency"
+                        nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="performer_comment" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="reason_var_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="performer_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="performer_type" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="performer_company_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="document_var_name" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="hide_transaction_response" nillable="true" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ConfigurationItemType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="segment" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="product_line" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="model" nillable="false" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ResponseAttributeType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="label" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="setVariableName" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="value" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="displayedValue" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="selectorInput" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="selectorResult" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="previousValue" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="menuItems" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="constraints" nillable="true" type="bmxsd:ConstraintsType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="recommendations" nillable="true" type="bmxsd:RecommendationsType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="required" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="imageUrl" nillable="true" type="xsd:string"/>
+                </xsd:all>
+                <xsd:attribute name="_variableName" type="xsd:string" use="optional"/>
+                <xsd:attribute name="dataType" type="xsd:string" use="optional"/>
+                <xsd:attribute default="false" name="hiddenByRule"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute default="false" name="locked"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute default="false" name="menuType"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute name="setType" type="xsd:string" use="optional"/>
+                <xsd:attribute default="false" name="isArrayAttr"
+                    type="xsd:boolean" use="optional"/>
+                <xsd:attribute name="isArrayControlAttr"
+                    type="xsd:boolean" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="SimpleDocumentsType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="document" nillable="true" type="bmxsd:SimpleDocumentType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ConfigurationTransactionType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="process_var_name" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="document_var_name" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="id"
+                        nillable="false" type="bmxsd:LongOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="document_number" nillable="false" type="bmxsd:LongOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="hide_transaction_response"
+                        nillable="false" type="bmxsd:BooleanOrBlank"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="return_specific_attributes"
+                        nillable="false" type="bmxsd:ReturnSpecificAttributesType">
+                        <xsd:annotation>
+                            <xsd:documentation>Specify attributes which should be returned as part of the response</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CommonStatusType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="success" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="message" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_read" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_failed" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_deleted" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_returned" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_inserted" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="records_updated" nillable="true" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="detail" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="warning" nillable="true" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="ResponseAttributesType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="attribute" nillable="true" type="bmxsd:ResponseAttributeType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ConfigurationPriceType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="basePrice" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="attribute" nillable="true" type="bmxsd:AVPAttributeType"/>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="rule" nillable="true" type="bmxsd:PriceRuleType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="bomPrice" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="totalPrice" nillable="false" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ReturnSpecificAttributesType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="documents" nillable="true" type="bmxsd:SimpleDocumentsType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="SimpleAttributesType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0"
+                        name="attribute" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="boolean"/>
+            <xsd:complexType name="AVPAttributeType">
+                <xsd:all>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="value" nillable="false" type="xsd:string"/>
+                </xsd:all>
+                <xsd:attribute name="_variableName" type="xsd:string" use="optional"/>
+                <xsd:attribute name="include" type="xsd:boolean" use="optional"/>
+                <xsd:attribute name="show" type="xsd:boolean" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="SimpleDocumentType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="var_name" nillable="false" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="attributes" nillable="true" type="bmxsd:SimpleAttributesType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBom">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="item" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element name="attributes" type="bmxsd:AttributesType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getBomResponse">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="status" nillable="false" type="bmxsd:CommonStatusType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="item" nillable="false" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="attributes" nillable="false" type="bmxsd:ResponseAttributesType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="flow" nillable="false" type="bmxsd:FlowType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="bom" nillable="false" type="bmxsd:BomType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getPrice">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="item" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element name="attributes" type="bmxsd:AttributesType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getPriceResponse">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="status" nillable="false" type="bmxsd:CommonStatusType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="item" nillable="false" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="attributes" nillable="false" type="bmxsd:ResponseAttributesType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="flow" nillable="false" type="bmxsd:FlowType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="price" nillable="false" type="bmxsd:ConfigurationPriceType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSpare">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="item" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element name="attributes" type="bmxsd:AttributesType"/>
+                        <xsd:element name="price_book_var_name" type="xsd:string"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSpareResponse">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="status" nillable="false" type="bmxsd:CommonStatusType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="item" nillable="false" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="attributes" nillable="false" type="bmxsd:ResponseAttributesType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="flow" nillable="false" type="bmxsd:FlowType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="spare" nillable="false" type="bmxsd:SpareType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deploy">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="product_family" type="xsd:string"/>
+                        <xsd:element name="emailTo" type="xsd:string"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deployResponse">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="status" nillable="false" type="bmxsd:CommonStatusType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="configure">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element name="item" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element name="responseIncludes" type="bmxsd:ResponseIncludesType"/>
+                        <xsd:element name="attributes" type="bmxsd:AttributesType"/>
+                        <xsd:element name="price_book_var_name" type="xsd:string"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="configureResponse">
+                <xsd:complexType>
+                    <xsd:all>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="status" nillable="false" type="bmxsd:CommonStatusType"/>
+                        <xsd:element maxOccurs="1" minOccurs="1"
+                            name="item" nillable="false" type="bmxsd:ConfigurationItemType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="attributes" nillable="true" type="bmxsd:ResponseAttributesType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="flow" nillable="true" type="bmxsd:FlowType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="price" nillable="true" type="bmxsd:ConfigurationPriceType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="spare" nillable="true" type="bmxsd:SpareType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="bomMapping" nillable="true" type="bmxsd:BomItemMappingType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="bom" nillable="true" type="bmxsd:BomType"/>
+                        <xsd:element maxOccurs="1" minOccurs="0"
+                            name="transaction" nillable="true" type="bmxsd:TransactionType"/>
+                    </xsd:all>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="configureRequest">
+        <wsdl:part element="bmxsd:configure" name="configure"/>
+    </wsdl:message>
+    <wsdl:message name="configureResponse">
+        <wsdl:part element="bmxsd:configureResponse" name="configureResponse"/>
+    </wsdl:message>
+    <wsdl:message name="BusinessLogicException">
+        <wsdl:part element="bmxsd:fault" name="fault"/>
+    </wsdl:message>
+    <wsdl:message name="getBomRequest">
+        <wsdl:part element="bmxsd:getBom" name="getBom"/>
+    </wsdl:message>
+    <wsdl:message name="getBomResponse">
+        <wsdl:part element="bmxsd:getBomResponse" name="getBomResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getSpareRequest">
+        <wsdl:part element="bmxsd:getSpare" name="getSpare"/>
+    </wsdl:message>
+    <wsdl:message name="getSpareResponse">
+        <wsdl:part element="bmxsd:getSpareResponse" name="getSpareResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPriceRequest">
+        <wsdl:part element="bmxsd:getPrice" name="getPrice"/>
+    </wsdl:message>
+    <wsdl:message name="getPriceResponse">
+        <wsdl:part element="bmxsd:getPriceResponse" name="getPriceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deployRequest">
+        <wsdl:part element="bmxsd:deploy" name="deploy"/>
+    </wsdl:message>
+    <wsdl:message name="deployResponse">
+        <wsdl:part element="bmxsd:deployResponse" name="deployResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ConfigurationServicePortType">
+        <wsdl:operation name="configure">
+            <wsdl:input message="bmxsd:configureRequest"/>
+            <wsdl:output message="bmxsd:configureResponse"/>
+            <wsdl:fault message="bmxsd:BusinessLogicException" name="BusinessLogicException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBom">
+            <wsdl:input message="bmxsd:getBomRequest"/>
+            <wsdl:output message="bmxsd:getBomResponse"/>
+            <wsdl:fault message="bmxsd:BusinessLogicException" name="BusinessLogicException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSpare">
+            <wsdl:input message="bmxsd:getSpareRequest"/>
+            <wsdl:output message="bmxsd:getSpareResponse"/>
+            <wsdl:fault message="bmxsd:BusinessLogicException" name="BusinessLogicException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPrice">
+            <wsdl:input message="bmxsd:getPriceRequest"/>
+            <wsdl:output message="bmxsd:getPriceResponse"/>
+            <wsdl:fault message="bmxsd:BusinessLogicException" name="BusinessLogicException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deploy">
+            <wsdl:input message="bmxsd:deployRequest"/>
+            <wsdl:output message="bmxsd:deployResponse"/>
+            <wsdl:fault message="bmxsd:BusinessLogicException" name="BusinessLogicException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ConfigurationServiceBinding" type="bmxsd:ConfigurationServicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="configure">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessLogicException">
+                <soap:fault name="BusinessLogicException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getBom">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessLogicException">
+                <soap:fault name="BusinessLogicException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSpare">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessLogicException">
+                <soap:fault name="BusinessLogicException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPrice">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessLogicException">
+                <soap:fault name="BusinessLogicException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deploy">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="BusinessLogicException">
+                <soap:fault name="BusinessLogicException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ConfigurationService">
+        <wsdl:port binding="bmxsd:ConfigurationServiceBinding" name="ConfigurationServicePort">
+            <wsp:PolicyReference URI="#cpq_service_policy" xmlns:wsp="http://www.w3.org/ns/ws-policy"/>
+            <soap:address location="https://custompricingdev2.att.com/v2_0/receiver/configuration/wireline/solution/solution"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

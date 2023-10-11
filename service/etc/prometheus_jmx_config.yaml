@@ -1,0 +1,5 @@
+---
+whitelistObjectNames: ["Tomcat:type=Connector,port=8080"]
+rules:
+
+- pattern: ".*"

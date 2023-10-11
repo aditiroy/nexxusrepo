@@ -1,0 +1,8 @@
+2018/04/23 10:43:47.309 -0400|INFO|IBMADM-LJ772S|13224|18|null.null|DME2 Version=2.8.13
+2018/04/23 10:43:48.010 -0400|INFO|IBMADM-LJ772S|13224|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/23 10:43:48.006 -0400|WARNING|IBMADM-LJ772S|13224|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.
+2018/04/23 10:43:48.013 -0400|INFO|IBMADM-LJ772S|13224|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/23 10:43:48.015 -0400|INFO|IBMADM-LJ772S|13224|18|c.a.a.d.a.u.DME2ThrottleConfig.loadProps|N/A|N/A|Loading from: null
+2018/04/23 10:43:48.015 -0400|INFO|IBMADM-LJ772S|13224|18|c.a.a.d.a.u.LogUtil.doReport|N/A|N/A|Error loading throttling props from: dme2-throttle-config.properties, using default throttle setting
+2018/04/23 10:43:48.018 -0400|INFO|IBMADM-LJ772S|13224|18|null.null|DME2 Version=2.8.13
+2018/04/23 10:43:48.052 -0400|WARNING|IBMADM-LJ772S|13224|18|null.null|No logging properties set or logging properties set incorrectly. Logging property change monitoring will not be active.

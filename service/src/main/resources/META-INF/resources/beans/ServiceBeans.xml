@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-3.0.xsd
+    http://camel.apache.org/schema/cxf
+    http://camel.apache.org/schema/cxf/camel-cxf.xsd
+    http://cxf.apache.org/jaxrs
+    http://cxf.apache.org/schemas/jaxrs.xsd
+    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="appprefilter" name="appprefilter"
+		class="com.att.sales.framework.filters.ApplicationPreFilter">
+	</bean>
+	
+	
+	
+	<!-- LC EVC Design Bean Definitions Start -->
+	<bean id="nexxusBean" class="com.att.sales.nexxus.controller.NexxusController" />
+
+	<cxf:rsServer id="nexxusServer" address="/nexxusdesign/v1" loggingFeatureEnabled="true">
+		<cxf:serviceBeans>
+			<ref bean="nexxusBean" />
+		</cxf:serviceBeans>
+		<cxf:providers>
+			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+		</cxf:providers>
+	</cxf:rsServer>
+ 
+
+
+ 
+	<camelContext xmlns="http://camel.apache.org/schema/spring"	trace="false">	
+		<contextScan />		
+	</camelContext>
+</beans>

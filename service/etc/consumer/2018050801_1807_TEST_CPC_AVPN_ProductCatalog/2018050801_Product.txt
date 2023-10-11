@@ -1,0 +1,2 @@
+ProductId|ProductName|ProductDescription|ProductAcronym|SortOrder|ProductCode|ProductOrderableFlag|ProductFamily|ProductDisplayName|ProductHelpLink|ProductVersion|ProductStatus|ProductEffDate|ProductEndDate|Action
+2|AT&T Virtual Private Network|AT&T Virtual Private Network Service|AVPN|||||||1|Active|9/17/2017|12/31/9999|1

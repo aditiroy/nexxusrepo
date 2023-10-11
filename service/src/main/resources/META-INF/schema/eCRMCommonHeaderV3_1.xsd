@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:ecrmch="http://ecrm.abs.att.com/commonheader/v3" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ecrm.abs.att.com/commonheader/v3" elementFormDefault="qualified">
+	<element name="WSException">
+		<complexType>
+			<sequence>
+				<element name="Message" type="string"/>
+				<element name="ErrorCode" type="string"/>
+				<element name="ListOfErrorDetail" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="ErrorDetail" maxOccurs="unbounded">
+								<complexType>
+									<sequence>
+										<element name="Message" type="string"/>
+										<element name="ErrorCode" type="string"/>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

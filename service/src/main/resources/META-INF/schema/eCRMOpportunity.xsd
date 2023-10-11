@@ -1,0 +1,4757 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ecrm.abs.att.com/opty/v2" xmlns:ch="http://cio.att.com/commonheader/v3" targetNamespace="http://ecrm.abs.att.com/opty/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://cio.att.com/commonheader/v3" schemaLocation="CommonHeaderV3_3.xsd"/>
+	<!-- Start for 237115 oct2011 Rel-->
+	<xsd:element name="SetOptyStatusRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="OptyId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="RequestSystemName">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="SalesStage">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="OptyStatus">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ATTUID">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ReasonDescription" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="250"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ReasonCode" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ProjectName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ReasonWonLoss" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Competitor" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="SFDCStage" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="SFDCTimeStamp" type="xsd:dateTime" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptyStatusResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateOptyProductsRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="OptyId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="RequestSystemName">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ATTUID">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ProductFeature" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Action">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ProductCode" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<!--Start Added ProductLine for Project 258143a Oct2013-->
+							<xsd:element name="ProductLine" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<!--End Added ProductLine for Project 258143a-->
+							<xsd:element name="ROMEProductId" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="MRR" type="xsd:int" minOccurs="0"/>
+							<!--Start Added OldMRR for Project 258143a Oct2013-->
+							<xsd:element name="OldMRR" type="xsd:int" minOccurs="0"/>
+							<!--End Added OldMRR for Project 258143a-->
+							<xsd:element name="NRR" type="xsd:int" minOccurs="0"/>
+							<xsd:element name="Quantity" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="22"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="Term" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ExpectedDeliveryDate" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:dateTime"/>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ServiceRegion" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ServiceCountry" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<!--Start Added BillingRegion,BillingCountry ,OfferType for Project 258143a Oct2013-->
+							<xsd:element name="BillingRegion" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="BillingCountry" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="OfferType" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ProductDetails" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ProductCode" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Attributes" minOccurs="0" maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AttributeName" minOccurs="0">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<xsd:maxLength value="50"/>
+															</xsd:restriction>
+														</xsd:simpleType>
+													</xsd:element>
+													<xsd:element name="AttributeValue" minOccurs="0">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<xsd:maxLength value="50"/>
+															</xsd:restriction>
+														</xsd:simpleType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!--End Added ProductLine for Project 258143a-->
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateOptyProductsResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- ended for 237115 oct2011 Rel-->
+	<xsd:element name="GetSPDetailsResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v5.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="SPDetailsInfoList">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="DunsNumber">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ChannelManager">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="6"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="SPName">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="SPID">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ParentSPID">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ServiceTypeList" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ServiceType" type="xsd:string"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ACTCLStatus">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerAddress">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerState">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerCity">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerZip">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerName">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerPhone">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CustomerEmail">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetSPDetailsRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v5.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="Id">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ResponseSystem">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptyPartnerSystemIdRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:SetOptyPartnerSystemIdRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptyPartnerSystemIdResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptySalesStageProposedRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:SetOptySalesStageProposedRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptySalesStageProposedResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptyAttachmentRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:SetOptyAttachmentRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetOptyAttachmentResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:SetOptyAttachmentResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OptyInfoRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:OptyInfoRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OptyInfoResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.20</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:OptyInfoResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetOptyAttachmentRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:GetOptyAttachmentRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetOptyAttachmentResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:GetOptyAttachmentResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MyOpportunitiesRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:MyOpportunitiesRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MyOpportunitiesResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:MyOpportunitiesResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AccountOpportunitiesRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:AccountOpportunitiesRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AccountOpportunitiesResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:AccountOpportunitiesResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateOptyPartnerDetailsResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.25</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ADDOPTYCONTACTResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ADDOPTYCONTACTRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="OptyId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="RequestSystemName">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ATTUID">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="OptyContacts" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="FirstName">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="LastName">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="WorkPhoneNo">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="40"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="EmailAddress">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="MrMs" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="JobFunction" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="Role" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="AddressLine1" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="200"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="City" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="State" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="10"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="Postalcode" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="Country" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UPDATEOPTYResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UPDATEOPTYRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="OptyId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="RequestSystemName">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ATTUID">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CloseDate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="ReasonWonLost" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>ReasonWonLost</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="OpportunityClassifications" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Classification" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="0"/>
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="MoWIndicator" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="GeoRegion" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="GeoRegion" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="GeoCountry" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RFPIndicator" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="RFPDate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="RFPReceivedDate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="RFPValue" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="22"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="OptyDescription" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="255"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="StrategicPartnerDeal" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="FollowupDate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="OptyPriority" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ExistingMAUA" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ExistingSOAContract" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!-- 252532 CR 75189 for June2013 release START-->
+				<xsd:element name="URL" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2000"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="BAN" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Status" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="25"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Comments" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2000"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="SuppUpdateIndicator" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="25"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!-- 252532 CR 75189 for June2013 release END-->
+				<xsd:element name="LinkedOpportunities" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="LinkedOptyId" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OptyContact" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ROMEContactId" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="15"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ContactRole" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="75"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ACNA" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="0"/>
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateOptyPartnerDetailsRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v6.25</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="OptyId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerId">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="PartnerObjectType">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="UpdatedByATTUID">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ServicesRequest" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ServicesRequestType" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+										<xsd:minLength value="0"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RequestType" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMSubRegion" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMCustomerTypeFromATT" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMDivision" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CustomerHasAnIBMProjectName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="Y"/>
+							<xsd:enumeration value="N"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMRFSNumber" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CustomerName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMPriority" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="NumberofSites" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CustomerRequestedContractstartdate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="IBMRequestedOpptyCurrencyAtLeadSite" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!-- As for int value converting into double so made it as string -->
+				<xsd:element name="TOVTotalContractValue" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ContractTerm" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ReasonCode" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ReasonDescription" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="250"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ProjectName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMDecisionContactFirstName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMDecisionContactLastName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMDecisionContactPhoneNo" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMDecisionContactEmail" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMRequestRecordStartDate" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="IBMCoIdentifier" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="255"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMBusinessFinancialOwnerFirstName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMBusinessFinancialOwnerLastName" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMBusinessFinancialOwnerPhoneNo" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMBusinessFinancialOwnerEmail" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ApproverRejecterROMEContactId" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="FinancialOwnerROMEContactId" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--237115f - Apr 2012 release changes -km8425 - Start -->
+				<xsd:element name="IBMComplexity" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--Added  InitiativeReasonCode tag for R1610 Project 288702 by mg286p-->
+				<xsd:element name="InitiativeReasonCode" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="TargetPrice" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="22"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="TotalATTBillinginUSDollars" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="22"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="BillableCurrency" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ContractSignatureLocation" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="40"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMIRPNumber" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="20"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IBMPONumber" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--237115f - Apr 2012 release changes -km8425 - End -->
+				<xsd:element name="ErrorDescription" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2000"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!-- 259494a : Updates by ba247v starts for June2014-->
+				<xsd:element name="IBMRequestedPriceType" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="NonBillableChange" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Opportunitytargetdateforcompletion" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+							<xsd:minLength value="0"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!-- 259494a : Updates by ba247v ends for June2014-->
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CreateNewOptyRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.95</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:CreateNewOptyRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CreateNewOptyResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.95</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="RequestParams" type="tns:CreateNewOptyResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SETOptyTeamRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:SETOptyTeamRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SETOptyTeamResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetOpptyTeamRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:GetOpptyTeamRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetOpptyTeamResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.0</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:GetOpptyTeamResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetCopyOptyRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v3.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams" type="tns:SetCopyOptyRequestType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetCopyOptyResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v3.3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+				<xsd:element name="ResponseParams" type="tns:SetCopyOptyResponseType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SetOptySalesStageProposedRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId" type="xsd:string"/>
+			<xsd:element name="PartnerId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Partner Record tied to the Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestSystemName" type="string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>RequestSystemName</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetOptyAttachmentRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId" type="xsd:string"/>
+			<xsd:element name="DocId" type="xsd:string"/>
+			<xsd:element name="CurrentChunk" type="xsd:int"/>
+			<xsd:element name="TotalChunks" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If this is provided when CurrentChunk is = 1 then the chunk size will be determined dynamically.  Take the total size and divide by TotalChunks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetOptyAttachmentResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId" type="xsd:string"/>
+			<xsd:element name="DocId" type="xsd:string"/>
+			<xsd:element name="DocumentNameOrURL" type="xsd:string"/>
+			<xsd:element name="Doc" type="xsd:base64Binary" minOccurs="0"/>
+			<xsd:element name="CurrentChunk" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="MaxChunks" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SetOptyAttachmentRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyID" type="xsd:string"/>
+			<xsd:element name="PartnerID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The Partner Record tied to the Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestSystemName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Bid, WR</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Attachment">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AttachmentType" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>CDT, MA Addendum, etc</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="AttachmentSubType" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>other</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Description" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>General Comments</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="DocumentNameOrURL" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>The URL or name for the document</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="ReadOnlyFlag">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="T"/>
+									<xsd:enumeration value="F"/>
+									<xsd:enumeration value="Y"/>
+									<xsd:enumeration value="N"/>
+									<!--added Y,N as per AID by gv411m for R1607 284478E-Rate issue-->
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Status" type="xsd:string"/>
+						<xsd:element name="StatusDetail" type="xsd:string"/>
+						<xsd:element name="Version">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:maxInclusive value="999"/>
+									<xsd:minInclusive value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="FileSize">
+							<xsd:annotation>
+								<xsd:documentation>in bytes</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:long"/>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="FileType" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>document extension</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="CreatedByHRID" type="xsd:string">
+							<xsd:annotation>
+								<xsd:documentation>AE Full Name</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="FileCreatedDate" type="xsd:dateTime">
+							<xsd:annotation>
+								<xsd:documentation>record creation</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="FileUpdatedDate" type="xsd:dateTime">
+							<xsd:annotation>
+								<xsd:documentation>file updation datetime</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="ESign">
+							<xsd:annotation>
+								<xsd:documentation>Whether to check the eSign Flag</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="Y"/>
+									<xsd:enumeration value="N"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ESignDate" type="xsd:dateTime" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Date Sent to eSign</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!--Doc made optional by gv411m for 265176 ADE - QC 59887-->
+						<xsd:element name="Doc" type="xsd:base64Binary" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>The actual document</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="CurrentChunk">
+							<xsd:annotation>
+								<xsd:documentation>Current chunk of file transfer when using multichunks
+                           to send a file. Number is based on 1 based index.</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:minInclusive value="0"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="TotalChunks">
+							<xsd:annotation>
+								<xsd:documentation>Total number of chunks to send entire file. Number is
+                           inclusive and 1 based index.</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:minInclusive value="0"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SetOptyAttachmentResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId" type="xsd:string"/>
+			<xsd:element name="DocId" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The Document ID in eCRM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OptyInfoRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="Hrid" type="xsd:string"/>
+			<xsd:element name="RequestSystemName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OptyInfoResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="ABSACMCN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSAccountOrganizationName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSAgentInitiatedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSAnnualizedAmountStored" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSContractRequired" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassUpdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InYearRevenue" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSNonStandardFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSOpptyLastUpdated" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="ABSOpptyMRCStored" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSOpptyNRCStored" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSTotalOpptyValueStored" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Division" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSRFPDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="ABSCreatedByName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABSOpportunity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrimaryRevenueWinProbability" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StartDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="MoWIndicator" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Added below element as part of 237607b Project of June2012 Release -->
+			<xsd:element name="MoWCustomerName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- end -->
+			<!-- IntegratedCustomInvoice tag added by nd3244 for 277942a Feb16 -->
+			<xsd:element name="IntegratedCustomInvoice" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GeoRegion" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GeoRegion" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="GeoCountry" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ReasonCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonDesciption" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LinkedOpportunities" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="LinkedOptyId" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ExistingSOAContractNo" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryATTUID" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryManager" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryManagersManager" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RFPIndicator" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RFPReceivedDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="RFPValue" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="82"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StrategicPartnerDealNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PriorityFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrimaryRevenueCloseDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="PrimaryRevenueAmount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Territory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+			<!--Start Add for R1610 Project 290274 by mg286p-->
+			<xsd:element name="ErateOption" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ERateBEN" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Form470" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!--End Add for R1610 Project 290274 by mg286p-->
+			<xsd:element name="AcquisitionType" type="xsd:string" minOccurs="0"/>
+			<!-- Added aspart of PD009 -->
+			<xsd:element name="OptyLedFromCountry" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TypeOfSegment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MarketStrataValue" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RVPAttUID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FirstSignatoryAuthority" type="xsd:string" minOccurs="0"/>
+			<!-- End -->
+			<!-- Added as part of CR895 July2010 rel -->
+			<xsd:element name="ABSAGID" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonWonLost" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- CustomContractNumber tag added by nd3244 for 277942a Feb16 -->
+			<xsd:element name="CustomContractNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QUALITY" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ABSMANumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BranchName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PercentInterstateUsage" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!--added two tags IncludeBCFlag &  CloudId as a part of project number 287342c_CR158371 by pg4208 as a part of July '17 RELEASE-->
+			<xsd:element name="IncludeBCFlag" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CloudId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="string">
+						<xsd:maxLength value="100"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ListOfAbsAccount" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AbsAccount" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ROMEAccountId" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SubAccountID" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="AccountLevel" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="StreetAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="City" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="State" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Country" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PostalCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="MainPhoneNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="DUNSNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="GlobalUltimateDUNS" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSLegalEntity" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Organization" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSUltimateParentHQ" type="xsd:string" minOccurs="0"/>
+									<!-- Added aspart of PD009 -->
+									<xsd:element name="AccountMarketStrata" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="AccountSegment" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="AccountBranch" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="AccountRVPATTUID" type="xsd:string" minOccurs="0"/>
+									<!--start of tags "SvidOrgId" and "L3OrgId" added by na178q as part of 287342c CR 153924for Feb2017 release-->
+									<xsd:element name="SvidOrgId" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="L3OrgId" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<!--end of tags "SvidOrgId" and "L3OrgId" added by na178q as part of 287342c CR 153924 for Feb2017 release-->
+									<xsd:element name="CustomerContractList" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ContractNumber" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ContractType" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ContractSubType" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ContractStatus" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<!-- End -->
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AccountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrimaryRevenueClass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrimaryRevenueType" type="xsd:string" minOccurs="0"/>
+			<!-- Added for CR02 for Feb2012 Release -->
+			<xsd:element name="CustomerName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MainPhone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Address1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Address2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="City" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="State" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Country" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PostalCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- end -->
+			<xsd:element name="ListOfOpportunityFINContact" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OpportunityFINContact" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IsPrimaryMVG" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ContactFullName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="KeyContactLastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="KeyContactFirstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ContactJobTitle" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PrimaryAccountName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ContactRole" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="KeyContactWorkPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="KeyContactEmailAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PersonalStreetAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PersonalCity" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PersonalState" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PersonalPostalCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PersonalCountry" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CurrencyCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Created" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="Channel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SalesMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SalesStage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Organization" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfOpportunityPosition" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OpportunityPosition" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IsPrimaryMVG" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="FirstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="LastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SalesRepFullName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Position" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Phone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SalesRepRole" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSContactRegion" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SaleRepCountry" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="EmployeeStartDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="EmployeeEndDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesRep" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Manual" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="FullAccess" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SendEmail" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SalesRepOrganization" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SalesRepDivision" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="JobTitle" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="GSEFilterFlag" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ManagerName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ManagerHRID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SCVPName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SCVPHRID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SalesTeam-PID" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="4"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-HRIDL1" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-NameL1" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="101"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-PositionL1" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-StartDateL1" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-EndDateL1" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-PIDL1" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="4"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-HRIDL2" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-NameL2" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="101"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-PositionL2" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-StartDateL2" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-EndDateL2" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-PIDL2" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="4"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-HRIDL3" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-NameL3" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="101"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-PositionL3" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+												<xsd:minLength value="0"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesTeam-StartDateL3" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-EndDateL3" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="SalesTeam-PIDL3" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="4"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Offer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfOpportunityProduct" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OpportunityProduct" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="PortfolioName" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="ProductFamilyType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSProduct" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPMRC" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPNRC" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPTerm" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSNumberofSites" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPUnits" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPUOM" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOrderNumber2" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSIPStarterDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="ABSOPExpectedBillDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="ExpectedDeliveryDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="ASAP" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="1"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="ABS4OldMRR" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABS4OldProductLine" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPRegion" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSOPCountry" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSBillRegion" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSBillCountry" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ABSResultsOwnerName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Quantity" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="22"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="LegacyProductIndicator" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="ProductSegmentDetails" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ProductSegment">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="MobilityFamilyIndicator" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SolutionType" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OldProductName" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SAARTServiceIdDetail" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="SAARTServiceId">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="ProductOfferName" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="VDIndicator" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="PriceType" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="productCode" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="ParentProduct" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="CPCUnitPrice" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="22"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<!-- Added 208565 Project of June2011 Release -->
+									<xsd:element name="ProductPartNum" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<!-- end -->
+									<!-- Start of 277143 Project  for R1610 Release by mg286p-->
+									<xsd:element name="ClassicTUVN" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="UVNOpportunityID" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="WhyADWRSManagedSolution" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="250"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="UVNProductManagerApprovaldate" type="xsd:date" minOccurs="0"/>
+									<xsd:element name="UVNProductManagerName" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<!-- End of 277143 Project for R1610 Release by mg286p-->
+									<xsd:element name="ProductFeature" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<!-- made  attributevalue as optional field as per JK suggestion for Production Defect AOTS#161094705  by sr148a -->
+												<xsd:element name="attributename">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="attributevalue" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ParentOpportunityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfOpportunityCompetitor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OpportunityCompetitor" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IsPrimaryMVG" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Competitor" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CompetitorType" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListOfContactandEmployee" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ContactandEmployee" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="LastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="FirstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="LoginName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PrimaryAccountName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="JobTitle" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListOfOpportunitySource" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OpportunitySource" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IsPrimaryMVG" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Source" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SourceType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ProgramStartDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="ProgramEndDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="Offer" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ABSGeographicalScope" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreditCheckInfo" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AuthorizationNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ExpirationDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="MARCAmount" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Id" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillContactFirstName" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillContactLastName" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillContactRole" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillTelephone" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillFax" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="PrimaryCustBillEmail" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LegalCCID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Status" type="xsd:string"/>
+						<xsd:element name="AvailabilityStatus" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditCheckActivityType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditProcessNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ParentCRProcessNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="SubmitDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="AuthorizationApprovalDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="OfferType" type="xsd:string"/>
+						<xsd:element name="NetMrr" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="NetNrr" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="GrossMrr" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="GrossNrr" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Valid" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListOfClassification" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Classification" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ClassType" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="50"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Classification" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListOfAttachment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Attachment" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Id" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SubType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="FileName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="StatusDetail" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CreatedBy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CreatedDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="ESign" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ESignDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="UpdatedBy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="UpdatedDate" type="xsd:dateTime" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListOfBid" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Bid" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Id" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="RequestReason" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="RequestType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="RequestDescription" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="BidLead" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ResponseDescription" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="StatusDetail" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="TargetDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="AcceptedDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="DueToSalesDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="NumOfOpenWorkRequest" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="NumOfCompletedWorkRequest" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="BidJeopardy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CancelReason" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CompletedDate" type="xsd:dateTime" minOccurs="0"/>
+									<xsd:element name="Iteration" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="LastUpdatedBy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SCVPName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SentToInbox" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SubmittedBy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SubmittedDate" type="xsd:dateTime" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- 237115f Apr2012 Release Changes-km8425- Start -->
+			<xsd:element name="StandardDesign" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="StandardPrice" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="StandardProposal" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="StandardBilling" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="StandardContract" type="xsd:dateTime" minOccurs="0"/>
+			<!-- 237115f Apr2012 Release Changes - km8425 - End -->
+			<!-- 237115e Jun2012 Release Changes-km8425- Start -->
+			<xsd:element name="IBMCustomerTypeFromATT" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ServicesRequest" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ServicesRequestType" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+									<xsd:minLength value="0"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PartnerOpptyCustomerName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContractTerm" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TOVTotalContractValue" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TargetPrice" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="22"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalATTBillinginUSDollars" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="22"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- 237115e Jun2012 Release Changes - km8425 - End -->
+			<!-- 250244a Feb2013 Release changes Start -->
+			<!-- 250244a Feb2013 Release changes End -->
+			<!--Start Added for R1610 Project 288702 by mg286p-->
+			<xsd:element name="IBMComplexity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InitiativeReasonCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!--end Added for R1610 Project 288702 by mg286p-->
+			<!-- 252532 CR 75189Feb2013 Release changes Start -->
+			<!-- 259494b June2014 Release changes Start -->
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IMS2Number" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IMS2VersionNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SuppUpdateIndicator" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ECATSNumber" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ECATSNumber" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="25"/>
+									<xsd:minLength value="0"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Comments" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- 252532 CR 75189Feb2013 Release changes End -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SetOptyPartnerSystemIdRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId" type="xsd:string"/>
+			<xsd:element name="PartnerID" type="xsd:string"/>
+			<xsd:element name="PartnerIDType" type="xsd:string"/>
+			<xsd:element name="RequestSytemName" type="xsd:string"/>
+			<xsd:element name="PartnerIDURL" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MyOpportunitiesRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ATTUID">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestSystemName">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FMO">
+				<xsd:annotation>
+					<xsd:documentation>Only FMO Opportunities to be sent</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OptyOpen">
+				<xsd:annotation>
+					<xsd:documentation>This is aFlag which for Sales Stages upto and inclusive of Proposed. Additional Filter to Above Filters</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountOpportunitiesRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ATTUID">
+				<xsd:annotation>
+					<xsd:documentation>User ID</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="requestSystemName">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FMOFlag">
+				<xsd:annotation>
+					<xsd:documentation>Only FMO Opportunities to be sent</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AccountId">
+				<xsd:annotation>
+					<xsd:documentation>eCRM AccountId</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OptyOpen">
+				<xsd:annotation>
+					<xsd:documentation>This is aFlag which for Sales Stages upto and inclusive of Proposed. Additional Filter to Above Filters</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MyOpportunitiesResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ListOfOptyDetails" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OptyDetails" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="OptyId">
+										<xsd:annotation>
+											<xsd:documentation>Opportunity Id</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OptyName" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Opportunity Name</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OptyType" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Opportunity Type</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Currency" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Opty Currency</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OfferType" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>ABN, Standalone</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OpportunityClassifications" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Classification" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:minLength value="0"/>
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="Description" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>AN 255 On opty screen there is a text field to describe opty</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="255"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Created" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Date Opty Created</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:dateTime"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Channel" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Direct,SCG,WholeSale</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesMethod" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="SalesStage" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="PrimaryOrganization" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Org of Opty Primary Position</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="OptyLastUpdated" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Date Opty Last Changed</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:dateTime"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="MonthlyRecurringOptyRevenue" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Sum for all Products in opty</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Non-RecurringOptyRevenue" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Sum for all products in Opty</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="TotalOptyValue" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Revenue" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="RFPDate" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>RFP Due Date field on Opty Screen</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:dateTime"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="CreatedBy" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Name of who created the Opty</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="ProbabilityPercentage" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Probability of Sale</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="CloseDate" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>Expected or Actual date</xsd:documentation>
+										</xsd:annotation>
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:dateTime"/>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Account" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AcctId" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>ECRM CustomerId</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="15"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="AccountOptyName" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Field on Opty Screen</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="Address" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account Address </xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="200"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="City" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account City</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="50"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="State" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account State</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="10"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="Country" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account Country</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="PostalOptyCode" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account Postal Code</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="MainOptyPhoneOptyNumber" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account Main Phone</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="40"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="DUNSOptyNumber" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Account Duns#</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="15"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="CCID" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Common Cust ID</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreateNewOptyResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartnerId">
+				<xsd:annotation>
+					<xsd:documentation>The Partner Record tied to the Request</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OptyId">
+				<xsd:annotation>
+					<xsd:documentation>Opty Id in eCRM which was created</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountOpportunitiesResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AccountOpportunities" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AccountName" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Field on opty screen Â– usually  DNB name for account</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="StreetAddress" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Address</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="200"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="City" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account  City</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="State" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account State</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Country" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Country</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="PostalCode" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Postal Code</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="MainPhoneNumber" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Main Phone #</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="40"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Status" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account StatusEx:  Active</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Type" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account TypeEx Customer</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="DUNSNumber" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Duns #</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="GlobalUltimateDUNS" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Account Global Ultimate DUNS Number</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ABSLegalEntity" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Y/N on acct record</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Organization" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Ex:ATT Small Medium Business Organization, ATT Signature Client Group, ATT Enterprise Organization</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ABSUltimateParentHQ" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Y/N on account recd</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="CCID" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Common CustID</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:sequence>
+							<xsd:element name="OptyDetails" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="OptyId">
+											<xsd:annotation>
+												<xsd:documentation>Opportunity  ID</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="15"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="OptyName">
+											<xsd:annotation>
+												<xsd:documentation>Opportunity Name</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AcctId">
+											<xsd:annotation>
+												<xsd:documentation>ECRM Customer Id (Account Id)</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="15"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Account">
+											<xsd:annotation>
+												<xsd:documentation>eCRM Cust Name</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="OptyType" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>eCRM Opty Type</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Currency" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Opty Currency</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="OfferType" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Description" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>AN 255 On opty screen there is a text field to describe opty</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="255"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Created" type="xsd:dateTime" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Date Opty created </xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="Channel" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>LOV</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="30"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="SalesMethod" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="30"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="SalesStage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="30"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Organization" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Org of opty primary position</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ABSOpptyLastUpdated" type="xsd:dateTime" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Date opty last changed</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ABSOpptyMRCStored" type="xsd:string" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Sum for all products in Opty</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ABSOpptyNRCStored" type="xsd:string" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Sum for all products in Opty</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ABSTotalOpptyValueStored" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Division" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="50"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ABSRFPDate" type="xsd:dateTime" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>RFP Due Date field on opty screen</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ABSCreatedByName" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Name of who created the opty</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ABSOpportunity" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Same as Opty Row id Â– unique identifier of the opty record</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="15"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="PrimaryRevenueWinProbability" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="StartDate" type="xsd:dateTime" minOccurs="0"/>
+										<xsd:element name="PriorityFlag" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="1"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Name" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Txt field for opty name Â– user input</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="PrimaryRevenueCloseDate" type="xsd:dateTime" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Expected or Actual</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="PrimaryRevenueAmount" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Territory" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="75"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="Type" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>LOV</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="30"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreateNewOptyRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartnerId" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Partner Record tied to the Request</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PartnerIdType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Type of the Partner Id sent</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestSystemName">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FMOFlag">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryATTUID">
+				<xsd:annotation>
+					<xsd:documentation>The HRID/UserId/ATTUID. This ATTUID will become the Primary of the Opty. This can be Originator in some cases</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Added for 208565 Project of June2011 Release -->
+			<xsd:element name="PrimaryATTUIDManager" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Primary ATTUID</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OpportunityName">
+				<xsd:annotation>
+					<xsd:documentation>eCON Opty for MIS 'Date Time' for 'nnnnn' (SolnId/PSID) for ContractId</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- PartnerIdURL got added as part of 237115 Oct2011 Project -->
+			<xsd:element name="PartnerIdUrl" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>eCON Opty for MIS 'Date Time' for 'nnnnn' (SolnId/PSID) for ContractId</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AccountId" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Account Id in eCRM</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DUNSNumber" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>DUNS Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OptyCurrency" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>USD, GBP, EUR</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OfferType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>OfferType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OpportunityType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The eCRM OptyTypes</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Added as part of PD009 -->
+			<xsd:element name="OpportunityClassifications" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Classification" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- End -->
+			<xsd:element name="CloseDate" type="xsd:dateTime" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sysdate Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesStage" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>SalesStage</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProbabilityPercentage" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Win Probablity % for Opty</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContractRequired" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Whether Contract is Required. Flag</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonWonLost" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ReasonWonLost</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Added for 208565 Project of June2011 Release -->
+			<xsd:element name="Channel" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Channel</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Added as part of Project # 257588 by sr148a start-->
+			<xsd:element name="LeadId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Competitors" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Primary" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Competitor" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="CompetitorType" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Added as part of Project # 257588 by sr148a end-->
+			<xsd:element name="ListOfProdLineParentChild" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ProductLine" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>eCRM Prod Line</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ListOfParentChildProducts" type="tns:ListOfParentChildProductsType" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SalesTeamMembers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ATTUID" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>The HRID/UserId/ATTUID</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ActivityId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AcquisitionType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MoWIndicator" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GeoRegion" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PrimaryFlag" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="1"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="GeoRegion" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="GeoCountry" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RFPIndicator" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RFPDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="RFPReceivedDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="RFPValue" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="82"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OptyDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OpportunityStatus" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- sr148a : Project# 257588b start -->
+			<xsd:element name="CustomerLegalName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalAddress1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalAddress2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalCity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalState" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalCountry" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalPostalCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerLegalMainPhoneNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="40"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- sr148a : Project# 257588b end -->
+			<xsd:element name="EndCustomerInfo" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ECId">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECContactFirstName">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECContactLastName">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECCompany">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECStreetAddress">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECCity">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECState">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="2"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECCountry">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="2"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECZipCode">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECTelephone">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECFax">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ECEmail">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!--  Updated for Project 251758d June2014 START-->
+			<xsd:element name="Service" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!--  Updated for Project 251758d June2014 END-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SETOptyTeamRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OptyId">
+				<xsd:annotation>
+					<xsd:documentation>OptyId</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PartnerId">
+				<xsd:annotation>
+					<xsd:documentation>The Partner Record tied to the Request</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestSystemName">
+				<xsd:annotation>
+					<xsd:documentation>PS Name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ATTUID">
+				<xsd:annotation>
+					<xsd:documentation>The HRID/UserId/ATTUID</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Primary">
+				<xsd:annotation>
+					<xsd:documentation>Whether to create the member as Primary or Not</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetOpptyTeamResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v2.5</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ObjectType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+						<xsd:enumeration value="Opty"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ListOfRequestTeamDetails">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="RequestTeamDetails" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="UserId">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="15"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="LastName">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="FirstName">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="PrimaryFlag">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="1"/>
+												<xsd:enumeration value="Y"/>
+												<xsd:enumeration value="N"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Role" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="WorkPhoneNumber" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="30"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Email" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Division" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Organization" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Country" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="Region" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="NickName" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="eSIGNPermitted" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="1"/>
+												<xsd:enumeration value="Y"/>
+												<xsd:enumeration value="N"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="eCounterSIGNPermitted" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="1"/>
+												<xsd:enumeration value="Y"/>
+												<xsd:enumeration value="N"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetOpptyTeamRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v1.11</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ObjectType">
+				<xsd:annotation>
+					<xsd:documentation>The Document ID in eCRM</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Opty"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestSystemName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PartnerId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UserId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SetCopyOptyRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v3.3 for Feb09</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartnerId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PartnerIdType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestSystemName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FMOFlag">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ParentOptyId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CopyPrimary">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryATTUID">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OpportunityName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CopyOfferType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OpportunityType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CopyCompetitors" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CloseDate" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:dateTime"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContractRequired" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ListOfProdLineParentChild" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ProductLine" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>eCRM Prod Line</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ListOfParentChildProducts" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ParentProduct" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ParentProduct" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+															<xsd:enumeration value="BVoIP"/>
+															<xsd:enumeration value="MIS"/>
+															<xsd:enumeration value="AVPN"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ParentPSOCID" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="ChildProduct" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="PSOCProductID" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="30"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="ProductName" minOccurs="0">
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="100"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SalesTeamMembers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ATTUID" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>The HRID/UserId/ATTUID</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="15"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SetCopyOptyResponseType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM OPPORTUNITY WSDL IAD v3.3 for Feb09</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartnerId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PartnerIdType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ParentOptyId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OptyId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SetLandingPadURLRequest">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM Opportuniyy WSDL IAD  v4.7</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSHeader"/>
+				<xsd:element name="RequestParams">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="WsData" type="tns:SetLandingPadURLRequestType" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SetLandingPadURLRequestType">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM Opportuniyy WSDL IAD  v4.7</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OpptyId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DocumentURL" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ErrorCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ErrorDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SetLandingPadURLResponse">
+		<xsd:annotation>
+			<xsd:documentation>per eCRM Opportuniyy WSDL IAD  v4.7</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ch:WSResponseHeader"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ListOfParentChildProductsType">
+		<xsd:sequence>
+			<xsd:element name="ParentProduct" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ParentPSOCID" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ParentProduct" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Quantity" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="SolutionType" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<!-- Added 208565 Project of June2011 Release -->
+						<xsd:element name="ProductPartNum" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string"/>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ChildProduct" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PSOCProductID" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ProductName" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Quantity" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="SolutionType" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="100"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<!-- Added 208565 Project of June2011 Release -->
+						<xsd:element name="ProductPartNum" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string"/>
+							</xsd:simpleType>
+						</xsd:element>
+						<!-- Added as part of Project # 257588 by sr148a start-->
+						<xsd:element name="Term" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="22"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="RecurringRevenue" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="22"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="NonRecurringRevenue" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="22"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="IPVersion" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ServiceRegion" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ServiceCountry" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="BillingRegion" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="BillingCountry" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="ExpectedDeliveryDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="RecurringMarginPercent" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="NonrecurringMarginPercent" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="10"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="OldPortfolio" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="30"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="OldMRR" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="22"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Comments" minOccurs="0">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="0"/>
+									<xsd:maxLength value="250"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<!-- Added as part of Project # 257588 by sr148a end-->
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,32 @@
+# sourced by startService.sh
+#-DVoltageServerConnection=${AJSC_CONFIG_HOME}/VoltageServerConnection.properties \
+#-DVoltageIdentities=${AJSC_CONFIG_HOME}/VoltageIdentities.properties \
+#-DVoltageExceptions=${AJSC_CONFIG_HOME}/VoltageExceptions.properties \
+#-DEncryptionPropertiesXML=${AJSC_CONFIG_HOME}/EncryptionProperties.xml \
+java -classpath "/etc:${AJSC_HOME}/lib/*:/lib/*:/src:/schema:/generated-sources:${AJSC_CONFIG_HOME}:${AJSC_CONFIGMAP_MOUNT_PATH}:${AJSC_HOME}" \
+-Daaf.roles.properties=${AJSC_CONFIG_HOME}/AAFUserRoles.properties \
+-Dcadi.properties.location=${AJSC_CONFIG_HOME}/cadi.properties \
+-DappName=${APPLICATIONNAME} -DappVersion=${BUNDLEVERSION} \
+-DmaxEngineTime=${MAXENGINETIME} \
+-DAFT_HOME=${AJSC_CONFIGMAP_MOUNT_PATH} ${AJSCARGS} \
+-Dspring.config.location=${AJSC_CONFIGMAP_MOUNT_PATH}/ \
+-Dcom.att.aft.dme.DiscoveryURL=${DiscoveryURL} \
+-DAFT_LONGITUDE=${AFTLONGITUDE} -DAFT_LATITUDE=${AFTLATITUDE} -DAFT_ENVIRONMENT=${AFTENVIRONMENT} \
+-DrouteOffer=${ROUTEOFFER} \
+-DmasterEndPointOverrideMap.location=${AJSC_CONFIGMAP_MOUNT_PATH}/MasterEndPointOverrideMap.xml \
+-DVERSION_ROUTEOFFER_ENVCONTEXT=${BUNDLEVERSION}/${STICKYSELECTORKEY}/${ENVCONTEXT} \
+-Dcom.att.aft.config.file=${AJSC_CONFIGMAP_MOUNT_PATH}/aft.properties \
+-DSecurityFilePath=${AJSC_CONFIG_HOME} \
+-DREST_NAME_NORMALIZER_PATTERN_FILE=${AJSC_CONFIG_HOME}/PatternInputs.txt \
+-DCommonConfigurationFilePath=${AJSC_CONFIG_HOME}/CommonConfiguration.xml \
+-Dcom.ibm.mq.cfg.useIBMCipherMappings=false \
+-Dms_name=com.att.salesmarketing.soma.pric.Nexxus \
+-Dlogging.config=${AJSC_CONFIGMAP_MOUNT_PATH}/logback.xml \
+-Dajsc.vm.path=/src/main/resources/vm \
+-Djava.security.egd=file:/dev/./urandom \
+-Dhttp.nonProxyHosts="*idns.cci.att.com|*idns.cip.att.com" \
+-Dhttps.nonProxyHosts="*idns.cci.att.com|*idns.cip.att.com" \
+-Dglowroot.tapm.env=${GLOWROOT_COLLECTOR_ADDRESS} -Dglowroot.agent.id=${GLOWROOT_AGENT_ROLLUP_ID}::${NODE_NAME}-${HOSTNAME} -javaagent:${AJSC_HOME}/lib/glowroot.jar \
+-DAPPNAME=${APP_NAME} -DAPPENV=${APP_ENV} -DAPPVERSION=${APP_VERSION} -DNAMESPACE=${NAMESPACE} \
+-javaagent:${AJSC_HOME}/lib/ilib.jar \
+com.att.sales.framework.bootstrap.Application

@@ -1,0 +1,2 @@
+OfferId|OfferName|OfferDisplayName|OfferDescription|OfferHelpLink|OfferVersion|OfferNameAbbr|Attribute1|Attribute2|NumberOfSiteLimitation|OfferOrderableFlag|OfferEffDate|OfferEndDate|OfferStatus|OfferXmlSchema|OfferXPath|OfferType|Action
+4|Standalone AT&T Virtual Private Network|Standalone AT&T Virtual Private Network Offer|Standalone AT&T Virtual Private Network Offer||1|AT&T Virtual Private Network Offer|||||9/17/2007|12/31/9999|||S|Active|1

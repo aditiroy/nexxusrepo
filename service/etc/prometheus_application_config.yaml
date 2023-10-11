@@ -1,0 +1,7 @@
+waitTime: 30000
+entryAndExitPoints:
+- className: com.att.api.framework.ajsc.prometheus.PrometheusEventNotifierImpl
+  entryPoint: instrumentPrometheusSynchEntryPoint
+  exitPoint: instrumentPrometheusSynchExitPoint
+  serviceName: serviceName
+  correlationId: uniqueID

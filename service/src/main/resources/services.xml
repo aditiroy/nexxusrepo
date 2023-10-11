@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<services>
+	<provider>C</provider>
+
+	<service id="GET:/nexxus/servicenamenoun:1.0.0">
+		<serviceName>getQuickHello</serviceName>
+		<serviceImpl>exampleService</serviceImpl>
+		<serviceMethod>getQuickHello</serviceMethod>
+	</service>
+
+	<service id="POST:/nexxus/servicenamenoun:1.0.0">
+		<serviceName>postQuickHello</serviceName>
+		<serviceImpl>exampleService</serviceImpl>
+		<serviceMethod>postQuickHello</serviceMethod>
+	</service>
+
+	<service
+		id="POST:/nexxus/transformTestData:1.0.0">
+		<serviceName>Transforms request into data object</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>transformTestData</serviceMethod>
+	</service>
+
+
+	<service id="POST:/nexxus/retreiveICBPSP:1.0.0">
+		<serviceName>retreiveICBPSP</serviceName>
+		<serviceImpl>retreiveICBPSPServiceImpl</serviceImpl>
+		<serviceMethod>retreiveICBPSP</serviceMethod>
+	</service>
+
+	<service
+		id="PUT:/nexxus/putUploadASENexxusFile:1.0.0">
+		<serviceName>nexxus data</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>putUploadASENexxusFile</serviceMethod>
+	</service>
+
+	<service id="PUT:/nexxus/productDataLoad:1.0.0">
+		<serviceName>put ProductDataLoad</serviceName>
+		<serviceImpl>nexxusUDFDetailsServiceImpl</serviceImpl>
+		<serviceMethod>putNexxusUDFDetails</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/getAccessPrice:1.0.0">
+		<serviceName>getAccessPricing</serviceName>
+		<serviceImpl>accessPricingServiceImpl</serviceImpl>
+		<serviceMethod>getAccessPricing</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/retrieveOptyInfo:1.0.0">
+		<serviceName>performGetOptyInfo</serviceName>
+		<serviceImpl>getOptyInfoServiceImpl</serviceImpl>
+		<serviceMethod>performGetOptyInfo</serviceMethod>
+	</service>
+	
+	<service id="PUT:/nexxus/ratePlanDataLoad:1.0.0">
+		<serviceName>putRatePlanDataLoad</serviceName>
+		<serviceImpl>ratePlanDataLoadSeviceImpl</serviceImpl>
+		<serviceMethod>putRatePlanDataLoad</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/fetchNexxusSolutionsByUserId:1.0.0">
+		<serviceName>fetchNexxusSolutionsByUserId</serviceName>
+	    <serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>fetchNexxusSolutionsByUserId</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/getInventory:1.0.0">
+		<serviceName>getBillingPriceInventryData</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>getBillingPriceInventryData</serviceMethod>
+	</service>
+
+	<service id="POST:/nexxus/downloadNexxusOutput:1.0.0">
+		<serviceName>getNexxusOutput</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNexxusOutput</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/mailNotification:1.0.0">
+		<serviceName>mailNotification</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>mailNotification</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/datafeed:1.0.0">
+		<serviceName>chatBotService</serviceName>
+		<serviceImpl>chatBotServiceImpl</serviceImpl>
+		<serviceMethod>datafeed</serviceMethod>
+	</service>
+	
+	
+	<service id="POST:/nexxus/downloadZipFile:1.0.0">
+		<serviceName>getNexxusOutputZipFile</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNexxusOutputZipFile</serviceMethod>
+	</service>
+	
+	<service id="GET:/nexxus/internalTest:1.0.0">
+		<serviceName>internalTest</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>getInternalTest</serviceMethod>
+	</service>	
+	
+	<service id="POST:/nexxus/retreiveUserDetails:1.0.0">
+		<serviceName>retreiveUserDetails</serviceName>
+		<serviceImpl>UserDetailsServiceImpl</serviceImpl>
+		<serviceMethod>retreiveUserDetails</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/consumerDetail:1.0.0">
+		<serviceName>consumerDetail</serviceName>
+		<serviceImpl>ConsumerDetailServiceImpl</serviceImpl>
+		<serviceMethod>consumerDetailData</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/getNxOutputFileId:1.0.0">
+		<serviceName>getNxOutputFileId</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getNxOutputFileId</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/uploadNxTemplateFile:1.0.0">
+		<serviceName>uploadTemplateFile</serviceName>
+		<serviceImpl>nxTemplateProcessingService</serviceImpl>
+		<serviceMethod>uploadTemplateFile</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/retrieveAdminData:1.0.0">
+		<serviceName>getAdminData</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>getAdminData</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/nexxusRequestActions:1.0.0">
+		<serviceName>nexxusRequestActions</serviceName>
+		<serviceImpl>falloutDetailsImpl</serviceImpl>
+		<serviceMethod>nexxusRequestActions</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/fetchAllTopProducts:1.0.0">
+		<serviceName>Admin fetchAllTopProducts</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>fetchAllTopProducts</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/adminUpdateProductInfo:1.0.0">
+		<serviceName>Admin adminUpdateProductInfo</serviceName>
+		<serviceImpl>nxAdminService</serviceImpl>
+		<serviceMethod>adminUpdateProductInfo</serviceMethod>
+	</service>	
+	
+	<service id="POST:/nexxus/uploadNexxusDataFile:1.0.0">
+		<serviceName>uploadNexxusDataFile</serviceName>
+		<serviceImpl>nxDataUploadService</serviceImpl>
+		<serviceMethod>uploadNexxusDataFile</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/transmitDesignData:1.0.0">
+		<serviceName>transitDesignData</serviceName>
+		<serviceImpl>transmitDesignDataService</serviceImpl>
+		<serviceMethod>execute</serviceMethod>
+	</service>	
+	
+	<service id="POST:/nexxus/prepareAndSendMailForPEDRequest:1.0.0">
+		<serviceName>prepareAndSendMailForPEDRequest</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>prepareAndSendMailForPEDRequest</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/getnXPEDStatus:1.0.0">
+		<serviceName>getnXPEDStatus</serviceName>
+		<serviceImpl>getNxPEDStatusServiceImpl</serviceImpl>
+		<serviceMethod>getnXPEDStatus</serviceMethod>
+	</service>
+		
+	<service id="POST:/nexxus/rateLetterStatus:1.0.0">
+		<serviceName>rateLetterStatus</serviceName>
+		<serviceImpl>RateLetterStatusImpl</serviceImpl>
+		<serviceMethod>rateLetterStatus</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/publishValidatedAddressesStatus:1.0.0">
+		<serviceName>publishValidatedAddressesStatus</serviceName>
+		<serviceImpl>PublishValidatedAddressesStatusImpl</serviceImpl>
+		<serviceMethod>publishValidatedAddressesStatus</serviceMethod>
+	</service>
+
+    <service id="POST:/nexxus/serviceValidation:1.0.0">
+        <serviceName>serviceValidation</serviceName>
+        <serviceImpl>ServiceValidationImpl</serviceImpl>
+        <serviceMethod>validateService</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/createTransaction:1.0.0">
+        <serviceName>createTransaction</serviceName>
+        <serviceImpl>CreateTransactionServiceImpl</serviceImpl>
+        <serviceMethod>createTransaction</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/getTransaction:1.0.0">
+        <serviceName>getTransaction</serviceName>
+        <serviceImpl>getTransactionServiceImpl</serviceImpl>
+        <serviceMethod>getTransaction</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/getTransactionLine:1.0.0">
+        <serviceName>getTransactionLine</serviceName>
+        <serviceImpl>getTransactionLineServiceImpl</serviceImpl>
+        <serviceMethod>getTransactionLine</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/updateTransactionPricingRequest:1.0.0">
+        <serviceName>updateTransactionPricingRequest</serviceName>
+        <serviceImpl>updateTransactionPricingServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionPricingRequest</serviceMethod>
+     </service>
+
+    <service id="POST:/nexxus/updateTransactionSiteUpload:1.0.0">
+        <serviceName>updateTransactionSiteUpload</serviceName>
+        <serviceImpl>updateTxnSiteUploadServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionSiteUpload</serviceMethod>
+     </service>
+  
+      <service id="POST:/nexxus/removeTransactionLine:1.0.0">
+        <serviceName>removeTransactionLine</serviceName>
+        <serviceImpl>removeTransactionServiceLineImpl</serviceImpl>
+        <serviceMethod>removeTransactionLine</serviceMethod>
+     </service>
+    
+     <service id="POST:/nexxus/copyTransaction:1.0.0">
+        <serviceName>copyTransaction</serviceName>
+        <serviceImpl>CopyTransactionServiceImpl</serviceImpl>
+        <serviceMethod>copyTransaction</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/updateTransactionOverride:1.0.0">
+        <serviceName>updateTransactionOverride</serviceName>
+        <serviceImpl>UpdateTransactionOverrideImpl</serviceImpl>
+        <serviceMethod>updateTransactionOverride</serviceMethod>
+    </service>
+    
+     <service id="POST:/nexxus/getCustomPricing:1.0.0">
+		<serviceName>iCustomPricingService</serviceName>
+		<serviceImpl>ICustomPricingServiceImpl</serviceImpl>
+		<serviceMethod>getCutomPricing</serviceMethod>
+	</service>
+    
+         <service id="POST:/nexxus/getCustomPricingSalesOne:1.0.0">
+		<serviceName>iCustomPricingSalesOneService</serviceName>
+		<serviceImpl>ICustomPricingSalesOneServiceImpl</serviceImpl>
+		<serviceMethod>getCustomPricingSalesOne</serviceMethod>
+	</service>
+    
+    <service id="POST:/nexxus/updateTransactionQualifyService:1.0.0">
+        <serviceName>updateTransactionQualifyService</serviceName>
+        <serviceImpl>UpdateTransactionQualifyServiceImpl</serviceImpl>
+        <serviceMethod>updateTransactionQualifyService</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/updateTransactionPriceScore:1.0.0">
+        <serviceName>updateTransactionPriceScore</serviceName>
+        <serviceImpl>UpdateTransactionPriceScoreImpl</serviceImpl>
+        <serviceMethod>updateTransactionPriceScore</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/updateTransactionSubmitToApproval:1.0.0">
+        <serviceName>updateTransactionSubmitToApproval</serviceName>
+        <serviceImpl>UpdateTransactionSubmitToApprovalImpl</serviceImpl>
+        <serviceMethod>updateTransactionSubmitToApproval</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/generateRateLetter:1.0.0">
+        <serviceName>generateRateLetter</serviceName>
+        <serviceImpl>GenerateRateLetterImpl</serviceImpl>
+        <serviceMethod>generateRateLetter</serviceMethod>
+    </service>
+
+    <service id="POST:/nexxus/aseodReqRates:1.0.0">
+        <serviceName>aseodReqRates</serviceName>
+        <serviceImpl>aseodReqRatesServiceImpl</serviceImpl>
+        <serviceMethod>aseodReqRates</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/bulkUploadEthTokens:1.0.0">
+        <serviceName>bulkUploadEthTokens</serviceName>
+        <serviceImpl>bulkUploadEthTokenService</serviceImpl>
+        <serviceMethod>bulkUploadEthTokens</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/downloadFailedTokenFile:1.0.0">
+        <serviceName>downloadFailedTokenFile</serviceName>
+        <serviceImpl>bulkUploadEthTokenService</serviceImpl>
+        <serviceMethod>downloadFailedTokenFile</serviceMethod>
+    </service>  
+    
+    <service id="POST:/nexxus/manBulkUploadToEDF:1.0.0">
+        <serviceName>manBulkUploadToEDF</serviceName>
+        <serviceImpl>edfBulkUploadService</serviceImpl>
+        <serviceMethod>manBulkUploadToEDF</serviceMethod>
+    </service>
+    
+    <service id="POST:/nexxus/getEncodedBinaryFile:1.0.0">
+		<serviceName>getEncodedBinaryFile</serviceName>
+		<serviceImpl>nexxusDownloadServiceImpl</serviceImpl>
+		<serviceMethod>getEncodedBinaryFile</serviceMethod>
+	</service>
+	
+	<service id="GET:/nexxus/refreshCache:1.0.0">
+		<serviceName>refreshCache</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>refreshCache</serviceMethod>
+	</service>
+	<service id="POST:/nexxus/getContractInventory:1.0.0">
+		<serviceName>getContractInventory</serviceName>
+		<serviceImpl>contractInventoryServiceImpl</serviceImpl>
+		<serviceMethod>getContractInventory</serviceMethod>
+	</service>
+	<service id="POST:/nexxus/addUser:1.0.0">
+		<serviceName>addUser</serviceName>
+		<serviceImpl>userServiceImpl</serviceImpl>
+		<serviceMethod>addUser</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/checkAccess:1.0.0">
+		<serviceName>checkAccess</serviceName>
+		<serviceImpl>userServiceImpl</serviceImpl>
+		<serviceMethod>checkAccess</serviceMethod>
+	</service>
+	
+	<service id="PUT:/nexxus/nexxusSolutionAction:1.0.0">
+		<serviceName>nexxusSolutionAction</serviceName>
+		<serviceImpl>nexxusSolutionActionServiceImpl</serviceImpl>
+		<serviceMethod>nexxusSolutionAction</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/submitFeedback:1.0.0">
+		<serviceName>submitFeedback</serviceName>
+		<serviceImpl>submitFeedbackServiceImpl</serviceImpl>
+		<serviceMethod>submitFeedback</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/bulkUploadInrData:1.0.0">
+        <serviceName>bulkUploadInrData</serviceName>
+        <serviceImpl>bulkUploadInrUpdateService</serviceImpl>
+        <serviceMethod>bulkUploadInrData</serviceMethod>
+    </service>
+    
+	<service id="POST:/nexxus/fetchNewEnhancements:1.0.0"> 
+		<serviceName>fetchNewEnhancements</serviceName> 
+		<serviceImpl>enhancementServiceImpl</serviceImpl> 
+		<serviceMethod>fetchNewEnhancements</serviceMethod> 
+	</service>
+	
+	<service id="GET:/nexxus/fetchBillDetails:1.0.0"> 
+		<serviceName>fetchBillDetails</serviceName> 
+		<serviceImpl>billDetailsServiceImpl</serviceImpl> 
+		<serviceMethod>fetchBillDetails</serviceMethod> 
+	</service>
+	
+	<service id="POST:/nexxus/uploadMyPriceLegacyCoData:1.0.0"> 
+		<serviceName>uploadMyPriceLegacyCoData</serviceName> 
+		<serviceImpl>uploadMyPriceLegacyCoDataServiceImpl</serviceImpl> 
+		<serviceMethod>uploadMyPriceLegacyCoData</serviceMethod> 
+	</service>
+	
+	<service id="POST:/nexxus/syncMyPriceLegacyCoData:1.0.0"> 
+		<serviceName>syncMyPriceLegacyCoData</serviceName> 
+		<serviceImpl>syncMyPriceLegacyCoDataServiceImpl</serviceImpl> 
+		<serviceMethod>syncMyPriceLegacyCoData</serviceMethod> 
+	</service>
+	
+	<service id="POST:/nexxus/solutionLockCheck:1.0.0">
+		<serviceName>solutionLockCheck</serviceName>
+		<serviceImpl>solutionLockServiceImpl</serviceImpl>
+		<serviceMethod>solutionLockCheck</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/retrieveBillingCharges:1.0.0">
+		<serviceName>retrieveBillingCharges</serviceName>
+		<serviceImpl>nexxusServiceImpl</serviceImpl>
+		<serviceMethod>retrieveBillingCharges</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/usrpDesign:1.0.0">
+		<serviceName>usrpDesign</serviceName>
+		<serviceImpl>inrJsonServiceImpl</serviceImpl>
+		<serviceMethod>inrJsonProcess</serviceMethod>
+	</service>
+
+	<service id="POST:/nexxus/sendMail:1.0.0">
+		<serviceName>sendMail</serviceName>
+		<serviceImpl>mailServiceImpl</serviceImpl>
+		<serviceMethod>sendMail</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/copyAction:1.0.0">
+		<serviceName>copyAction</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>copyAction</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/submitToMyprice:1.0.0">
+		<serviceName>submitToMyprice</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>submitToMyprice</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/retriggerRequest:1.0.0">
+		<serviceName>retriggerRequest</serviceName>
+		<serviceImpl>actionServiceImpl</serviceImpl>
+		<serviceMethod>retriggerRequest</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/retrieveBillingInventory:1.0.0">
+		<serviceName>retrieveBillingInventory</serviceName>
+		<serviceImpl>retrieveBillingInventoryImpl</serviceImpl>
+		<serviceMethod>retrieveBillingInventory</serviceMethod>
+	</service>
+	
+
+	<service id="POST:/nexxus/invPriceJson:1.0.0">
+		<serviceName>invPriceJson</serviceName>
+		<serviceImpl>invPriceJsonImpl</serviceImpl>
+		<serviceMethod>invPriceJson</serviceMethod>
+	</service>
+
+	<service id="POST:/nexxus/retrieveBillingProductDetails:1.0.0">
+		<serviceName>getProductdetails</serviceName>
+		<serviceImpl>retrieveBillingProductDetail</serviceImpl>
+		<serviceMethod>getProductdetails</serviceMethod>
+	</service>
+	
+	<service id="POST:/nexxus/solutionCostIndicator:1.0.0">
+		<serviceName>solutionCostIndicator</serviceName>
+		<serviceImpl>solutionCostIndicatorServiceimpl</serviceImpl>
+		<serviceMethod>solutionCostIndicator</serviceMethod>
+	</service>
+
+	<service id="POST:/nexxus/publishDataRouter:1.0.0">
+		<serviceName>publishDataRouter</serviceName>
+		<serviceImpl>publishDataRouterServiceImpl</serviceImpl>
+		<serviceMethod>publishDataRouter</serviceMethod>
+	</service>
+</services>
